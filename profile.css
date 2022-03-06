@@ -1,0 +1,63 @@
+.data {
+    z-index: 0;
+    padding-top: 80pt;
+    padding-bottom: 20pt;
+    width: 80%;
+    background-color: #000438;
+    margin-left: 10%;
+    height: calc(100vh - 100pt);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 2pt solid #000a92;
+    border-left: 2pt solid #000a92;
+    animation: fadeInAnimation ease 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.userInfo{
+    padding: 2% 2% 0 2%;
+    float:right;
+    display: flex;
+    height:50%;
+    background-color: red;
+}
+.userInfo img{
+    height:80%;
+}
+.userText{
+    padding-top: 3%;
+    padding-left:1%;
+}
+.userName{
+    font-weight: bold;
+    font-size: 30pt;
+
+}
+.btnEdit{
+    letter-spacing: 1pt;
+    font-family: "Aldo";
+    font-size: 15pt;
+    font-weight: bold;
+    outline: 0;
+    background: #000a92;
+    border: 0;
+    color: #FFFFFF;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.2s;
+    transform: translateZ(0);
+    width: 60%;
+    margin-top:40%;
+    height:20%;
+}
+.btnEdit:hover {
+    background-color: #000dbe;
+    border-bottom: 5pt solid;
+    font-size: 17pt;
+    border-image: linear-gradient(90deg, rgba(180, 0, 255, 1) 0%, rgba(0, 6, 255, 1) 33%, rgba(255, 0, 114, 1) 66%, rgba(255, 222, 0, 1) 100%);
+    border-image-slice: 100 0;
+    transform: scale(1.05);
+    box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
+}
