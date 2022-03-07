@@ -14,7 +14,7 @@
     include './components/navbar.php'
     ?>
     <!--Navbar-->
-    <!--POGAMA FIZE-->
+    <!--POGAMA-->
 
     <!--Home Page before Login-->
 
