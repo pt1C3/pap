@@ -41,7 +41,7 @@
             </div>
             <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 echo '<p style="align-self: center;">Welcome '. $_SESSION['name']. '!</p>
-                <button class="play">Play</button>';
+                <a class="play" href="play.php">Play</a>';
             }
             ?>
 

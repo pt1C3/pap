@@ -1,0 +1,93 @@
+.supportedGames {
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5%;
+  align-self: center;
+  margin-bottom: 100px;
+}
+.gameThumb {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  margin-right: 5%;
+  border: outset 2pt;
+  border-image-source: linear-gradient(
+    45deg,
+    rgba(180, 0, 255, 1) 0%,
+    rgba(0, 6, 255, 1) 50%,
+    rgba(255, 0, 114, 1) 100%
+  );
+  border-image-slice: 100 0;
+  border-image-slice: 1;
+}
+.data {
+  z-index: 0;
+  padding-top: 60pt;
+  padding-bottom: 40pt;
+  width: 80%;
+  background-color: #000438;
+  margin-left: 10%;
+  height: calc(100vh - 100pt);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 2pt solid #000a92;
+  border-left: 2pt solid #000a92;
+  animation: fadeInAnimation ease 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.border {
+  width: 5pt;
+  margin: 5% 0;
+  background-image: url("./images/gradient.png");
+  background-size: cover;
+}
+
+.data h1 {
+  text-align: center;
+  font-family: "Aldo";
+  font-size: 30pt;
+  letter-spacing: 1pt;
+  margin-bottom: 2%;
+}
+
+#nextbutton {
+  color: #FFFFFF;
+  align-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  pointer-events: none;
+  opacity: 0%;
+  margin-bottom: 40px;
+  margin-left: 82%;
+  font-size: 30pt;
+  text-decoration: none;
+  border-radius: 2px;
+  background-color: #000a92;
+  width: fit-content;
+  transition-duration: 0.5s;
+  transform: translateZ(0);
+}
+
+#nextbutton:hover{
+  background-color: #000dbe;
+  border-bottom: 3pt solid;
+  padding-right: 30px;
+  padding-left: 30px;
+  border-image: linear-gradient(90deg, rgba(180, 0, 255, 1) 0%, rgba(0, 6, 255, 1) 33%, rgba(255, 0, 114, 1) 66%, rgba(255, 222, 0, 1) 100%);
+  border-image-slice: 100 0;
+  box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
+}

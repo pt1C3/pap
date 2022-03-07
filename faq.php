@@ -13,9 +13,6 @@ session_start();
 include './components/navbar.php';
 $search  = $_POST['search']; 
 ?>
-    <!--Navbar-->
-
-    <!--Navbar-->
     <?php echo '<p style="padding-top:50pt">' . $search . '</p>'; ?>
 
 </body>

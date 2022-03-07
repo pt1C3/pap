@@ -17,6 +17,9 @@
         case 'O':
             $_SESSION['sex'] = "Other";
             break;
+        
+        default:$_SESSION['sex']="Not Given";
+        break;
     }
     $_SESSION['description'] = $dado['biography'];
 
