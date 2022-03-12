@@ -11,7 +11,9 @@
   <?php
   session_set_cookie_params(0);
   session_start();
-  include './components/navbar.php'
+  include './components/navbar.php';
+  include './auth/db.php';
+  $games = $pdo->query('SELECT * FROM games ORDER BY rating DESC LIMIT 4;')->fetchAll();
   ?>
   <!--Navbar-->
 
@@ -26,10 +28,8 @@
     <div class='supportedGames'>
 
       <?php
-      $allfiles = scandir('images/GameHeader/1200x630');
-      $files = array_diff($allfiles, array('.', '..'));
-      foreach ($files as $file) {
-        echo '<a  id="img' . $file . '" href="#"onclick="selected()"><img src="./images/GameHeader/1200x630/' . $file . '" class="gameThumb"/></a>';
+      foreach ($games as $game) {
+        echo '<a href="#" onclick="selected()"><img src="' . $game['thumbnail'] . '" class="gameThumb"/></a>';
       }
       ?>
 
@@ -40,7 +40,7 @@
 
 
 
-
+    
 
 
 
@@ -51,7 +51,7 @@
   function selected() {
     var imgselected = document.getElementById('nextbutton');
     imgselected.style.pointerEvents = "all";
-    imgselected.style.opacity = "100%";
+    imgselected.style.visibility = "visible";
   }
 </script>
 

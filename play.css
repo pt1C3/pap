@@ -65,15 +65,17 @@
 }
 
 #nextbutton {
+  font-family: "Aldo";
   color: #FFFFFF;
   align-content: center;
   padding-left: 10px;
   padding-right: 10px;
   pointer-events: none;
-  opacity: 0%;
+  visibility:hidden;
   margin-bottom: 40px;
   margin-left: 82%;
-  font-size: 30pt;
+  font-size: 25pt;
+  padding:5pt;
   text-decoration: none;
   border-radius: 2px;
   background-color: #000a92;

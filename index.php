@@ -11,12 +11,12 @@
     <?php 
     session_set_cookie_params(0);
     session_start();
-    include './components/navbar.php'
+    include './components/navbar.php';
+    include './auth/db.php';
+    $games = $pdo->query('SELECT * FROM games ORDER BY rating DESC LIMIT 4;')->fetchAll();
     ?>
-    <!--Navbar-->
-    <!--POGAMA-->
 
-    <!--Home Page before Login-->
+
 
         <div class='data'>
             <div style="display:flex;">
@@ -29,10 +29,8 @@
                     <h1>Supported Games</h1>
                     <div class='supportedGames'>
                         <?php
-                        $allfiles = scandir('images/GameHeader/1200x630');
-                        $files = array_diff($allfiles, array('.', '..'));
-                        foreach ($files as $file) {
-                            echo '<a href="#"><img src="./images/GameHeader/1200x630/' . $file . '" class="gameThumb"/></a>';
+                        foreach ($games as $game) {
+                            echo '<a href="#"><img src="'. $game['thumbnail'].'" class="gameThumb"/></a>';
                         }
                         ?>
                     </div>
@@ -46,7 +44,6 @@
             ?>
 
         </div>
-    <!--Home Page before Login-->
 </body>
 
 </html>
