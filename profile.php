@@ -12,9 +12,11 @@
 </head>
 
 <body>
-    <?php include("./components/navbar.php");  include("./auth/db.php")?>
+    <?php include("./components/navbar.php");
+    include("./auth/db.php") ?>
     <div class='data'>
-        <div class="userInfo">
+        <a onclick="onLinkClick()">bomdia</a>
+        <div id="userInfo">
             <img style="border: 3pt solid #000a92" src="<?php echo $_SESSION["userAvatar"] ?>">
             <div class="userText">
                 <p class="userName"><?php echo $_SESSION["username"] ?></p>
@@ -44,30 +46,52 @@
                 <button class="btnEdit" href="?edit">Edit</button>
             </div>
         </div>
-        <div class="bottomElements">
+        <div id="bottomElements">
             <div style="display:flex;height:100%;">
                 <div style="width: 48%;margin: 1%;height:96%;background-color:aqua;">
-                <h1>Liked Games</h1>
+                    <h1>Liked Games</h1>
 
                     <div style="width:80%;height:80%;margin: 2% 10%;background-color:blue;overflow-y:scroll;">
-                    <?php
+                        <?php
                         $games = $pdo->query('SELECT * FROM games ;')->fetchAll();
                         foreach ($games as $game) {
                             echo '<a href="#" style="display:flex;margin: 10px 5px;background-color:red">
-                            <img src="'. $game['thumbnail'].'" style="height:110px; "/>
-                            <p style="color:white; margin:auto; text-align:center">'. $game['title'].'</p>
+                            <img src="' . $game['thumbnail'] . '" style="height:110px; "/>
+                            <p style="color:white; margin:auto; text-align:center">' . $game['title'] . '</p>
                             </a>';
                         }
-                     ?>
+                        ?>
                     </div>
                 </div>
                 <div class='border'></div>
                 <div style="width: 48%;margin: 1%;height:96%;background-color:aqua;">
-                <h1>Follows</h1>
+                    <h1>Follows</h1>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        var lastScrollTop = 0;
+        window.onscroll = function() {
+            var st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop) {
+                document.getElementById('bottomElements').scrollIntoView({
+                    behavior: "smooth",
+                    block: "end",
+                    inline: "nearest"
+                });
+            } else {
+                document.getElementById('userInfo').scrollIntoView({
+                    behavior: "smooth",
+                    block: "end",
+                    inline: "nearest"
+                });
+            }
+            lastScrollTop = st <= 0 ? 0 : st;
+        };
+    </script>
+
+    }
 </body>
 
 </html>
