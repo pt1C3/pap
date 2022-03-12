@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <?php include("./components/navbar.php") ?>
+    <?php include("./components/navbar.php");  include("./auth/db.php")?>
     <div class='data'>
         <div class="userInfo">
             <img style="border: 3pt solid #000a92" src="<?php echo $_SESSION["userAvatar"] ?>">
@@ -41,7 +41,30 @@
                     <p style="text-align:center; font-size: 15pt;"> Rating:</br>0/10</p>
                     <p style="text-align:center; font-size: 15pt;"> Followers:</br>xxx</p>
                 </div>
-                <button class="btnEdit" href="?gay">Edit</button>
+                <button class="btnEdit" href="?edit">Edit</button>
+            </div>
+        </div>
+        <div class="bottomElements">
+            <div style="display:flex;height:100%;">
+                <div style="width: 48%;margin: 1%;height:96%;background-color:aqua;">
+                <h1>Liked Games</h1>
+
+                    <div style="width:80%;height:80%;margin: 2% 10%;background-color:blue;overflow-y:scroll;">
+                    <?php
+                        $games = $pdo->query('SELECT * FROM games ;')->fetchAll();
+                        foreach ($games as $game) {
+                            echo '<a href="#" style="display:flex;margin: 10px 5px;background-color:red">
+                            <img src="'. $game['thumbnail'].'" style="height:110px; "/>
+                            <p style="color:white; margin:auto; text-align:center">'. $game['title'].'</p>
+                            </a>';
+                        }
+                     ?>
+                    </div>
+                </div>
+                <div class='border'></div>
+                <div style="width: 48%;margin: 1%;height:96%;background-color:aqua;">
+                <h1>Follows</h1>
+                </div>
             </div>
         </div>
     </div>

@@ -1,11 +1,11 @@
 .data {
     z-index: 0;
     padding-top: 80pt;
-    padding-bottom: 20pt;
+    padding-bottom: 5%;
     width: 80%;
     background-color: #000438;
     margin-left: 10%;
-    height: calc(100vh - 100pt);
+    height: 140vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -17,17 +17,17 @@
 }
 
 .userInfo{
-    padding: 2% 2% 0 2%;
+    padding: 2% 0 0 2%;
     float:right;
     display: flex;
-    height:50%;
+    height:40vh;
     background-color: red;
+    margin-bottom: 5%;
 }
 .userInfo img{
     height:80%;
 }
 .userText{
-    padding-top: 3%;
     padding-left:1%;
 }
 .userName{
@@ -60,4 +60,14 @@
     border-image-slice: 100 0;
     transform: scale(1.05);
     box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
+}
+.bottomElements{
+    height: 70%;
+    background-color: green;
+}
+.border {
+    width: 5pt;
+    margin: 5% 0;
+    background-image: url("./images/gradient.png");
+    background-size: cover;
 }

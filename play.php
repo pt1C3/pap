@@ -13,7 +13,7 @@
   session_start();
   include './components/navbar.php';
   include './auth/db.php';
-  $games = $pdo->query('SELECT * FROM games ORDER BY rating DESC LIMIT 4;')->fetchAll();
+  $games = $pdo->query("SELECT * FROM games ORDER BY title asc")->fetchAll();
   ?>
   <!--Navbar-->
 
@@ -28,6 +28,9 @@
     <div class='supportedGames'>
 
       <?php
+      foreach ($games as $game) {
+        echo '<a href="#" onclick="selected()"><img src="' . $game['thumbnail'] . '" class="gameThumb"/></a>';
+      }
       foreach ($games as $game) {
         echo '<a href="#" onclick="selected()"><img src="' . $game['thumbnail'] . '" class="gameThumb"/></a>';
       }
