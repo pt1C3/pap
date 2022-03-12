@@ -21,7 +21,6 @@
     float:right;
     display: flex;
     height:40vh;
-    background-color: red;
     margin-bottom: 5%;
 }
 #userInfo img{
@@ -62,8 +61,8 @@
     box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
 }
 #bottomElements{
-    height: 70%;
-    background-color: green;
+    height: 60%;
+    padding: 0 0 0 2%;
 }
 .border {
     width: 5pt;

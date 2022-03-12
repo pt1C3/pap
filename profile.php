@@ -15,7 +15,6 @@
     <?php include("./components/navbar.php");
     include("./auth/db.php") ?>
     <div class='data'>
-        <a onclick="onLinkClick()">bomdia</a>
         <div id="userInfo">
             <img style="border: 3pt solid #000a92" src="<?php echo $_SESSION["userAvatar"] ?>">
             <div class="userText">
@@ -48,15 +47,21 @@
         </div>
         <div id="bottomElements">
             <div style="display:flex;height:100%;">
-                <div style="width: 48%;margin: 1%;height:96%;background-color:aqua;">
+                <div style="width: 48%;margin: 1%;height:96%;">
                     <h1>Liked Games</h1>
 
-                    <div style="width:80%;height:80%;margin: 2% 10%;background-color:blue;overflow-y:scroll;">
+                    <div style="border-radius: 10px;width:80%;height:80%;margin: 2% 10%;overflow-y:scroll;background-color:rgba(0,0,0,0.5);">
                         <?php
                         $games = $pdo->query('SELECT * FROM games ;')->fetchAll();
                         foreach ($games as $game) {
-                            echo '<a href="#" style="display:flex;margin: 10px 5px;background-color:red">
-                            <img src="' . $game['thumbnail'] . '" style="height:110px; "/>
+                            echo '<a href="#" style="display:flex;padding:5px 10px;margin: 10px 5px;background-color:#000a92;border-radius: 3px;height:100px;">
+                            <img src="' . $game['thumbnail'] . '" style="height:100px;"/>
+                            <p style="color:white; margin:auto; text-align:center">' . $game['title'] . '</p>
+                            </a>';
+                        }
+                        foreach ($games as $game) {
+                            echo '<a href="#" style="display:flex;padding:5px 10px;margin: 10px 5px;background-color:#000a92;border-radius: 3px;height:100px;">
+                            <img src="' . $game['thumbnail'] . '" style="height:100px;"/>
                             <p style="color:white; margin:auto; text-align:center">' . $game['title'] . '</p>
                             </a>';
                         }
@@ -64,8 +69,8 @@
                     </div>
                 </div>
                 <div class='border'></div>
-                <div style="width: 48%;margin: 1%;height:96%;background-color:aqua;">
-                    <h1>Follows</h1>
+                <div style="width: 48%;margin: 1%;height:96%;">
+                    <h1 style="padding-left:2%">Follows</h1>
                 </div>
             </div>
         </div>
