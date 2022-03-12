@@ -58,9 +58,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="dataRegister">
             <h1>Register</h1>
             <form class="register-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <p style="color:red"><?php echo $usernameerror ?></p>
+                <p id="usernameError" style="color: red"><?php echo $usernameerror ?></p>
                 <input type="text" placeholder="Username" name="username" value="<?php echo $username ?>" />
-                <p style="color:red"><?php echo $passworderror?></p>
+                <p id="passwordError" style="color: red"><?php echo $passworderror?></p>
                 <input type="password" placeholder="Password" name="password" value="<?php echo $password ?>" />
                 <input type="password" placeholder="Confirm Password" name="confirmpassword" value="<?php echo $confirmpassword ?>" />
 
@@ -68,8 +68,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
             </form>
+            
         </div>
     <!--Register Page-->
 </body>
-
+<script>
+  window.onload = function() {
+    
+    var passwordError = document.getElementById('usernameError');
+    var usernameError = document.getElementById('passwordError');
+    if(passwordError == null || passwordError!= "") passwordError.style.visibility = "visible"; passwordError.style.pointerEvents = "all";
+    if(usernameError == null ||usernameError!= "") usernameError.style.visibility = "visible"; usernameError.style.pointerEvents = "all";
+    
+  }
+</script>
 </html>
