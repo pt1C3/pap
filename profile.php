@@ -18,7 +18,7 @@
         <div id="userInfo">
             <img style="border: 3pt solid #000a92" src="<?php echo $_SESSION["userAvatar"] ?>">
             <div class="userText">
-                <p class="userName"><?php echo $_SESSION["username"] ?></p>
+                <p class="userName" ><?php echo $_SESSION["username"] ?></p>
                 <p> Languages:
                     <?php
                     $numItems = count($_SESSION['languages']);
@@ -33,44 +33,61 @@
 
                     ?></p>
                 <p>
-                    Sex: <?php echo $_SESSION["sex"] ?>
+                    Sex: <?= $_SESSION["sex"] ?>
                 </p>
-                <p style="margin-top:2%;width:80%;"> <?php echo $_SESSION["description"] ?></p>
+                <p style="margin-top:2%;width:100%;"> <?= $_SESSION["description"] ?></p>
             </div>
-            <div class="rightItems" style="max-height:80%;text-align:center;margin-right:2%;width:60%">
-                <div style="display:flex;justify-content:space-between">
-                    <p style="text-align:center; font-size: 15pt;"> Rating:</br>0/10</p>
-                    <p style="text-align:center; font-size: 15pt;"> Followers:</br>xxx</p>
+            <div class="rightItems" style="max-height:80%;text-align:center;margin-right:2%;width:30%;">
+                <div style="display:flex;justify-content:space-between;">
+                    <p style="text-align:center; font-size: 15pt;"> Rating:</br><?=  $_SESSION["rating"]?></p>
+                    <p style="text-align:center; font-size: 15pt;"> Followers:</br><?=  $_SESSION["rating"]?></p>
                 </div>
                 <button class="btnEdit" href="?edit">Edit</button>
             </div>
         </div>
         <div id="bottomElements">
             <div style="display:flex;height:100%;">
-                <div style="width: 48%;margin: 1%;height:96%;">
+                <div class="listasPerfil">
                     <h1>Liked Games</h1>
 
-                    <div style="border-radius: 10px;width:80%;height:80%;margin: 2% 10%;overflow-y:scroll;background-color:rgba(0,0,0,0.5);">
+                    <div class="lista">
                         <?php
                         $games = $pdo->query('SELECT * FROM games ;')->fetchAll();
                         foreach ($games as $game) {
-                            echo '<a href="#" style="display:flex;padding:5px 10px;margin: 10px 5px;background-color:#000a92;border-radius: 3px;height:100px;">
+                            echo '<a href="game.php?id='. $game['gameID']. '" class="itemLista">
                             <img src="' . $game['thumbnail'] . '" style="height:100px;"/>
-                            <p style="color:white; margin:auto; text-align:center">' . $game['title'] . '</p>
+                            <p>' . $game['title'] . '</p>
                             </a>';
                         }
                         foreach ($games as $game) {
-                            echo '<a href="#" style="display:flex;padding:5px 10px;margin: 10px 5px;background-color:#000a92;border-radius: 3px;height:100px;">
+                            echo '<a href="game.php?id='. $game['gameID']. '" class="itemLista">
                             <img src="' . $game['thumbnail'] . '" style="height:100px;"/>
-                            <p style="color:white; margin:auto; text-align:center">' . $game['title'] . '</p>
+                            <p>' . $game['title'] . '</p>
                             </a>';
                         }
                         ?>
                     </div>
                 </div>
                 <div class='border'></div>
-                <div style="width: 48%;margin: 1%;height:96%;">
+                <div class="listasPerfil">
                     <h1 style="padding-left:2%">Follows</h1>
+                    <div class="lista">
+                        <?php
+                        $users = $pdo->query('SELECT * FROM user where isAdmin = 0')->fetchAll();
+                        foreach ($users as $user) {
+                            echo '<a href="#" class="itemLista">
+                            <img src="' . $user['image'] . '" style="height:100px;"/>
+                            <p>' . $user['username'] . '</p>
+                            </a>';
+                        }
+                        foreach ($users as $user) {
+                            echo '<a href="#" class="itemLista">
+                            <img src="' . $user['image'] . '" style="height:100px;"/>
+                            <p>' . $user['username'] . '</p>
+                            </a>';
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>

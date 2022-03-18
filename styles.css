@@ -22,6 +22,29 @@ body {
     font-family: "ReadexPro";
 }
 
+
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #0084ff #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #000225;
+    border-radius: 0 7px 7px 0;
+    border-left: 2px solid #000a92;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #000a92;
+    border-radius: 0 7px 7px 0;
+    border: 2px solid #000a92;
+  }
+
 .logobtn {
     background-color: rgba(0, 0, 0, 0);
     background-image: url("./images/logo.png");
