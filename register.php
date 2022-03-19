@@ -15,8 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (is_null($Existusername['username']) == false) $usernameerror .= "Username Already Exists...";
 
     if($usernameerror=="" && $passworderror=="")
-    {
-        include './auth/registerValidation.php';
+    { 
+        header("./accountCreation.php");
+        include './auth/registerValues.php';
+        
+        
     }
 
 }
@@ -79,7 +82,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     var usernameError = document.getElementById('passwordError');
     if(passwordError == null || passwordError!= "") passwordError.style.visibility = "visible"; passwordError.style.pointerEvents = "all";
     if(usernameError == null ||usernameError!= "") usernameError.style.visibility = "visible"; usernameError.style.pointerEvents = "all";
-    
   }
 </script>
 </html>

@@ -1,12 +1,13 @@
-.supportedGames {
-  width: 60%;
+.games {
+  width: 80%;
   padding: 2%;
+  margin-left: 10%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5%;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4%;
   align-self: center;
   margin-bottom: 100px;
-  height: 60%;
+  height: 90%;
   overflow-x:hidden;
   overflow-y:scroll;
   background-color: red;
@@ -14,7 +15,7 @@
 .gameThumb {
   padding: 0;
   margin: 0;
-  width: 100%;
+  width: 90%;
   margin-right: 5%;
   border: outset 2pt;
   border-image-source: linear-gradient(
@@ -33,7 +34,7 @@
   background-color: #000438;
   margin-left: 10%;
   height: calc(100vh - 60pt);
-  display: flex;
+    display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-right: 2pt solid #000a92;
@@ -96,4 +97,13 @@
   border-image: linear-gradient(90deg, rgba(180, 0, 255, 1) 0%, rgba(0, 6, 255, 1) 33%, rgba(255, 0, 114, 1) 66%, rgba(255, 222, 0, 1) 100%);
   border-image-slice: 100 0;
   box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
+}
+#usersList{
+  border-collapse: collapse;
+  width:80%;
+  height:fit-content;
+  margin-left:10%;
+}
+#usersList td, #usersList th{
+  border: 2px solid #ddd;
 }

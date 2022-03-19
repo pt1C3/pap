@@ -1,5 +1,7 @@
 <?php
 include './auth/db.php';
+session_start();
+if(isset($_SESSION["id"])==true) header("location:./");
 $username = $password  = "";
 $usernameerror = $passworderror = "";
 
