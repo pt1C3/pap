@@ -5,7 +5,7 @@
             <?php
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 echo '<form action="faq.php"  method="post">
-                <input name="search" type="text" class="search" placeholder="Search Users..." required/>
+                <input name="search" type="text" class="search" placeholder="Search Users..." required />
                 <input class="searchBTN" type="image" src="./images/lupa.png"/></form>
                 <a class="nav_User" href="profile.php">
                 <img class="nav_userAvatar" src="'. $_SESSION['userAvatar']. '"/>

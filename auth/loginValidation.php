@@ -7,8 +7,8 @@
     $_SESSION['id'] = $dado['userID'];
     $_SESSION['username'] = $dado['username'];
     $_SESSION['userAvatar'] = $dado['image'];
-    $_SESSION['rating'] = $dado['rating'];
-    $_SESSION['followers'] = $pdo->query('SELECT Count(*) FROM follows WHERE followedID ="' . $username . '"')->fetch();
+    $_SESSION['rating'] = round($dado['rating'],1);
+    $_SESSION['followers'] = ($pdo->query('SELECT TRUNCATE(Count(*),0) as "followers" FROM follows WHERE followedID ="' . $username . '"')->fetch())["followers"];
 
     switch ($dado['sex']) {
         case 'M':

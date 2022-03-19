@@ -40,7 +40,7 @@
             <div class="rightItems" style="max-height:80%;text-align:center;margin-right:2%;width:30%;">
                 <div style="display:flex;justify-content:space-between;">
                     <p style="text-align:center; font-size: 15pt;"> Rating:</br><?=  $_SESSION["rating"]?></p>
-                    <p style="text-align:center; font-size: 15pt;"> Followers:</br><?=  $_SESSION["rating"]?></p>
+                    <p style="text-align:center; font-size: 15pt;"> Followers:</br><?=  $_SESSION["followers"]?></p>
                 </div>
                 <button class="btnEdit" href="?edit">Edit</button>
             </div>
