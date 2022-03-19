@@ -28,6 +28,8 @@
 
     $dadoLinguas = $pdo->query( 'SELECT userLanguage FROM languages WHERE userID = ' . $_SESSION['id'] )->fetchAll();
     $_SESSION['languages'] = $dadoLinguas;
+    $dadoLikes = $pdo->query( 'SELECT gameID FROM likedgames WHERE userID = ' . $_SESSION['id'] )->fetchAll();
+    $_SESSION['likes'] = $dadoLikes;
 
     $pdo->query('UPDATE user SET lastLogin = current_timestamp() WHERE userID ="' . $_SESSION['id'] . '"');
 
