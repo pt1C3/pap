@@ -9,8 +9,8 @@
 
 <body>
   <?php
-  session_set_cookie_params(0);
   session_start();
+  include 'auth/verificarLogin.php';
   include './components/navbar.php';
   include './auth/db.php';
   $games = $pdo->query("SELECT * FROM games ORDER BY title asc")->fetchAll();

@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start(); 
+include 'auth/verificarLogin.php';
+?>
 <html lang="en">
 
 <head>
@@ -52,19 +54,15 @@
 
                     <div class="lista">
                         <?php
-                        $games = $pdo->query('SELECT * FROM games ;')->fetchAll();
-                        foreach ($games as $game) {
+                        $gameIDs = $pdo->query('SELECT gameID FROM likedgames where userID= '. $_SESSION["id"])->fetchAll();
+                        foreach ($gameIDs as $id) {
+                            $game = $pdo->query('SELECT * FROM games where gameID= '. $id["gameID"])->fetch();
                             echo '<a href="game.php?id='. $game['gameID']. '" class="itemLista">
                             <img src="' . $game['thumbnail'] . '" style="height:100px;"/>
                             <p>' . $game['title'] . '</p>
                             </a>';
                         }
-                        foreach ($games as $game) {
-                            echo '<a href="game.php?id='. $game['gameID']. '" class="itemLista">
-                            <img src="' . $game['thumbnail'] . '" style="height:100px;"/>
-                            <p>' . $game['title'] . '</p>
-                            </a>';
-                        }
+                        
                         ?>
                     </div>
                 </div>

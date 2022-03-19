@@ -33,7 +33,9 @@ $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameI
                     <p style="text-align:center; font-size: 15pt;"> Likes:</br><?= $gameLikes["likes"] ?></p>
                 </div>
                 <?php
-                if (in_array($_GET["id"], $_SESSION["likes"], true)) 
+                if(isset($_SESSION["id"]))
+                {
+                  if (in_array($_GET["id"], $_SESSION["likes"])) 
                 {
                     echo "<a href=\"auth/dislike.php?id=" . $_GET["id"] . "\"><button class=\"btnEdit\" >Dislike</button></a>";
                     unset($_SESSION["likes"][array_search($_GET["id"],$_SESSION["likes"])]);
@@ -41,7 +43,9 @@ $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameI
                 else {
                     echo "<a href=\"auth/like.php?id=" . $_GET["id"] . "\"><button class=\"btnEdit\" >Like</button></a>";
                     array_push($_SESSION["likes"], $_GET["id"]);
+                }  
                 }
+                
                 ?>
                 <!--<button class="btnEdit" href="auth/like.php">Like</button>-->
             </div>
