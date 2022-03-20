@@ -28,51 +28,163 @@
       <div class='games'>
         <?php
         foreach ($games as $game) {
-          echo '<a href="#" onclick="selected('.$game["gameID"].')"><img src="' . $game['thumbnail'] . '" class="gameThumb"/></a>';
+          echo '<a href="play.php?gameID=' . $game["gameID"] . '"><img src="' . $game['thumbnail'] . '" class="gameThumb"/></a>';
         }
-        foreach ($games as $game) {
-          echo '<a href="#" onclick="selected('.$game["gameID"].')"><img src="' . $game['thumbnail'] . '" class="gameThumb"/></a>';
-        }
-        foreach ($games as $game) {
-          echo '<a href="#" onclick="selected('.$game["gameID"].')"><img src="' . $game['thumbnail'] . '" class="gameThumb"/></a>';
-        }
+
         ?>
 
       </div>
     </div>
     <div>
-      <table id="usersList" >
-        <th colspan="5" style="background-color:green;">Users</th>
-        <tr style="background-color:pink;">
-          <th>Username</th>
-          <th>Languages</th>
-          <th>Rating</th>
-          <th>Sex</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-        </tr>
-        <?php
-        $users = $pdo->query("SELECT * FROM user ")->fetchAll();
+      <div id="table-wrapper">
+        <table id="usersList">
+          <thead>
+            <tr>
+              <th><span class="text">Username</span></th>
+              <th><span class="text">Languages</span></th>
+              <th><span class="text">Rating</span></th>
+              <th><span class="text">Sex</span></th>
+              <th><span class="text"></span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <?php
+            if (isset($_GET["gameID"]) == true) {
+              $users = $pdo->query("SELECT * FROM user, likedgames WHERE likedgames.gameID=" . $_GET["gameID"] . " and likedgames.userID= user.userID")->fetchAll();
+            } else $users = $pdo->query("SELECT * FROM user ")->fetchAll();
 
-        foreach($users as $user)
-        {
-          $languages = $pdo->query("SELECT userLanguage FROM languages where userID=". $user["userID"])->fetch();
-          echo '<tr>
-          <td>'.$user["username"] . '</td>
-          <td>'. implode(", ", $languages["userLanguage"]) . '</td>
-          <td>'. $user["rating"]. '</td>
-          <td>'. $user["sex"]. '</td>
-          </tr>';
 
-        }
-        ?>
-      </table>
-    </div>
-    <div>
+            foreach ($users as $user) {
+              if ($user["isAdmin"] != 1) {
+
+                $dadosLanguages = $pdo->query("SELECT userLanguage FROM languages where userID=" . $user["userID"])->fetchall();
+                $languages = array_column($dadosLanguages, 0);
+                echo '<tr>
+            <td>' . $user["username"] . '</td>
+            <td>' . implode(", ", $languages) . '</td>
+            <td>' . round($user["rating"], 1) . '</td>
+            <td>' . $user["sex"] . '</td>
+            <td> <a href="/profile.php?id=' . $user["userID"] . '">Profile</a></td>
+            </tr>';
+              }
+            }
+            ?>
+          </tbody>
+        </table>
+      </div>
+
       <a id="nextbutton" href="#">Next</a>
     </div>
 
@@ -86,12 +198,6 @@
   <!--Home Page before Login-->
 </body>
 <script>
-  function selected(gameID) {
-    var imgselected = document.getElementById('nextbutton');
-    imgselected.innerHTML = gameID;
-    imgselected.style.pointerEvents = "all";
-    imgselected.style.visibility = "visible";
-  }
 </script>
 
 </html>
