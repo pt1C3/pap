@@ -4,7 +4,7 @@
             <a href="?faq" class="FAQ">F.A.Q.</a>
             <?php
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                echo '<form action="faq.php"  method="post">
+                echo '<form action="pesquisa.php"  method="post">
                 <input name="search" type="text" class="search" placeholder="Search Users..." required />
                 <input class="searchBTN" type="image" src="./images/lupa.png"/></form>
                 <a class="nav_User" href="profile.php">

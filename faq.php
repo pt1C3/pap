@@ -11,9 +11,8 @@
 <?php session_set_cookie_params(0);
 session_start();
 include './components/navbar.php';
-$search  = $_POST['search']; 
+ 
 ?>
-    <?php echo '<p style="padding-top:50pt">' . $search . '</p>'; ?>
 
 </body>
 </html>
