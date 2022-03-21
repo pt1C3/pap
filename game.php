@@ -1,5 +1,4 @@
 <?php session_start();
-
 include("./auth/db.php");
 $game = $pdo->query('SELECT * FROM games WHERE gameID=' . $_GET["id"])->fetch();
 $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameID=' . $_GET["id"])->fetch();
@@ -33,19 +32,16 @@ $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameI
                     <p style="text-align:center; font-size: 15pt;"> Likes:</br><?= $gameLikes["likes"] ?></p>
                 </div>
                 <?php
-                if(isset($_SESSION["id"]))
+                if (isset($_SESSION["id"])) //se tiver sessao iniciada, se nao nao tem botao de like
                 {
-                  if (in_array($_GET["id"], $_SESSION["likes"])) 
-                {
-                    echo "<a href=\"auth/dislike.php?id=" . $_GET["id"] . "\"><button class=\"btnEdit\" >Dislike</button></a>";
-                    unset($_SESSION["likes"][array_search($_GET["id"],$_SESSION["likes"])]);
+                    if (in_array($_GET["id"], $_SESSION["likes"])) //se estiver o id no array ja tem like,por isso dislike
+                    {
+                        echo "<a href=\"auth/dislike.php?id=" . $_GET["id"] . "\"><button class=\"btnEdit\" >Dislike</button></a>";
+                    } else { //se nao like
+                        echo "<a href=\"auth/like.php?id=" . $_GET["id"] . "\"><button class=\"btnEdit\" >Like</button></a>";
+                    }
                 }
-                else {
-                    echo "<a href=\"auth/like.php?id=" . $_GET["id"] . "\"><button class=\"btnEdit\" >Like</button></a>";
-                    array_push($_SESSION["likes"], $_GET["id"]);
-                }  
-                }
-                
+
                 ?>
                 <!--<button class="btnEdit" href="auth/like.php">Like</button>-->
             </div>
