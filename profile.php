@@ -1,5 +1,12 @@
-<?php session_start(); 
+<?php session_start();
+include("./auth/db.php");
 include 'auth/verificarLogin.php';
+if(isset($_GET["id"])==true)
+{
+    $user = $pdo->query('SELECT * FROM users WHERE userID=' . $_GET["id"])->fetch();
+    $dadosLanguages = $pdo->query("SELECT userLanguage FROM languages where userID=" . $_GET["id"])->fetchall();
+    $languages = array_column($dadosLanguages, 0);
+}
 ?>
 <html lang="en">
 
@@ -10,12 +17,12 @@ include 'auth/verificarLogin.php';
     <link rel="icon" href="./images/iconfavicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="profile.css">
-    <title><?php echo $_SESSION["username"] ?> - LetsGame</title>
+    <title><?php if(isset($_GET["id"])==true) echo $user["username"]; else echo $_SESSION["username"]; ?> - LetsGame</title>
 </head>
 
 <body>
     <?php include("./components/navbar.php");
-    include("./auth/db.php") ?>
+ ?>
     <div class='data'>
         <div id="userInfo">
             <img style="border: 3pt solid #000a92" src="<?php echo $_SESSION["userAvatar"] ?>">
