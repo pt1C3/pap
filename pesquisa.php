@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Home - LetsGame</title>
+    <title>"<?=$_POST['search']?>" - LetsGame</title>
     <link rel="icon" href="./images/iconfavicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="pesquisa.css">
