@@ -3,7 +3,7 @@ include("./auth/db.php");
 include 'auth/verificarLogin.php';
 if(isset($_GET["id"])==true)
 {
-    $user = $pdo->query('SELECT * FROM users WHERE userID=' . $_GET["id"])->fetch();
+    $user = $pdo->query('SELECT * FROM user WHERE userID=' . $_GET["id"])->fetch();
     $dadosLanguages = $pdo->query("SELECT userLanguage FROM languages where userID=" . $_GET["id"])->fetchall();
     $languages = array_column($dadosLanguages, 0);
 }

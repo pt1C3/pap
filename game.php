@@ -2,6 +2,17 @@
 include("./auth/db.php");
 $game = $pdo->query('SELECT * FROM games WHERE gameID=' . $_GET["id"])->fetch();
 $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameID=' . $_GET["id"])->fetch();
+
+
+/*  função para like dislike bug?????*/
+function likes(){
+    include("./auth/db.php");
+    $variavel = $pdo->query('SELECT count(*)  FROM likedgames WHERE gameID=' . $_GET["id"])->fetch();
+    return $variavel;
+}
+
+
+
 ?>
 <html lang="en">
 
@@ -34,7 +45,7 @@ $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameI
                 <?php
                 if (isset($_SESSION["id"])) //se tiver sessao iniciada, se nao nao tem botao de like
                 {
-                    if (in_array($_GET["id"], $_SESSION["likes"])) //se estiver o id no array ja tem like,por isso dislike
+                    if (in_array($_GET["id"], likes())) //se estiver o id no array ja tem like,por isso dislike
                     {
                         echo "<a href=\"auth/dislike.php?id=" . $_GET["id"] . "\"><button class=\"btnEdit\" >Dislike</button></a>";
                     } else { //se nao like

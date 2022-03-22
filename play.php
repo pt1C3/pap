@@ -65,7 +65,7 @@
             <td>' . implode(", ", $languages) . '</td>
             <td>' . round($user["rating"], 1) . '</td>
             <td>' . $user["sex"] . '</td>
-            <td> <a href="/profile.php?id=' . $user["userID"] . '">Profile</a></td>
+            <td> <a href="./profile.php?id=' . $user["userID"] . '">Profile</a></td>
             </tr>';
               }
             }
