@@ -2,7 +2,7 @@
     include 'db.php';
 
     session_start();
-    $dado = $pdo->query('SELECT * FROM user WHERE username ="' . $username . '"')->fetch();
+    $dado = $pdo->query('SELECT *, ROUND(rating,1) as "rating" FROM user WHERE username ="' . $username . '"')->fetch();
     $_SESSION['loggedin'] = true;
     $_SESSION['id'] = $dado['userID'];
     $_SESSION['username'] = $dado['username'];

@@ -10,7 +10,7 @@ if ($_GET["id"] != $_SESSION["id"])
         $followers = $pdo->query("SELECT Count(*) as 'number' FROM follows where followedID=" . $user["userID"])->fetch();
     } 
 }
-else header("location:./profile.php");
+else header("location:./userProfile.php");
 ?>
 <html lang="en">
 
@@ -51,7 +51,7 @@ else header("location:./profile.php");
             </div>
             <div class="rightItems" style="max-height:80%;text-align:center;margin-right:2%;width:30%;">
                 <div style="display:flex;justify-content:space-between;">
-                    <p style="text-align:center; font-size: 15pt;"> Rating:</br><?= $user["rating"] ?></p>
+                    <p style="text-align:center; font-size: 15pt;"> Rating:</br><?= round($user["rating"],1) ?></p>
                     <p style="text-align:center; font-size: 15pt;"> Followers:</br><?= $followers["number"] ?></p>
                 </div>
                 <?php
@@ -85,19 +85,15 @@ else header("location:./profile.php");
                     <h1 style="padding-left:2%">Follows</h1>
                     <div class="lista">
                         <?php
-                        $users = $pdo->query('SELECT * FROM user where isAdmin = 0')->fetchAll();
+                        /*                                                           |               |-> buscar o ID dos que são seguidos; |                             |-> por este utilizador*/
+                        $users = $pdo->query('SELECT * FROM user INNER JOIN follows on user.userID=follows.followedID where isAdmin = 0 and followerID=' . $user["userID"])->fetchAll();
                         foreach ($users as $user) {
-                            echo '<a href="#" class="itemLista">
+                            echo '<a href="profile.php?id='. $user['userID'].'" class="itemLista">
                             <img src="' . $user['image'] . '" style="height:100px;"/>
                             <p>' . $user['username'] . '</p>
                             </a>';
                         }
-                        foreach ($users as $user) {
-                            echo '<a href="#" class="itemLista">
-                            <img src="' . $user['image'] . '" style="height:100px;"/>
-                            <p>' . $user['username'] . '</p>
-                            </a>';
-                        }
+
                         ?>
                     </div>
                 </div>
