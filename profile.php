@@ -3,10 +3,15 @@ include("./auth/db.php");
 include 'auth/verificarLogin.php';
 if(isset($_GET["id"])==true)
 {
-    $user = $pdo->query('SELECT * FROM users WHERE userID=' . $_GET["id"])->fetch();
+    $user = $pdo->query('SELECT * FROM user WHERE userID=' . $_GET["id"])->fetch();
     $dadosLanguages = $pdo->query("SELECT userLanguage FROM languages where userID=" . $_GET["id"])->fetchall();
     $languages = array_column($dadosLanguages, 0);
 }
+if($_GET["id"] == $_SESSION["id"]) /*se tentar entrar no seu perfil com ID, redireciona para o perfil editável*/
+{
+    header("location:./profile.php");
+}
+
 ?>
 <html lang="en">
 
@@ -21,8 +26,7 @@ if(isset($_GET["id"])==true)
 </head>
 
 <body>
-    <?php include("./components/navbar.php");
- ?>
+    <?php include("./components/navbar.php"); ?>
     <div class='data'>
         <div id="userInfo">
             <img style="border: 3pt solid #000a92" src="<?php echo $_SESSION["userAvatar"] ?>">
@@ -51,7 +55,7 @@ if(isset($_GET["id"])==true)
                     <p style="text-align:center; font-size: 15pt;"> Rating:</br><?=  $_SESSION["rating"]?></p>
                     <p style="text-align:center; font-size: 15pt;"> Followers:</br><?=  $_SESSION["followers"]?></p>
                 </div>
-                <button class="btnEdit" href="?edit">Edit</button>
+                <a href="?edit"><button class="btnEdit">Edit</button></a>
             </div>
         </div>
         <div id="bottomElements">
@@ -80,17 +84,18 @@ if(isset($_GET["id"])==true)
                         <?php
                         $users = $pdo->query('SELECT * FROM user where isAdmin = 0')->fetchAll();
                         foreach ($users as $user) {
-                            echo '<a href="#" class="itemLista">
+                            echo '<a href="othersProfile.php?id='. $user['userID'].'" class="itemLista">
                             <img src="' . $user['image'] . '" style="height:100px;"/>
                             <p>' . $user['username'] . '</p>
                             </a>';
                         }
                         foreach ($users as $user) {
-                            echo '<a href="#" class="itemLista">
+                            echo '<a href="othersProfile.php?id='. $user['userID'].'" class="itemLista">
                             <img src="' . $user['image'] . '" style="height:100px;"/>
                             <p>' . $user['username'] . '</p>
                             </a>';
                         }
+
                         ?>
                     </div>
                 </div>
