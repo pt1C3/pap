@@ -7,7 +7,7 @@
                 echo '<form action="pesquisa.php"  method="post">
                 <input name="search" type="text" class="search" placeholder="Search Users..." required />
                 <input class="searchBTN" type="image" src="./images/lupa.png"/></form>
-                <a class="nav_User" href="profile.php">
+                <a class="nav_User" href="userProfile.php">
                 <img class="nav_userAvatar" src="'. $_SESSION['userAvatar']. '"/>
                 <p style="margin-right:5pt;">'. $_SESSION['username']. '</p>
                 </a>
