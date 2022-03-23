@@ -4,20 +4,19 @@
   margin-left: 10%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 4%;
+  gap: 2%;
   align-self: center;
   margin-bottom: 100px;
   height: 90%;
   overflow-x: hidden;
   overflow-y: scroll;
-  background-color: red;
-
+background-color: transparent;
 }
 
 .gameThumb {
   padding: 0;
   margin: 0;
-  width: 90%;
+  width: 100%;
   margin-right: 5%;
   border: outset 2pt;
   border-image-source: linear-gradient(45deg,
@@ -82,7 +81,7 @@
   border-radius: 2px;
   background-color: #000a92;
   width: fit-content;
-  transition-duration: 0.05s;
+  transition-duration: 0.1s;
   transform: translateZ(0);
   bottom: 5%;
   position: absolute;
