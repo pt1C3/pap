@@ -3,6 +3,7 @@
     include 'db.php';
 
     $pdo->query('INSERT INTO likedgames (userID, gameID) values (' . $_SESSION['id'] . ' , ' . $_GET["id"] .')');
-    array_push($_SESSION["likes"], $_GET["id"]); //adicionar o like na lista
+    $dadoLikes = $pdo->query( 'SELECT gameID FROM likedgames WHERE userID = ' . $_SESSION['id'] )->fetchAll(PDO::FETCH_COLUMN);
+    $_SESSION['likes'] = $dadoLikes;
     header("location:../game.php?id=". $_GET["id"]);
 ?>
