@@ -56,8 +56,14 @@ else header("location:./userProfile.php");
                 </div>
                 <?php
                 $queryFollow = $pdo->query('SELECT Count(*) as "segue" FROM follows WHERE followedID=' . $user["userID"] . ' and followerID =' . $_SESSION["id"])->fetch()['segue'];
-                if($queryFollow != 0) echo '<a href="./auth/unfollow.php?id=' . $user['userID'] . '"> <button class="btnEdit">Unfollow</button></a>';
-                else echo '<a href="./auth/follow.php?id=' . $user['userID']. '"><button class="btnEdit">Follow</button></a>';
+                if($queryFollow != 0)
+                {
+                    $followAge = $pdo->query('SELECT DISTINCT DATE(followDate) as "followDate" FROM follows WHERE followedID=' . $user["userID"] . ' and followerID =' . $_SESSION["id"])->fetch();
+                    echo '<a href="./auth/unfollow.php?id=' . $user['userID'] . '"> <button class="btnEdit">Unfollow</button></a>
+                    <p style="margin-top:3pt;"> You follow: <b>' . $user['username']. '</b> <br/> since <b>' .$followAge["followDate"] . '</b></p>';
+                    
+                }
+                    else echo '<a href="./auth/follow.php?id=' . $user['userID']. '"><button class="btnEdit">Follow</button></a>';
                 ?>
             </div>
         </div>

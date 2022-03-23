@@ -19,7 +19,7 @@
                         <?php
                         $users = $pdo->query('SELECT * FROM user where isAdmin = 0 and username like "%'. $search .'%"')->fetchAll();
                         foreach ($users as $user) {
-                            echo '<a href="#" class="itemLista">
+                            echo '<a href="./profile.php?id=' . $user["userID"] . '" class="itemLista">
                             <img src="' . $user['image'] . '" style="height:100px;"/>
                             <p>' . $user['username'] . '</p>
                             </a>';

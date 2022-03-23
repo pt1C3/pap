@@ -76,11 +76,12 @@ include 'auth/verificarLogin.php';
                         <?php
                         /*                                                           |               |-> buscar o ID dos que são seguidos; |                             |-> por este utilizador*/
                         $users = $pdo->query('SELECT * FROM user INNER JOIN follows on user.userID=follows.followedID where isAdmin = 0 and followerID=' . $_SESSION["id"])->fetchAll();
-
+                        
                         foreach ($users as $user) {
+                            $followAge = $pdo->query('SELECT DISTINCT DATE(followDate) as "followDate" FROM follows WHERE followedID=' . $user["userID"] . ' and followerID =' . $_SESSION["id"])->fetch();
                             echo '<a href="profile.php?id=' . $user['userID'] . '" class="itemLista">
                             <img src="' . $user['image'] . '" style="height:100px;"/>
-                            <p>' . $user['username'] . '</p>
+                            <p>' . $user['username'] . ' - since '. $followAge["followDate"] .'</p>
                             </a>';
                         }
 
