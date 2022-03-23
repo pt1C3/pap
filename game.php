@@ -35,11 +35,11 @@ function likes(){
             <div class="userText">
                 <p class="userName"><?= $game["title"] ?></p>
                 <p> <?= $game["genre"] ?></p>
-                <a style="margin-top:2%;" href="<?= $game["link"] ?>" target="_blank"> Store</a>
+                <a style="margin-top:2%;" href="<?= $game["link"] ?>" target="_blank">Store</a>
             </div>
             <div class="rightItems" style="max-height:80%;text-align:center;margin-right:2%;width:30%;">
                 <div style="display:flex;justify-content:space-between;">
-                    <p style="text-align:center; font-size: 15pt;"> Rating:</br><?= $game["rating"] ?></p>
+                    <p style="text-align:center; font-size: 15pt;"> Rating:</br><?= round($game["rating"],1) ?></p>
                     <p style="text-align:center; font-size: 15pt;"> Likes:</br><?= $gameLikes["likes"] ?></p>
                 </div>
                 <?php
