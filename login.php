@@ -55,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
         </div>
     <!--Login Page-->
+    <?php include './components/footer.php'; ?>
 </body>
 
 </html>

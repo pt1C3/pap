@@ -103,6 +103,7 @@ $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameI
         */
     </script>
 
+<?php include './components/footer.php'; ?>
 </body>
 
 </html>

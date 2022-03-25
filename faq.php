@@ -13,6 +13,6 @@ session_start();
 include './components/navbar.php';
  
 ?>
-
+<?php include './components/footer.php'; ?>
 </body>
 </html>

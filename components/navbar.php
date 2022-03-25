@@ -16,5 +16,6 @@
                 echo '<a href="register.php"><button class="register-button">REGISTER</button></a>';
                 echo '<a href="login.php"><button class="login-button">LOGIN</button></a>';
             } ?>
+            
         </div>
     </div>

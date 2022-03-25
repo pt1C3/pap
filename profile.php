@@ -106,6 +106,8 @@ else header("location:./userProfile.php");
             </div>
         </div>
     </div>
+
+    <?php include './components/footer.php'; ?>
 </body>
 
 </html>

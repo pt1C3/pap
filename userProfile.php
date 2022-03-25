@@ -112,7 +112,9 @@ include 'auth/verificarLogin.php';
         */
     </script>
 
-    }
+    
+
+    <?php include './components/footer.php'; ?>
 </body>
 
 </html>

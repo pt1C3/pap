@@ -74,6 +74,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
         </div>
     <!--Register Page-->
+
+    <?php include './components/footer.php'; ?>
 </body>
 <script>
   window.onload = function() {
