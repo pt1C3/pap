@@ -14,14 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!($confirmpassword == $password)) $passworderror .= "Passwords do not match...";
     if (is_null($Existusername['username']) == false) $usernameerror .= "Username Already Exists...";
 
-    if($usernameerror=="" && $passworderror=="")
-    { 
+    if ($usernameerror == "" && $passworderror == "") {
         header("./accountCreation.php");
         include './auth/registerValues.php';
-        
-        
     }
-
 }
 
 ?>
@@ -58,32 +54,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-        <div class="dataRegister">
-            <h1>Register</h1>
-            <form class="register-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <p id="usernameError" style="color: red"><?php echo $usernameerror ?></p>
-                <input type="text" placeholder="Username" name="username" value="<?php echo $username ?>" />
-                <p id="passwordError" style="color: red"><?php echo $passworderror?></p>
-                <input type="password" placeholder="Password" name="password" value="<?php echo $password ?>" />
-                <input type="password" placeholder="Confirm Password" name="confirmpassword" value="<?php echo $confirmpassword ?>" />
+    <div class="dataRegister">
+        <h1>Register</h1>
+        <form class="register-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <p id="usernameError" style="color: red"><?php echo $usernameerror ?></p>
+            <input type="text" placeholder="Username" name="username" value="<?php echo $username ?>" />
+            <p id="passwordError" style="color: red"><?php echo $passworderror ?></p>
+            <input type="password" placeholder="Password" name="password" value="<?php echo $password ?>" />
+            <input type="password" placeholder="Confirm Password" name="confirmpassword" value="<?php echo $confirmpassword ?>" />
 
-                <input type="submit" class="button" value="REGISTER">
+            <input type="submit" class="button" value="REGISTER">
 
 
-            </form>
-            
-        </div>
+        </form>
+
+    </div>
     <!--Register Page-->
 
     <?php include './components/footer.php'; ?>
 </body>
 <script>
-  window.onload = function() {
-    
-    var passwordError = document.getElementById('usernameError');
-    var usernameError = document.getElementById('passwordError');
-    if(passwordError == null || passwordError!= "") passwordError.style.visibility = "visible"; passwordError.style.pointerEvents = "all";
-    if(usernameError == null ||usernameError!= "") usernameError.style.visibility = "visible"; usernameError.style.pointerEvents = "all";
-  }
+    window.onload = function() {
+
+        var passwordError = document.getElementById('usernameError');
+        var usernameError = document.getElementById('passwordError');
+        if (passwordError == null || passwordError != "") passwordError.style.visibility = "visible";
+        passwordError.style.pointerEvents = "all";
+        if (usernameError == null || usernameError != "") usernameError.style.visibility = "visible";
+        usernameError.style.pointerEvents = "all";
+    }
 </script>
+
 </html>

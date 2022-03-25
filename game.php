@@ -33,7 +33,7 @@ $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameI
             </div>
             <div class="rightItems" style="max-height:80%;text-align:center;margin-right:2%;width:30%;">
                 <div style="display:flex;justify-content:space-between;">
-                    <p style="text-align:center; font-size: 15pt;"> Rating:</br><?= round($game["rating"],1)     ?></p>
+                    <p style="text-align:center; font-size: 15pt;"> Rating:</br><?= round($game["rating"], 1)     ?></p>
                     <p style="text-align:center; font-size: 15pt;"> Likes:</br><?= $gameLikes["likes"] ?></p>
                 </div>
                 <?php
@@ -103,7 +103,7 @@ $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameI
         */
     </script>
 
-<?php include './components/footer.php'; ?>
+    <?php include './components/footer.php'; ?>
 </body>
 
 </html>

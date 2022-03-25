@@ -1,7 +1,7 @@
 <?php
 include './auth/db.php';
 session_start();
-if(isset($_SESSION["id"])==true) header("location:./");
+if (isset($_SESSION["id"]) == true) header("location:./");
 $username = $password  = "";
 $usernameerror = $passworderror = "";
 
@@ -12,17 +12,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $Existuser = $pdo->query('SELECT * FROM user WHERE username ="' . $username . '"')->fetch();
 
-    
+
     if (is_null($Existuser['username']) == true) $usernameerror .= "Username does not exist, regist";
     elseif ($Existuser['password'] != $password) $passworderror .= "Wrong password";
-    if($usernameerror=="" && $passworderror=="")
-    {
+    if ($usernameerror == "" && $passworderror == "") {
 
         include './auth/loginValidation.php';
     }
 }
-    ?>
+?>
 <html>
+
 <head>
     <title>Login - LetsGame</title>
     <link rel="stylesheet" href="styles.css">
@@ -42,18 +42,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!--Navbar-->
     <!--Login Page-->
 
-        <div class="dataLogin">
-            <h1>Login</h1>
-            <form class="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <p style="color:red"><?php echo $usernameerror ?></p>
-                <input type="text" placeholder="Username" name="username" required/>
-                <p style="color:red"><?php echo $passworderror ?></p>
-                <input type="password" placeholder="Password" name="password" required/><br></br>
-                <a href="#">Forgor the password 💀</a><br></br>
-                <input type="submit" class="button" value="Login">
+    <div class="dataLogin">
+        <h1>Login</h1>
+        <form class="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <p style="color:red"><?php echo $usernameerror ?></p>
+            <input type="text" placeholder="Username" name="username" required />
+            <p style="color:red"><?php echo $passworderror ?></p>
+            <input type="password" placeholder="Password" name="password" required /><br></br>
+            <a href="#">Forgor the password 💀</a><br></br>
+            <input type="submit" class="button" value="Login">
 
-            </form>
-        </div>
+        </form>
+    </div>
     <!--Login Page-->
     <?php include './components/footer.php'; ?>
 </body>

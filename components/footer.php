@@ -4,8 +4,8 @@
                 <h1>
                     LetsGame
                 </h1>
-                <p>
-                    Desc
+                <p style="font-size: 10pt;">
+                   All rights reserved to the developers below.
                 </p>
             </div>
             <div class="redes sociais">
@@ -26,10 +26,10 @@
             <h1>
                 Contact Us
             </h1>
-            <a href="#">
+            <a href="#" style="font-size: 12pt;">
                 <p>Bug Report</p>
             </a>
-            <a href="#">
+            <a href="#"  style="font-size: 12pt;">
                 <p>Request a game</p>
             </a>
         </div>
@@ -39,10 +39,11 @@
                 <p>F.A.Q.</p>
             </a>
 
-            <h1>Developers</h1>
+            <h1>Developers:</h1>
             <div class="devs">
-                <p>Rafita</p>
-                <p>Nunito</p>
+              <h1 style="font-size:10pt;"><p>Rafita</p>
+                <p>Nunito</p></h1>
+                
             </div>
         </div>
 

@@ -1,109 +1,114 @@
 .data {
-    z-index: 0;
-    padding-top: 80pt;
-    padding-bottom: 5%;
-    width: 80%;
-    background-color: #000438;
-    margin-left: 10%;
-    height: 140vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-right: 2pt solid #000a92;
-    border-left: 2pt solid #000a92;
-    animation: fadeInAnimation ease 0.5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  z-index: 0;
+  padding-top: 80pt;
+  padding-bottom: 5%;
+  width: 80%;
+  background-color: #000438;
+  margin-left: 10%;
+  height: 140vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 2pt solid #000a92;
+  border-left: 2pt solid #000a92;
+  animation: fadeInAnimation ease 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
-#gameInfo{
-    padding: 2% 0 0 2%;
-    float:right;
-    display: flex;
-    height:40vh;
-    margin-bottom: 5%;
-    width:98%
+#gameInfo {
+  padding: 2% 0 0 2%;
+  float: right;
+  display: flex;
+  height: 40vh;
+  margin-bottom: 5%;
+  width: 98%;
 }
-#gameInfo img{
-    height:80%;
+#gameInfo img {
+  height: 80%;
 }
-#gameInfo a{
-    color:white;
-    text-decoration:underline;
+#gameInfo a {
+  color: white;
+  text-decoration: underline;
 }
-.userText{
-    padding-left:1%;
-    width: 90%;
-    height:100%
+.userText {
+  padding-left: 1%;
+  width: 90%;
+  height: 100%;
 }
-.userName{
-    font-weight: bold;
-    font-size: 30pt;
-
+.userName {
+  font-weight: bold;
+  font-size: 30pt;
 }
-.btnEdit{
-    letter-spacing: 1pt;
-    font-family: "Aldo";
-    font-size: 15pt;
-    font-weight: bold;
-    outline: 0;
-    background: #000a92;
-    border: 0;
-    color: #FFFFFF;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.2s;
-    transform: translateZ(0);
-    width: 60%;
-    margin-top:40%;
-    height:20%;
+.btnEdit {
+  letter-spacing: 1pt;
+  font-family: "Aldo";
+  font-size: 15pt;
+  font-weight: bold;
+  outline: 0;
+  background: #000a92;
+  border: 0;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.2s;
+  transform: translateZ(0);
+  width: 60%;
+  margin-top: 40%;
+  height: 20%;
 }
 .btnEdit:hover {
-    background-color: #000dbe;
-    border-bottom: 5pt solid;
-    font-size: 17pt;
-    border-image: linear-gradient(90deg, rgba(180, 0, 255, 1) 0%, rgba(0, 6, 255, 1) 33%, rgba(255, 0, 114, 1) 66%, rgba(255, 222, 0, 1) 100%);
-    border-image-slice: 100 0;
-    transform: scale(1.05);
-    box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
+  background-color: #000dbe;
+  border-bottom: 5pt solid;
+  font-size: 17pt;
+  border-image: linear-gradient(
+    90deg,
+    rgba(180, 0, 255, 1) 0%,
+    rgba(0, 6, 255, 1) 33%,
+    rgba(255, 0, 114, 1) 66%,
+    rgba(255, 222, 0, 1) 100%
+  );
+  border-image-slice: 100 0;
+  transform: scale(1.05);
+  box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
 }
-#bottomElements{
-    height: 60%;
-    padding: 0 0 0 2%;
+#bottomElements {
+  height: 60%;
+  padding: 0 0 0 2%;
 }
 .border {
-    width: 5pt;
-    margin: 5% 0;
-    background-image: url("./images/gradient.png");
-    background-size: cover;
+  width: 5pt;
+  margin: 5% 0;
+  background-image: url("./images/gradient.png");
+  background-size: cover;
 }
-.listasPerfil{
-    width: 98%;
-    margin: 1%;
-    height:96%;
+.listasPerfil {
+  width: 98%;
+  margin: 1%;
+  height: 96%;
 }
-.lista{
-    border-radius: 7px;
-    width:80%;
-    height:80%;
-    margin: 2% 10%;
-    overflow-y:scroll;
-    background-color:#000225;
+.lista {
+  border-radius: 7px;
+  width: 80%;
+  height: 80%;
+  margin: 2% 10%;
+  overflow-y: scroll;
+  background-color: #000225;
 }
-.itemLista{
-    display:flex;
-    padding:5px 10px;
-    margin: 10px 5px;
-    background-color:#000a92;
-    border-radius: 3px;
-    height:100px;
+.itemLista {
+  display: flex;
+  padding: 5px 10px;
+  margin: 10px 5px;
+  background-color: #000a92;
+  border-radius: 3px;
+  height: 100px;
 }
-.itemLista p{
-    color:white;
-    text-align:right;
+.itemLista p {
+  color: white;
+  text-align: right;
 }
-.itemLista div{
-    color:white;
-    margin:auto;
-    text-align:left;
+.itemLista div {
+  color: white;
+  margin: auto;
+  text-align: left;
 }

@@ -1,16 +1,14 @@
 <?php session_start();
 include("./auth/db.php");
 include 'auth/verificarLogin.php';
-if ($_GET["id"] != $_SESSION["id"])
-{
+if ($_GET["id"] != $_SESSION["id"]) {
     if (isset($_GET["id"]) == true) {
         $user = $pdo->query('SELECT * FROM user WHERE userID=' . $_GET["id"])->fetch();
         $dadosLanguages = $pdo->query("SELECT userLanguage FROM languages where userID=" . $_GET["id"])->fetchall();
         $languages = array_column($dadosLanguages, 0);
         $followers = $pdo->query("SELECT Count(*) as 'number' FROM follows where followedID=" . $user["userID"])->fetch();
-    } 
-}
-else header("location:./userProfile.php");
+    }
+} else header("location:./userProfile.php");
 ?>
 <html lang="en">
 
@@ -51,19 +49,16 @@ else header("location:./userProfile.php");
             </div>
             <div class="rightItems" style="max-height:80%;text-align:center;margin-right:2%;width:30%;">
                 <div style="display:flex;justify-content:space-between;">
-                    <p style="text-align:center; font-size: 15pt;"> Rating:</br><?= round($user["rating"],1) ?></p>
+                    <p style="text-align:center; font-size: 15pt;"> Rating:</br><?= round($user["rating"], 1) ?></p>
                     <p style="text-align:center; font-size: 15pt;"> Followers:</br><?= $followers["number"] ?></p>
                 </div>
                 <?php
                 $queryFollow = $pdo->query('SELECT Count(*) as "segue" FROM follows WHERE followedID=' . $user["userID"] . ' and followerID =' . $_SESSION["id"])->fetch()['segue'];
-                if($queryFollow != 0)
-                {
+                if ($queryFollow != 0) {
                     $followAge = $pdo->query('SELECT DISTINCT DATE(followDate) as "followDate" FROM follows WHERE followedID=' . $user["userID"] . ' and followerID =' . $_SESSION["id"])->fetch();
                     echo '<a href="./auth/unfollow.php?id=' . $user['userID'] . '"> <button class="btnEdit">Unfollow</button></a>
-                    <p style="margin-top:3pt;"> You follow: <b>' . $user['username']. '</b> <br/> since <b>' .$followAge["followDate"] . '</b></p>';
-                    
-                }
-                    else echo '<a href="./auth/follow.php?id=' . $user['userID']. '"><button class="btnEdit">Follow</button></a>';
+                    <p style="margin-top:3pt;"> You follow: <b>' . $user['username'] . '</b> <br/> since <b>' . $followAge["followDate"] . '</b></p>';
+                } else echo '<a href="./auth/follow.php?id=' . $user['userID'] . '"><button class="btnEdit">Follow</button></a>';
                 ?>
             </div>
         </div>
@@ -94,7 +89,7 @@ else header("location:./userProfile.php");
                         /*                                                           |               |-> buscar o ID dos que são seguidos; |                             |-> por este utilizador*/
                         $users = $pdo->query('SELECT * FROM user INNER JOIN follows on user.userID=follows.followedID where isAdmin = 0 and followerID=' . $user["userID"])->fetchAll();
                         foreach ($users as $user) {
-                            echo '<a href="profile.php?id='. $user['userID'].'" class="itemLista">
+                            echo '<a href="profile.php?id=' . $user['userID'] . '" class="itemLista">
                             <img src="' . $user['image'] . '" style="height:100px;"/>
                             <p>' . $user['username'] . '</p>
                             </a>';
