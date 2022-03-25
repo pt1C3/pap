@@ -1,67 +1,49 @@
 <div class="footer-container">
+        <div class="leftItems">
+            <div class="logoDesc">
+                <h1>
+                    LetsGame
+                </h1>
+                <p>
+                    Desc
+                </p>
+            </div>
+            <div class="redes sociais">
+                <h1>
+                    Redes sociais
+                </h1>
+                <div class="iconRedes">
+                    <p>
+                        rede1
+                    </p>
+                    <p>
+                        rede2
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="middleItems">
+            <h1>
+                Contact Us
+            </h1>
+            <a href="#">
+                <p>Bug Report</p>
+            </a>
+            <a href="#">
+                <p>Request a game</p>
+            </a>
+        </div>
+        <div class="rightItems">
+            <h1>About Us</h1>
+            <a href="#">
+                <p>F.A.Q.</p>
+            </a>
 
-  <table>
-    <thead>
-
-      <th>
-        <img src="./images/logo.png" style="width:100px">
-      </th>
-
-      <th>
-        Contact Us
-      </th>
-
-      <th>
-        About Us
-      </th>
-
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          Descrição***
-        </td>
-        <td>
-          Bug Report***
-        </td>
-        <td>
-          F.A.Q
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <h1>Redes Sociais</h1>
-        </td>
-
-        <td>
-          GAME REQUEST
-        </td>
-
-        <td>
-          Developers***
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <ul class="ulfoot">
-            <li class="lifoot">
-              img1
-            </li>
-            <li class="lifoot">
-              img2
-            </li>
-
-          </ul>
-        </td>
-        <td>
-
-        </td>
-
-        <td>Rafita e Nunito</td>
-      </tr>
-    </tbody>
-  </table>
+            <h1>Developers</h1>
+            <div class="devs">
+                <p>Rafita</p>
+                <p>Nunito</p>
+            </div>
+        </div>
 
 </div>

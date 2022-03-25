@@ -10,7 +10,7 @@
   height: 90%;
   overflow-x: hidden;
   overflow-y: scroll;
-background-color: transparent;
+  background-color: transparent;
 }
 
 .gameThumb {
@@ -19,10 +19,12 @@ background-color: transparent;
   width: 100%;
   margin-right: 5%;
   border: outset 2pt;
-  border-image-source: linear-gradient(45deg,
-      rgba(180, 0, 255, 1) 0%,
-      rgba(0, 6, 255, 1) 50%,
-      rgba(255, 0, 114, 1) 100%);
+  border-image-source: linear-gradient(
+    45deg,
+    rgba(180, 0, 255, 1) 0%,
+    rgba(0, 6, 255, 1) 50%,
+    rgba(255, 0, 114, 1) 100%
+  );
   border-image-slice: 100 0;
   border-image-slice: 1;
 }
@@ -71,7 +73,7 @@ background-color: transparent;
 
 #nextbutton {
   font-family: "Aldo";
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   margin-left: 37%;
   width: 20%;
@@ -90,7 +92,13 @@ background-color: transparent;
 #nextbutton:hover {
   background-color: #000dbe;
   border-bottom: 3pt solid;
-  border-image: linear-gradient(90deg, rgba(180, 0, 255, 1) 0%, rgba(0, 6, 255, 1) 33%, rgba(255, 0, 114, 1) 66%, rgba(255, 222, 0, 1) 100%);
+  border-image: linear-gradient(
+    90deg,
+    rgba(180, 0, 255, 1) 0%,
+    rgba(0, 6, 255, 1) 33%,
+    rgba(255, 0, 114, 1) 66%,
+    rgba(255, 222, 0, 1) 100%
+  );
   border-image-slice: 100 0;
   box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
 }
@@ -100,14 +108,22 @@ background-color: transparent;
   width: 100%;
   border-spacing: 0;
 }
-#usersList thead th{
+#usersList thead th {
   position: sticky;
-  top:0;
-   background-color:pink;
+  top: 0;
+  gap: 4px;
+  font-size: 14pt;
+  border: 2px solid #000a92;
+  background-color: #000a92;
+  text-decoration: none;
 }
 
-#usersList td, #usersList th {
-  border: 1px solid #ddd;
+#usersList td {
+  font-size: 12pt;
+  margin-bottom: 5px;
+  border-bottom: 2px solid #000a92;
+  text-align: center;
+  text-decoration: none;
 }
 
 #table-wrapper {
@@ -116,6 +132,5 @@ background-color: transparent;
   height: 30vh;
   width: 80%;
   margin-left: 10%;
-  background-color: rgba(0,0,0,0.5);
-
+  background-color: rgba(0, 0, 0, 0.5);
 }

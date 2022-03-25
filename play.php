@@ -40,15 +40,14 @@
         <table id="usersList">
           <thead>
             <tr>
-              <th><span class="text">Username</span></th>
+              <th style="border-top-left-radius: 8px;"><span class="text">Username</span></th>
               <th><span class="text">Languages</span></th>
               <th><span class="text">Rating</span></th>
               <th><span class="text">Sex</span></th>
-              <th><span class="text"></span></th>
             </tr>
           </thead>
           <tbody>
-           
+
             <?php
             if (isset($_GET["gameID"]) == true) {
               $users = $pdo->query("SELECT * FROM user, likedgames WHERE likedgames.gameID=" . $_GET["gameID"] . " and likedgames.userID= user.userID")->fetchAll();
@@ -61,11 +60,11 @@
                 $dadosLanguages = $pdo->query("SELECT userLanguage FROM languages where userID=" . $user["userID"])->fetchall();
                 $languages = array_column($dadosLanguages, 0);
                 echo '<tr>
-            <td>' . $user["username"] . '</td>
+                <td> <a href="./profile.php?id=' . $user["userID"] . '" target="_blank">' . $user["username"] . '</a></td>
             <td>' . implode(", ", $languages) . '</td>
             <td>' . round($user["rating"], 1) . '</td>
             <td>' . $user["sex"] . '</td>
-            <td> <a href="./profile.php?id=' . $user["userID"] . '" target="_blank">Profile</a></td>
+
             </tr>';
               }
             }
