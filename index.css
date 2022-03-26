@@ -37,8 +37,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-right: 2pt solid #1d29d1;
-  border-left: 2pt solid #1d29d1;
+  border-right: 2pt solid #1926da;
+  border-left: 2pt solid #1926da;
   animation: fadeInAnimation ease 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -55,7 +55,7 @@
 }
 
 .border {
-  width: 5pt;
+  width: 3pt;
   margin: 5% 0;
   background-image: url("./images/gradient.png");
   background-size: cover;
@@ -76,6 +76,7 @@
   height: 60%;
   font-size: 15pt;
   border-radius: 5%;
+
 }
 
 .games {
@@ -94,7 +95,7 @@
   font-weight: bold;
   text-transform: uppercase;
   outline: 0;
-  background: #000a92;
+  background: #2d34a1;
   width: 30%;
   border: 0;
   padding: 15px;
@@ -107,7 +108,7 @@
 }
 
 .play:hover {
-  background-color: #000dbe;
+  background-color: #1926da;
   border-bottom: 3pt solid;
   font-size: 25pt;
   border-image: linear-gradient(

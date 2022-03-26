@@ -1,7 +1,6 @@
 <div class="nav-bar-container">
         <a href="index.php"><button class="logobtn"></button></a>
         <div class='right'>
-            <a href="?faq" class="FAQ">F.A.Q.</a>
             <?php
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 echo '<form action="pesquisa.php"  method="post">

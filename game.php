@@ -25,7 +25,7 @@ $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameI
     <?php include("./components/navbar.php"); ?>
     <div class='data'>
         <div id="gameInfo">
-            <img style="border: 3pt solid #000a92" src="<?= $game["thumbnail"] ?>">
+            <img style="border: 3pt solid #2d34a1" src="<?= $game["thumbnail"] ?>">
             <div class="userText">
                 <p class="userName"><?= $game["title"] ?></p>
                 <p> <?= $game["genre"] ?></p>

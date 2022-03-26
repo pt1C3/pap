@@ -35,14 +35,14 @@
         </div>
         <div class="rightItems">
             <h1>About Us</h1>
-            <a href="#">
+            <a href="./index.php?faq">
                 <p>F.A.Q.</p>
             </a>
 
             <h1>Developers:</h1>
             <div class="devs">
-              <h1 style="font-size:10pt;"><p>Rafita</p>
-                <p>Nunito</p></h1>
+            <p>Rafita</p>
+            <p>Nunito</p>
                 
             </div>
         </div>

@@ -25,6 +25,7 @@
 
     <div style="text-align:center;height:25vh;">
       <p style="font-size:30pt;align-self: center;padding-bottom:20px;">Choose your game</p>
+      <div class='gameWrapper'>
       <div class='games'>
         <?php
         foreach ($games as $game) {
@@ -33,6 +34,7 @@
 
         ?>
 
+      </div>
       </div>
     </div>
     <div>
@@ -60,11 +62,11 @@
                 $dadosLanguages = $pdo->query("SELECT userLanguage FROM languages where userID=" . $user["userID"])->fetchall();
                 $languages = array_column($dadosLanguages, 0);
                 echo '<tr>
-                <td> <a href="./profile.php?id=' . $user["userID"] . '" target="_blank">' . $user["username"] . '</a></td>
+                <td> <a style="color:white;" href="./profile.php?id=' . $user["userID"] . '" target="_blank">' . $user["username"] . '</a></td>
             <td>' . implode(", ", $languages) . '</td>
             <td>' . round($user["rating"], 1) . '</td>
             <td>' . $user["sex"] . '</td>
-
+            <td>button para selecionar</td>
             </tr>';
               }
             }

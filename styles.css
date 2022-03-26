@@ -12,11 +12,16 @@
   margin: 0;
   padding: 0;
 }
+html{
+  background-color: #0d0e20;
+}
 
 body {
   -webkit-font-smoothing: antialiased;
-  background-image: linear-gradient(0deg, rgb(45, 52, 161) 0%,  #0d0e20 100%);
-  background-size: cover;
+  background-color: #e5e5f7;
+  opacity: 0.8;
+  background-size: 10px 10px;
+  background-image: repeating-linear-gradient(45deg, #0d0e20 0, #0d0e20 1px, #2d3386 0, #2d3386 50%);
   background-attachment: fixed;
   color: white;
   font-family: "ReadexPro";
@@ -25,7 +30,7 @@ body {
 
 * {
   scrollbar-width: auto;
-  scrollbar-color: #0084ff #ffffff;
+  scrollbar-color: #2d34a1 #000;
 }
 
 /* Chrome, Edge, and Safari */
@@ -34,15 +39,15 @@ body {
 }
 
 *::-webkit-scrollbar-track {
-  background: #000225;
+  background: #0d0e20;
   border-radius: 0 7px 7px 0;
-  border-left: 2px solid #000a92;
+  border-left: 2px solid #161a47;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #000a92;
+  background-color: #2d34a1;
   border-radius: 0 7px 7px 0;
-  border: 2px solid #000a92;
+  border: 2px solid #0d0e20;
 }
 
 .logobtn {
@@ -59,7 +64,7 @@ body {
 .logobtn:hover {
   background-image: url("./images/logo hover.png");
   transform: scale(1.1);
-  filter: brightness(110%) saturate(120%);
+  filter: brightness(110%) saturate(100%);
 }
 
 .login-button,
@@ -70,7 +75,7 @@ body {
   color: white;
   width: auto;
   height: 25pt;
-  background-color: #000a92;
+  background-color: #2d34a1;
   border-radius: 5%;
   color: white;
   border-style: none;
@@ -93,7 +98,7 @@ body {
     rgba(255, 222, 0, 1) 100%
   );
   border-image-slice: 100 0;
-  background-color: #000dbe;
+  background-color: #1926da;
   transform: scale(1.1);
   box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
 }
@@ -165,13 +170,13 @@ body {
   height: 20pt;
   margin-right: 2%;
   padding: 3pt;
-  background-color: #000a92;
+  background-color: #2d34a1;
   border-radius: 10%;
   transition: 0.2s;
   transform: translateZ(0);
 }
 .searchBTN:hover {
-  background-color: #000dbe;
+  background-color: #1926da;
   border-bottom: 2pt solid;
   border-image: linear-gradient(
     90deg,
@@ -181,13 +186,13 @@ body {
     rgba(255, 222, 0, 1) 100%
   );
   border-image-slice: 100 0;
-  background-color: #000dbe;
+  background-color: #1926da;
   box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
 }
 
 .nav_User {
   color: white;
-  background-color: #000a92;
+  background-color: #2d34a1;
   max-width: 30%;
   height: 35pt;
   display: flex;
@@ -201,7 +206,7 @@ body {
   text-decoration: none;
 }
 .nav_User:hover {
-  background-color: #000dbe;
+  background-color: #1926da;
   border-bottom: 2pt solid;
   border-image: linear-gradient(
     90deg,
@@ -215,7 +220,7 @@ body {
   box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
 }
 .nav_userAvatar {
-  border: 2pt solid #000a92;
+  border: 2pt solid #2d34a1;
   border-radius: 5%;
   width: 30pt;
   margin-right: 2%;

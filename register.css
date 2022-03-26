@@ -3,11 +3,11 @@
   text-align: center;
   padding-top: 15vh;
   width: 80%;
-  background-color: #000438;
+  background-color: #181b3f;
   margin-left: 10%;
   height: 85vh;
-  border-right: 2pt solid #000a92;
-  border-left: 2pt solid #000a92;
+  border-right: 2pt solid #1926da;
+  border-left: 2pt solid #1926da;
   animation: fadeInAnimation ease 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -69,7 +69,7 @@
   font-weight: bold;
   text-transform: uppercase;
   outline: 0;
-  background: #000a92;
+  background: #2d34a1;
   width: 60%;
   border: 0;
   padding: 15px;
@@ -81,7 +81,7 @@
 }
 
 .Register-form .button:hover {
-  background-color: #000dbe;
+  background-color: #1926da;
   border-bottom: 5pt solid;
   font-size: 17pt;
   border-image: linear-gradient(
