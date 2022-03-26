@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="indexTest.css">
+    <link rel="stylesheet" href="homePage.css">
     <link rel="stylesheet" href="styles.css">
     <title>LetsGame</title>
 </head>
@@ -25,17 +25,21 @@
     </div>
     <div class="right" style="top:0;right:0; position:absolute;z-index:5;margin-top:3%;margin-right:5%">
         <a href="register.php">
-            <button class="register-button">REGISTER</button>
+            <button class="register">REGISTER</button>
         </a>
 
         <a href="login.php">
-            <button class="login-button">LOGIN</button>
+            <button class="login">LOGIN</button>
         </a>
     </div>
     <div style="bottom:0;left:0; position:absolute;z-index:5;margin-bottom:10%;margin-left:5%">
     <img src="./images/logo.png">
     <p>vuedas textooooooooooooooooos</p>
     </div>
+    
+    <a style="position:absolute;right:0;bottom:0;margin-bottom:10%;margin-right:5%" href="index.php">
+            <button class="next">Next</button>
+    </a>
 
     <br>
 
@@ -64,7 +68,7 @@
 
             setInterval(function() {
                 nextSlide()
-            }, 2000);
+            }, 5000);
 
         };
 

@@ -1,0 +1,86 @@
+  #slider {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      border-bottom: 5pt white solid;
+      border-image: linear-gradient(
+        90deg,
+        rgba(180, 0, 255, 1) 0%,
+        rgba(0, 6, 255, 1) 33%,
+        rgba(255, 0, 114, 1) 66%,
+        rgba(255, 222, 0, 1) 100%
+      );
+      border-image-slice: 60 30;
+      box-sizing: border-box;
+  }
+
+  #slider ul {
+      position: relative;
+      list-style: none;
+      height: 100%;
+      width: 10000%;
+      padding: 0;
+      margin: 0;
+      transition: all 1s ease;
+      left: 0;
+  }
+
+  #slider ul li {
+      position: relative;
+      height: 100vh;
+
+      float: left;
+  }
+
+  #slider ul li img {
+      width: 100vw;
+      height: 100vh;
+      filter:saturate(0.5) brightness(30%);
+  }
+.next{
+  font-family: "Aldo";
+  color: white;
+  width: auto;
+  background-color: transparent;
+  border-radius: 5%;
+  color: white;
+  border-style: none;
+  padding: 5pt;
+  transition: 0.2s;
+  transform: translateZ(0);
+  margin-right: 2%;
+  font-size: 30pt;
+  height:45pt;
+
+}
+.next:hover{
+  border-image-slice: 100 0;
+  background-color: rgba(255,255, 255, 0.3);
+  transform: scale(1.1);
+
+}
+  .login,
+  .register{
+    font-family: "Aldo";
+    font-size: 15pt;
+    color: white;
+    width: auto;
+    height: 25pt;
+    background-color: transparent;
+    border-radius: 5%;
+    color: white;
+    border-style: none;
+    padding: 4pt;
+    transition: 0.2s;
+    transform: translateZ(0);
+    margin-right: 2%;
+    display: inline;
+  }
+
+  .login:hover,
+  .register:hover{
+    border-image-slice: 100 0;
+    background-color: rgba(255,255, 255, 0.3);
+    transform: scale(1.1);
+  }

@@ -20,9 +20,8 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: #e5e5f7;
   opacity: 0.8;
-  background-size: 10px 10px;
-  background-image: repeating-linear-gradient(45deg, #0d0e20 0, #0d0e20 1px, #2d3386 0, #2d3386 50%);
-  background-attachment: fixed;
+  background-image: linear-gradient(0deg,  #0d0e20 0%,rgb(45, 52, 161) 100%);
+  background-size: cover;
   color: white;
   font-family: "ReadexPro";
   overflow-x: hidden;
