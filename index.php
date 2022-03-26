@@ -14,6 +14,9 @@
     include './components/navbar.php';
     include './auth/db.php';
     $games = $pdo->query('SELECT * FROM games ORDER BY rating DESC LIMIT 4;')->fetchAll();
+
+    $BestRatedGames = $pdo->query('SELECT * FROM games ORDER BY rating DESC LIMIT 4;')->fetchAll();
+    $BestRatedUsers = $pdo->query('SELECT * FROM user ORDER BY rating DESC LIMIT 4;')->fetchAll();
     ?>
 
 
@@ -22,7 +25,6 @@
         <div style="display:flex;">
             <div class='about'>
                 <h1>About us</h1>
-                <p></p>
             </div>
             <div class='border'></div>
             <div class='games'>
@@ -42,6 +44,43 @@
                 <a class="play" href="play.php">Play</a>';
         }
         ?>
+
+
+        <div>
+            <h1 style="text-align: left;margin-left:4%;font-size:25pt;">Best Rated Users</h1>
+            <div style="display: flex;padding:2%;gap:2%">
+
+                <?php foreach ($BestRatedUsers as $BestRatedUser) : ?>
+
+                    <?php echo '<a href="profile.php?id=' . $BestRatedUser['userID'] . '"><img src="' . $BestRatedUser['image'] . '" class="userThumb"/>
+                    <p class="rating" style="font-size:20pt;">' . $BestRatedUser['username'] . '</p>
+                    <p class="rating">Rating:' . $BestRatedUser['rating'] . '</p>
+                    </a>' ?>
+
+                <?php endforeach; ?>
+
+            </div>
+        </div>
+
+        <div>
+            <h1 style="text-align: left;margin-left:4%;font-size:25pt;">Best Rated Games</h1>
+            <div style="display: flex;padding:2%;gap:2%">
+
+                <?php foreach ($BestRatedGames as $BestRatedGame) : ?>
+
+                    <?php echo '<a href="game.php?id=' . $BestRatedGame['gameID'] . '"><img src="' . $BestRatedGame['thumbnail'] . '" class="gameThumb"/>
+                    <p class="rating" style="font-size:18pt;">' . $BestRatedGame['title'] . '</p>
+                    <p class="rating">Rating:' . $BestRatedGame['rating'] . '</p>
+                    </a>' ?>
+
+                <?php endforeach; ?>
+
+            </div>
+        </div>
+
+
+
+
 
     </div>
 
