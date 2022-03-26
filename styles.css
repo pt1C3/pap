@@ -15,11 +15,12 @@
 
 body {
   -webkit-font-smoothing: antialiased;
-  background-image: url("./images/bg.png");
+  background-image: linear-gradient(0deg, rgb(45, 52, 161) 0%,  #0d0e20 100%);
   background-size: cover;
   background-attachment: fixed;
   color: white;
   font-family: "ReadexPro";
+  overflow-x: hidden;
 }
 
 * {
@@ -123,9 +124,9 @@ body {
   align-items: center;
   width: 99%;
   padding: 5pt;
-  background-color: #000438;
+  background-color: #0d0e20;
   height: 40pt;
-  border-bottom: 3pt white solid;
+  border-bottom: 2pt white solid;
   border-image: linear-gradient(
     90deg,
     rgba(180, 0, 255, 1) 0%,
@@ -223,17 +224,13 @@ body {
 }
 .footer-container {
   position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 99%;
-  font-size: 7pt;
+  width: 100%;
+  font-size: 10pt;
   padding: 5pt;
-  background-color: #181b3f;
-  height: 15vh;
+  background-color: #0d0e20;
+  height: 20vh;
   color: rgba(255, 255, 255, 0.8);
-  border-top: 1pt white solid;
+  border-top: 2pt white solid;
   border-image: linear-gradient(
     90deg,
     rgba(180, 0, 255, 1) 0%,
@@ -246,8 +243,17 @@ body {
   display: grid;
   gap: 5%;
   grid-template-columns: repeat(3, 1fr);
+  align-items: start;
 }
-.footer-container :visited {
+.footer-container h1{
+  font-size: 16pt;
+  margin-top: 10pt;
+}
+.footer-container a {
+
+  color: rgba(255, 255, 255, 0.8);
+}
+.footer-container a:visited {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.8);
 }

@@ -4,7 +4,7 @@
                 <h1>
                     LetsGame
                 </h1>
-                <p style="font-size: 10pt;">
+                <p>
                    All rights reserved to the developers below.
                 </p>
             </div>
@@ -26,10 +26,10 @@
             <h1>
                 Contact Us
             </h1>
-            <a href="#" style="font-size: 12pt;">
+            <a href="#">
                 <p>Bug Report</p>
             </a>
-            <a href="#"  style="font-size: 12pt;">
+            <a href="#">
                 <p>Request a game</p>
             </a>
         </div>

@@ -31,14 +31,14 @@
   padding-top: 80pt;
   padding-bottom: 60pt;
   width: 80%;
-  background-color: #000438;
+  background-color: #181b3f;
   margin-left: 10%;
   height: calc(100vh - 100pt);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-right: 2pt solid #000a92;
-  border-left: 2pt solid #000a92;
+  border-right: 2pt solid #1d29d1;
+  border-left: 2pt solid #1d29d1;
   animation: fadeInAnimation ease 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
