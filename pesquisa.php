@@ -15,7 +15,7 @@
     $search  = $_POST['search'];
     ?>
     <div class="data">
-        <?php echo '<h2 style="padding-top:50pt">You searched for: "' . $search . '".</h2>'; ?>
+        <?php echo '<h2 style="margin-top:3%;margin-left:10%;">You searched for: "' . $search . '".</h2>'; ?>
         <div class="lista">
             <?php
             $users = $pdo->query('SELECT * FROM user where isAdmin = 0 and username like "%' . $search . '%"')->fetchAll();

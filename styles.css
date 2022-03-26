@@ -127,7 +127,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 99%;
+  width: 100%;
   padding: 5pt;
   background-color: #0d0e20;
   height: 40pt;
@@ -160,7 +160,7 @@ body {
 }
 .search {
   font-family: "ReadexPro";
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
   width: 80%;
   font-size: 12pt;
   border: 1px red solid;
@@ -171,7 +171,7 @@ body {
   margin-right: 2%;
   padding: 3pt;
   background-color: #2d34a1;
-  border-radius: 10%;
+  border-radius: 0 5px 5px 0;
   transition: 0.2s;
   transform: translateZ(0);
 }
@@ -199,7 +199,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-right: 2%;
-  border-radius: 5%;
+  border-radius: 5px;
   transition: 0.2s;
   transform: translateZ(0);
   cursor: pointer;
@@ -227,6 +227,8 @@ body {
   transition: 0.2s;
   transform: translateZ(0);
 }
+
+
 .footer-container {
   position: absolute;
   width: 100%;
@@ -266,12 +268,3 @@ body {
 .iconRedes p {
   display: inline;
 }
-/*Navbar*/
-
-/*Home Page before Login*/
-
-/*Login Page*/
-
-/*Register Page*/
-
-/*Profile Page */

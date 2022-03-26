@@ -1,11 +1,11 @@
 <div class="footer-container">
-        <div class="leftItems">
+        <div class="leftItems" style="text-align:left;">
             <div class="logoDesc">
                 <h1>
                     LetsGame
                 </h1>
                 <p>
-                   All rights reserved to the developers below.
+                The place where you can find the perfect partners for your favorite games. This is the perfect place for you to find people to play with.
                 </p>
             </div>
             <div class="redes sociais">
@@ -33,7 +33,7 @@
                 <p>Request a game</p>
             </a>
         </div>
-        <div class="rightItems">
+        <div class="rightItems" style="text-align:right; margin-right:1vw">
             <h1>About Us</h1>
             <a href="./index.php?faq">
                 <p>F.A.Q.</p>

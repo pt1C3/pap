@@ -22,7 +22,7 @@
         <div style="display:flex;">
             <div class='about'>
                 <h1>About us</h1>
-                <p><b>Let's Game!</b> is a app where you can find the perfect partners for your favorite games. This is the perfect place for you to find people to play with.</p>
+                <p></p>
             </div>
             <div class='border'></div>
             <div class='games'>
