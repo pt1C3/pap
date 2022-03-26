@@ -34,7 +34,7 @@
     </div>
     <div style="bottom:0;left:0; position:absolute;z-index:5;margin-bottom:10%;margin-left:5%">
     <img src="./images/logo.png">
-    <p>vuedas textooooooooooooooooos</p>
+    <p>The place where you can find the perfect partners for your favorite games.<br> This is the perfect place for you to find people to play with.</p>
     </div>
 
     <br>
