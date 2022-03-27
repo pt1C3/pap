@@ -1,13 +1,11 @@
 .games {
-  width: 100%;
+  width: 97%;
   padding: 2%;
-
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2%;
   align-self: center;
   margin-bottom: 100px;
-
 
 }
 .gameWrapper{
@@ -20,7 +18,7 @@
 }
 .gameThumb {
 padding: 0;
-  width: 100%;
+  width: 90%;
   margin-right: 5%;
   border: outset 2pt;
   border-image-source: linear-gradient(
