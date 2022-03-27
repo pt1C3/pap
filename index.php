@@ -40,21 +40,21 @@
 <h1 style="text-align: left;width:100%;font-size:25pt;text-align:center;">User Leaderboard</h1>
             <div class="containerTop" ><!--Container para o top 5 -->
             <div class="userTop Top4">
-            <a href="profile.php?id=<?= $BestRatedUsers[0]['userID']?>">
+            <a href="profile.php?id=<?= $BestRatedUsers[3]['userID']?>">
                 <div>
-                    <img src="<?= $BestRatedUsers[0]['image']?>">
-                    <p><?= $BestRatedUsers[0]['username']?></p>
-                    <p style="font-size:12pt">Rating: <?= round($BestRatedUsers[0]['rating'],1)?></p>
+                    <img src="<?= $BestRatedUsers[3]['image']?>">
+                    <p><?= $BestRatedUsers[3]['username']?></p>
+                    <p style="font-size:12pt">Rating: <?= round($BestRatedUsers[3]['rating'],1)?></p>
                     <p><b>4</b></p>
                     
                 </div></a>
             </div>
             <div class="userTop Top2">
-            <a href="profile.php?id=<?= $BestRatedUsers[0]['userID']?>">
+            <a href="profile.php?id=<?= $BestRatedUsers[1]['userID']?>">
                 <div>
-                    <img src="<?= $BestRatedUsers[0]['image']?>">
-                    <p><?= $BestRatedUsers[0]['username']?></p>
-                    <p style="font-size:12pt">Rating: <?= round($BestRatedUsers[0]['rating'],1)?></p>
+                    <img src="<?= $BestRatedUsers[1]['image']?>">
+                    <p><?= $BestRatedUsers[1]['username']?></p>
+                    <p style="font-size:12pt">Rating: <?= round($BestRatedUsers[1]['rating'],1)?></p>
                     <p><b>2</b></p>
                     
                 </div></a>
@@ -72,21 +72,21 @@
             </div>
 
             <div class="userTop Top3">
-            <a href="profile.php?id=<?= $BestRatedUsers[0]['userID']?>">
+            <a href="profile.php?id=<?= $BestRatedUsers[2]['userID']?>">
                 <div>
-                    <img src="<?= $BestRatedUsers[0]['image']?>">
-                    <p><?= $BestRatedUsers[0]['username']?></p>
-                    <p style="font-size:12pt">Rating: <?= round($BestRatedUsers[0]['rating'],1)?></p>
+                    <img src="<?= $BestRatedUsers[2]['image']?>">
+                    <p><?= $BestRatedUsers[2]['username']?></p>
+                    <p style="font-size:12pt">Rating: <?= round($BestRatedUsers[2]['rating'],1)?></p>
                     <p><b>3</b></p>
                     
                 </div></a>
             </div>
             <div class="userTop Top5">
-            <a href="profile.php?id=<?= $BestRatedUsers[0]['userID']?>">
+            <a href="profile.php?id=<?= $BestRatedUsers[4]['userID']?>">
                 <div>
-                    <img src="<?= $BestRatedUsers[0]['image']?>">
-                    <p><?= $BestRatedUsers[0]['username']?></p>
-                    <p style="font-size:12pt">Rating: <?= round($BestRatedUsers[0]['rating'],1)?></p>
+                    <img src="<?= $BestRatedUsers[4]['image']?>">
+                    <p><?= $BestRatedUsers[4]['username']?></p>
+                    <p style="font-size:12pt">Rating: <?= round($BestRatedUsers[4]['rating'],1)?></p>
                     <p><b>5</b></p>
                     
                 </div></a>
