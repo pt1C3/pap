@@ -35,17 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="nav-bar-container">
         <a href="index.php"><button class="logobtn"></button></a>
         <div class='right'>
-
-            <?php
-            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                echo '<form action="faq.php"  method="post">
-    <input name="search" type="text" class="search" placeholder="Search Users..."/>
-    <input class="searchBTN" type="image" src="./images/lupa.png"/></form>
-    <a href="?faq" class="FAQ">F.A.Q.</a>
-    <a href="./auth/logout.php"><button class="logout-button">LOGOUT</button></a>';
-            } else {;
-                echo '<a href="login.php"><button class="login-button">LOGIN</button></a>';
-            } ?>
+            <?= '<a href="login.php"><button class="login-button">LOGIN</button></a>'; ?>
         </div>
     </div>
     <!--Navbar-->
@@ -56,12 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="dataRegister">
         <h1>Register</h1>
-        <form class="register-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <form id="register-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <p id="usernameError" style="color: red"><?php echo $usernameerror ?></p>
-            <input type="text" placeholder="Username" name="username" value="<?php echo $username ?>" />
+            <input id="username" type="text" placeholder="Username" name="username" value="<?php echo $username ?>" />
             <p id="passwordError" style="color: red"><?php echo $passworderror ?></p>
-            <input type="password" placeholder="Password" name="password" value="<?php echo $password ?>" />
-            <input type="password" placeholder="Confirm Password" name="confirmpassword" value="<?php echo $confirmpassword ?>" />
+            <input id="password" type="password" placeholder="Password" name="password" value="<?php echo $password ?>" />
+            <input id="confirm" type="password" placeholder="Confirm Password" name="confirmpassword" value="<?php echo $confirmpassword ?>" />
 
             <input type="submit" class="button" value="REGISTER">
 
@@ -69,20 +59,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
 
     </div>
+    <p id="Invisivel">Registo bem feito fase 2 aparece div com o resto</p>
     <!--Register Page-->
 
     <?php include './components/footer.php'; ?>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script>
-    window.onload = function() {
+    const initialForm = document.querySelector("#register-form");
 
-        var passwordError = document.getElementById('usernameError');
-        var usernameError = document.getElementById('passwordError');
-        if (passwordError == null || passwordError != "") passwordError.style.visibility = "visible";
-        passwordError.style.pointerEvents = "all";
-        if (usernameError == null || usernameError != "") usernameError.style.visibility = "visible";
-        usernameError.style.pointerEvents = "all";
+
+    // Manda guardar um registo na tabela
+    function insertDataTable(e) {
+        // prevent form loading
+        e.preventDefault();
+
+        const inputUsername = document.querySelector("#username");
+        const inputPassword = document.querySelector("#password");
+        const inputConfirm = document.querySelector("#confirm");
+        const errorUsername = document.querySelector("#usernameError");
+        const errorPassword = document.querySelector("#passwordError");
+
+        const final = document.querySelector("#Invisivel");
+
+        var formData = new FormData(initialForm);
+
+        // verifica se os campos não foram preenchidos
+        if (inputPassword.value == "" && inputUsername.value == "" && inputConfirm.value == "") {
+            errorPassword.style.visibility = "visible";
+            errorPassword.innerHTML = "Write something...";
+        } else {
+            $.ajax({
+                url: "./auth/registValidation.php",
+                type: "post",
+                data: formData,
+                success: function(data) {
+                    // data guarda o valor 1 ou 0
+                    final.style.visibility = "visible";
+                    initialForm.style.visibility = "hidden";
+                }
+            });
+        }
     }
+
+    // Ao carregar a página espera pelo eventos
+    document.addEventListener("DOMContentLoaded", function(event) {
+
+
+        initialForm.addEventListener("submit", function(event) {
+            insertDataTable(event);
+        });
+    });
 </script>
 
 </html>
