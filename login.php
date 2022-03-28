@@ -1,6 +1,8 @@
 <?php
 include './auth/db.php';
 session_start();
+session_destroy();
+session_start();
 if (isset($_SESSION["id"]) == true) header("location:./");
 $username = $password  = "";
 $usernameerror = $passworderror = "";
@@ -35,11 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="nav-bar-container">
         <a href="index.php"><button class="logobtn"></button></a>
         <div class='right'>
-            <a href="/faq" class="FAQ">F.A.Q.</a>
             <a href="register.php"><button class="register-button">REGISTER</button></a>
         </div>
     </div>
     <!--Navbar-->
+    
     <!--Login Page-->
 
     <div class="dataLogin">

@@ -1,5 +1,8 @@
 <?php
 include './auth/db.php';
+session_start(); 
+session_destroy(); //se ja tiver sessao iniciada ou registo inacabado reseta a sessao
+session_start();
 $username = $password  = $confirmpassword  = "";
 $usernameerror = $passworderror = "";
 
@@ -14,9 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!($confirmpassword == $password)) $passworderror .= "Passwords do not match...";
     if (is_null($Existusername['username']) == false) $usernameerror .= "Username Already Exists...";
 
-    if ($usernameerror == "" && $passworderror == "") {
-        header("./accountCreation.php");
-        include './auth/registerValues.php';
+    if ($usernameerror=="" && $passworderror=="") {
+        $_SESSION["username"] = $username;
+        $_SESSION["password"] = $password;
+        header("location:./accountCreation.php");
     }
 }
 
@@ -38,11 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?= '<a href="login.php"><button class="login-button">LOGIN</button></a>'; ?>
         </div>
     </div>
-    <!--Navbar-->
-
-    <!--Login Page-->
-
-
 
     <div class="dataRegister">
         <h1>Register</h1>
@@ -59,57 +58,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
 
     </div>
-    <p id="Invisivel">Registo bem feito fase 2 aparece div com o resto</p>
+
     <!--Register Page-->
 
     <?php include './components/footer.php'; ?>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script>
-    const initialForm = document.querySelector("#register-form");
+    window.onload = function() {
 
-
-    // Manda guardar um registo na tabela
-    function insertDataTable(e) {
-        // prevent form loading
-        e.preventDefault();
-
-        const inputUsername = document.querySelector("#username");
-        const inputPassword = document.querySelector("#password");
-        const inputConfirm = document.querySelector("#confirm");
-        const errorUsername = document.querySelector("#usernameError");
-        const errorPassword = document.querySelector("#passwordError");
-
-        const final = document.querySelector("#Invisivel");
-
-        var formData = new FormData(initialForm);
-
-        // verifica se os campos não foram preenchidos
-        if (inputPassword.value == "" && inputUsername.value == "" && inputConfirm.value == "") {
-            errorPassword.style.visibility = "visible";
-            errorPassword.innerHTML = "Write something...";
-        } else {
-            $.ajax({
-                url: "./auth/registValidation.php",
-                type: "post",
-                data: formData,
-                success: function(data) {
-                    // data guarda o valor 1 ou 0
-                    final.style.visibility = "visible";
-                    initialForm.style.visibility = "hidden";
-                }
-            });
-        }
+            var passwordError = document.getElementById('usernameError');
+            var usernameError = document.getElementById('passwordError');
+            if (passwordError == null || passwordError != "") passwordError.style.visibility = "visible";
+            passwordError.style.pointerEvents = "all";
+            if (usernameError == null || usernameError != "") usernameError.style.visibility = "visible";
+            usernameError.style.pointerEvents = "all";
     }
-
-    // Ao carregar a página espera pelo eventos
-    document.addEventListener("DOMContentLoaded", function(event) {
-
-
-        initialForm.addEventListener("submit", function(event) {
-            insertDataTable(event);
-        });
-    });
 </script>
-
 </html>

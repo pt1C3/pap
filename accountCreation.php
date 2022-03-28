@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+if(isset($_SESSION["username"])==false || isset($_SESSION["password"])==false) header("location:./register.php")?>
 <html>
 
 <head>
@@ -9,7 +12,13 @@
 
 <body>
     <!--Navbar-->
-    <?php include '.components/navbar.php'; ?>
+    <?php 
+    include './components/navbar.php'; 
+
+    $username = $_SESSION["username"];
+    $password = $_SESSION["password"];
+
+    ?>
     <!--Navbar-->
 
     <!--Login Page-->
@@ -18,12 +27,26 @@
 
     <div class="dataRegister">
         <h1>Register</h1>
-        <form class="register-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <p id="usernameError" style="color: red"><?php echo $usernameerror ?></p>
-            <input type="text" placeholder="Username" name="username" value="<?php echo $username ?>" />
-            <p id="passwordError" style="color: red"><?php echo $passworderror ?></p>
-            <input type="password" placeholder="Password" name="password" value="<?php echo $password ?>" />
-            <input type="password" placeholder="Confirm Password" name="confirmpassword" value="<?php echo $confirmpassword ?>" />
+        <form class="register-form" action="./auth/accountRegist.php" method="post" enctype="multipart/form-data">
+        <p><?= $username ?></p>
+        <p><?= $password ?></p>
+            <input type="email" placeholder="Email" name="email" required/><br>
+            <input type="text" placeholder="Name" name="name" /><br>
+            <input type="date"  name="birthdate" /><br>
+            <input type="radio"  name="sex" value="Male" />
+            <label for="male">Male</label><br>
+            <input type="radio"  name="sex" value="Female" />
+            <label for="female">Female</label><br>
+            <input type="radio"  name="sex" value="Other" />
+            <label for="other">Other</label><br>
+            <input type="text" placeholder="Steam Profile Link" name="steam" /><br>
+            <input type="text" placeholder="Epic Games ID" name="epic" /><br>
+            <input type="text" placeholder="Uplay ID" name="uplay" /><br>
+            <input type="text" placeholder="Country" name="country" /><br>
+
+            <input type="file" id="image" name="image"  accept="image/png, image/jpeg"><br>
+
+            <input type="text" name="biography" placeholder="Biography">
 
             <input type="submit" class="button" value="REGISTER">
 
