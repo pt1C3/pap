@@ -3,10 +3,6 @@ session_start();
 include './db.php';
 $null = null;
 $userID = $pdo->query("SELECT userID FROM user ORDER BY userID DESC LIMIT 1")->fetch()["userID"] + 1;
-$file_temp = $_FILES['image']['tmp_name'];
-$file_name = $_FILES['image']['name'];
-$file_separated = explode('.', $file_name);
-$file_extension = end($file_separated);
 
 $query = $pdo->prepare("INSERT INTO user (username, password,email,name,birthdate,sex,steamprofile,epicprofile,uplay,country,image,biography)
 VALUES (:username, :password,:email,:name,:birthdate,:sex,:steamprofile,:epicprofile,:uplay,:country,:image,:biography)");
@@ -29,17 +25,46 @@ else $query->bindParam(':uplay', $_POST["uplay"]);
 
 $query->bindParam(':country', $_POST["country"]);
 
-$file_temp = $_FILES['image']['tmp_name'];
-$file_separated = explode('.', $file_name);
-$file_extension = end($file_separated);
 
-$file_path = $_SERVER['DOCUMENT_ROOT'] . "/pap/images/utilizadores/". $userID. "." . $file_extension;
-$query->bindParam(':image', $file_path);
-move_uploaded_file($file_temp, $file_path);
+
+
+
 
 
 if(isset($_POST["biography"])==false|| $_POST["biography"] == "" || $_POST["biography"] == " ")$query->bindParam(':biography',$null);
 else $query->bindParam(':biography', $_POST["biography"]); 
+
+
+$file_temp = $_FILES['image']['tmp_name'];
+$file_name = $_FILES['image']['name'];
+$file_separated = explode('.', $file_name);
+$file_extension = end($file_separated);
+
+$file_path = "../../pap/images/utilizadores/". $userID. ".png";
+
+if($file_extension == "png")$imageNcrop = imagecreatefrompng($file_temp);
+else if ($file_extension == "jpg" || $file_extension == "jpeg") $imageNcrop =imagecreatefromjpeg($file_temp);
+
+$size = min(imagesx($imageNcrop), imagesy($imageNcrop));
+if($size == imagesx($imageNcrop))
+{
+
+    $imCrop = imagecrop($imageNcrop, ['x' => 0, 'y' => ((imagesy($imageNcrop)-$size)/2), 'width' => $size, 'height' => $size]);   
+    echo '<p>passei onde o x é minimo</p>';
+}
+else if($size == imagesy($imageNcrop)){
+    $imCrop = imagecrop($imageNcrop, ['x' =>((imagesx($imageNcrop)-$size)/2), 'y' => 0, 'width' => $size, 'height' => $size]);    
+    echo '<p>passei onde o y é minim</p>';
+}
+if ($imCrop !== FALSE) {
+    imagepng($imCrop, $file_path);
+}
+imagedestroy($imageNcrop);
+imagedestroy($imCrop);
+
+$query->bindParam(':image', $file_path);
 $query->execute();
-header("location:../login.php")
+
+header("location:../login.php");
+
 ?>
