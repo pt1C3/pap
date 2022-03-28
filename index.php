@@ -13,6 +13,9 @@
     session_start();
     include './components/navbar.php';
     include './auth/db.php';
+
+
+
     $games = $pdo->query('SELECT * FROM games ORDER BY rating DESC LIMIT 4;')->fetchAll();
 
     $BestRatedGames = $pdo->query('SELECT * FROM games ORDER BY rating DESC LIMIT 4;')->fetchAll();
