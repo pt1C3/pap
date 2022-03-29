@@ -243,8 +243,8 @@ if (isset($_SESSION["username"]) == false || isset($_SESSION["password"]) == fal
                 <option value='Zambia'>Zambia</option>
                 <option value='Zimbabwe'>Zimbabwe</option>
             </select><br>
-            <p style="padding-right:30%;padding-bottom:10px">Profile Image:</p>
-            <input type="file" id="image" name="image" accept="image/png, image/jpeg" required><br>
+            <label class="imgbutton" for="image" >Profile Image</label>    
+            <input  type="file" id="image" name="image" accept="image/png, image/jpeg" required><br>
             <input type="text" name="biography" placeholder="Biography" style="width:40%;text-align:left;">
             <br>
             <input type="submit" class="button" value="CREATE ACCOUNT" >

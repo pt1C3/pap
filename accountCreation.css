@@ -1,6 +1,6 @@
 .dataRegister{
   padding-bottom: 60vh;
-  
+  z-index: 0  ;
 }
 .register-form input{
   
@@ -83,4 +83,28 @@
 .sex input{
   width: 20px;
   margin-right: 100px;
+}
+#image{
+z-index: -2;
+opacity: 0;
+pointer-events: none;
+width: 0.1;
+height: 0.1;
+padding-top:20px;padding-bottom:35px;
+}
+#image hover{
+  border: 3px solid rgb(185, 185, 185);
+  background-color: #131eb6;
+}
+.imgbutton{
+  outline: 0;
+  background: transparent;
+  color: white;
+  border: 0;
+  padding: 15px;
+  border: 3px solid white;
+  box-sizing: border-box;
+  font-size: 13pt;
+  font-family: ReadexPro;
+  border-radius: 5px;
 }
