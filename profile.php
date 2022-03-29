@@ -7,6 +7,7 @@ if ($_GET["id"] != $_SESSION["id"]) {
         $dadosLanguages = $pdo->query("SELECT userLanguage FROM languages where userID=" . $_GET["id"])->fetchall();
         $languages = array_column($dadosLanguages, 0);
         $followers = $pdo->query("SELECT Count(*) as 'number' FROM follows where followedID=" . $user["userID"])->fetch();
+        $comments = $pdo->query("SELECT *  FROM comment where profileID=" . $user["userID"])->fetchall();
     }
 } else header("location:./userProfile.php");
 ?>
@@ -62,8 +63,7 @@ if ($_GET["id"] != $_SESSION["id"]) {
                 ?>
             </div>
         </div>
-        <div id="bottomElements">
-            <div style="display:flex;height:100%;">
+            <div style="display:flex;height:60vh;  background-color: green;">
                 <div class="listasPerfil">
                     <h1>Liked Games</h1>
 
@@ -99,7 +99,29 @@ if ($_GET["id"] != $_SESSION["id"]) {
                     </div>
                 </div>
             </div>
-        </div>
+            <div style="height:80vh;  background-color: green;">
+                        <h1>Comentarios</h1>
+                        <?php
+                        if (count($comments)>0)
+                        {   
+                            foreach($comments as $comment)
+                            {
+                                $author = $pdo->query('SELECT * FROM user WHERE userID=' . $comment["authorID"])->fetch();
+                                echo '<p style="border:solid 3pt yellow"><img src="'.$author["image"] .'" style="width:5vh"> '. $author["username"] .' - ' . $comment["date"].'</p>
+                                <p style="border:solid 3pt yellow">'. $comment["commentText"].'</p>';
+                            }
+                        }
+                        ?>
+                        <br>
+                        <form method="post" action="?comentarioPHP">
+                            <p> <?=$_SESSION["username"]?></p>
+                            <input type="hidden" value="<?= $_SESSION["id"]?>" name="authorID">
+                            <input type="hidden" value="<?= $user["userID"]?>" name="profileID">
+                            <label for="comment">Comment:</label>
+                        <textarea name="comment" cols="120" rows="10" style="resize: none;"></textarea><br>
+                            <input type="submit">
+                    </form>
+            </div>  
     </div>
 
     <?php include './components/footer.php'; ?>

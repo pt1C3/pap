@@ -5,8 +5,10 @@
   width: 80%;
   background-color: #181b3f;
   margin-left: 10%;
-  height: 140vh;
+  height: 200vh;
   display: flex;
+  flex-wrap: wrap;
+  gap:-1;
   flex-direction: column;
   justify-content: space-between;
   border-right: 2pt solid #1926da;
@@ -21,8 +23,8 @@
   float: right;
   display: flex;
   height: 40vh;
-  margin-bottom: 5%;
   width: 98%;
+  background-color: red;
 
 }
 #userInfo:before {
@@ -75,25 +77,25 @@
   transform: scale(1.05);
   box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
 }
-#bottomElements {
-  height: 60%;
-  padding: 0 0 0 2%;
-}
+
 .border {
   width: 3pt;
   margin: 5% 0;
   background-image: url("./images/gradient.png");
   background-size: cover;
+  height: 48vh;
 }
 .listasPerfil {
   width: 48%;
   margin: 1%;
-  height: 96%;
+  height: 80%;
+
+
 }
 .lista {
   border-radius: 7px;
   width: 80%;
-  height: 80%;
+  height: 100%;
   margin: 2% 10%;
   overflow-y: scroll;
   background-color: rgba(0, 0, 0, 0.5);

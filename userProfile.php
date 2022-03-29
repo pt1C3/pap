@@ -51,7 +51,7 @@ include 'auth/verificarLogin.php';
             </div>
         </div>
         <div id="bottomElements">
-            <div style="display:flex;height:100%;">
+            <div style="display:flex;height:60vh;  background-color: green;">
                 <div class="listasPerfil">
                     <h1>Liked Games</h1>
 
