@@ -108,15 +108,15 @@ if ($_GET["id"] != $_SESSION["id"]) {
                 foreach ($comments as $comment) {
                     $author = $pdo->query('SELECT * FROM user WHERE userID=' . $comment["authorID"])->fetch();
                     echo '
-                    <div class="comment" style="width:100%;height:auto;margin-bottom:3vh;background-color:rgba(0,0,0,0.5)">
+                    <div class="comment" style="width:100%;height:auto;margin-bottom:3vh;background-color:rgba(0,0,0,0.5); border-radius: 5px;padding:5pt">
                         <div class="commentHead" style="display:flex;justify-content:space-between;margin-bottom:5pt;border-bottom:solid 1pt #1926da;">
                         <a style="text-decoration:none" href="profile.php?id='. $comment["authorID"] .'">
-                            <img src="'. $author["image"].'" style="box-sizing: border-box;height:5vh;border:solid 2pt black;border-image-source: linear-gradient(45deg,rgba(180, 0, 255, 1) 0%,rgba(0, 6, 255, 1) 50%,rgba(255, 0, 114, 1) 100%);border-image-slice: 100 0;border-image-slice: 1;">
+                            <img src="'. $author["image"].'" style="box-sizing: border-box;height:5vh;border-radius: 5px;border:solid 2pt black;border-image-source: linear-gradient(45deg,rgba(180, 0, 255, 1) 0%,rgba(0, 6, 255, 1) 50%,rgba(255, 0, 114, 1) 100%);border-image-slice: 100 0;border-image-slice: 1;">
                             <p style="display:inline">'.$author["username"].'</p>
                         </a>
                         <p style="display:inline">'. substr($comment["shareDate"],0,-3).'</p>
                         </div>
-                        <p style="border:solid 2pt #1926da;border-top:transparent;border-right:transparent;white-space: pre;width:100%;box-sizing: border-box;height:auto;display:block">' . wordwrap($comment["commentText"], 115, "\n", true) . '</p>
+                        <p style="border:solid 2pt #1926da;border-top:transparent;border-radius: 0 5px 0 0;border-right:transparent;white-space: pre;width:100%;box-sizing: border-box;height:auto;display:block">' . wordwrap($comment["commentText"], 115, "\n", true) . '</p>
                     </div>';
                 }
             }

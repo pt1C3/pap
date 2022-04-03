@@ -1,234 +1,112 @@
-.home {
-  height: 100%;
-}
-
-.supportedGames {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5%;
-}
-
-.gameThumb {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  margin-right: 5%;
-  margin-bottom: 3%;
-  border: outset 2pt;
-  border-image-source: linear-gradient(
-    45deg,
-    rgba(180, 0, 255, 1) 0%,
-    rgba(0, 6, 255, 1) 50%,
-    rgba(255, 0, 114, 1) 100%
-  );
-  border-image-slice: 100 0;
-  border-image-slice: 1;
-}
-
-.data {
-  z-index: 0;
-  padding-top: 80pt;
-  width: 80%;
-  background-color: #181b3f;
-  margin-left: 10%;
-  padding-bottom: 20vh;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-right: 2pt solid #1926da;
-  border-left: 2pt solid #1926da;
-  animation: fadeInAnimation ease 0.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-
-@keyframes fadeInAnimation {
-  0% {
-    opacity: 0;
+  #slider {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      border-bottom: 5pt white solid;
+      border-image: linear-gradient( 90deg, rgba(180, 0, 255, 1) 0%, rgba(0, 6, 255, 1) 33%, rgba(255, 0, 114, 1) 66%, rgba(255, 222, 0, 1) 100%);
+      border-image-slice: 60 30;
+      box-sizing: border-box;
   }
-
-  100% {
-    opacity: 1;
+  
+  #slider ul {
+      position: relative;
+      list-style: none;
+      height: 100%;
+      width: 10000%;
+      padding: 0;
+      margin: 0;
+      transition: all 1s ease;
+      left: 0;
   }
-}
-
-.border {
-  width: 3pt;
-  margin: 5% 0;
-  background-image: url("./images/gradient.png");
-  background-size: cover;
-}
-
-.data h1 {
-  text-align: center;
-  font-family: "Aldo";
-  font-size: 30pt;
-  letter-spacing: 1pt;
-  margin-bottom: 2%;
-}
-
-.about {
-  padding-top: 10%;
-  width: 48%;
-  margin: 3%;
-  height: 60%;
-  font-size: 15pt;
-  border-radius: 5%;
-}
-
-.games {
-  width: 48%;
-  margin: 3%;
-  height: 60%;
-}
-
-.play {
-  letter-spacing: 1pt;
-  font-family: "Aldo";
-  align-self: center;
-  text-align: center;
-  text-decoration: none;
-  font-size: 23pt;
-  font-weight: bold;
-  text-transform: uppercase;
-  outline: 0;
-  background: #2d34a1;
-  width: 30%;
-  border: 0;
-  padding: 15px;
-  color: #ffffff;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: 0.1s;
-  transform: translateZ(0);
-  margin-bottom: 10%;
-}
-
-.play:hover {
-  background-color: #1926da;
-  border-bottom: 3pt solid;
-  font-size: 25pt;
-  border-image: linear-gradient(
-    90deg,
-    rgba(180, 0, 255, 1) 0%,
-    rgba(0, 6, 255, 1) 33%,
-    rgba(255, 0, 114, 1) 66%,
-    rgba(255, 222, 0, 1) 100%
-  );
-  border-image-slice: 100 0;
-  transform: scale(1.02);
-  box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
-}
-.userThumb {
-  padding: 0;
-  margin: 0;
-  width: 150px;
-  margin-right: 5%;
-  margin-bottom: 3%;
-  border: outset 2pt;
-  border-image-source: linear-gradient(
-    45deg,
-    rgba(180, 0, 255, 1) 0%,
-    rgba(0, 6, 255, 1) 50%,
-    rgba(255, 0, 114, 1) 100%
-  );
-  border-image-slice: 100 0;
-}
-.rating{
-  color: rgba(255, 255, 255, 1);
-text-align: center;
-}
-
-.rating p:visited {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.8);
-}
-.containerTop{
-  display: flex;
-  margin-left:5%;
-  height:35vh;
-  width:90%;
-  padding-bottom: 5%;
-  margin-bottom: 5%;
-  border-bottom:5pt solid black;
-  border-image: linear-gradient(
-    90deg,
-    rgba(180, 0, 255, 1) 0%,
-    rgba(0, 6, 255, 1) 33%,
-    rgba(255, 0, 114, 1) 66%,
-    rgba(255, 222, 0, 1) 100%
-  );
-  border-image-slice: 100 0;
-}
-.userTop{
-  text-align: center;  
-  height: 90%;
-  width: 20%;
-}
-.userTop{
-  height:80%;
-}
-.userTop a{
-  color:white;
-  text-decoration: none;
-}
-.userTop img{
-  border-radius: 50%;
-}
-.Top1 img{
-  border:solid 5pt #ffd700;
-  height:80%;
-}
-.Top1 p{
-  color:#ffd700;
-  font-size:22pt
-}
-.Top2{
-
-  margin-top:2%;
-}
-.Top2 img{
-  border:solid 5pt #c0c0c0;
-  height:75%;
-}
-.Top2 p{
-  color:#c0c0c0;
-  font-size:20pt
-}
-.Top3{
-
-  margin-top:3%;
-}
-.Top3 img{
-  border:solid 5pt #ce3b0f;
-  height:70%;
-}
-.Top3 p{
-  color: #ce3b0f;
-  font-size:20pt
-}
-.Top4{
-  margin-top:4%;
-}
-.Top4 img{
-  border:solid 5pt #808080;
-  height:65%;
-}
-.Top4 p{
-  color:#808080;
-  font-size:18pt
-}
-.Top5{
-
-  margin-top:5%;
-}
-.Top5 img{
-  border:solid 5pt #808080;
-  height:65%;
-}
-.Top5 p{
-  color:#808080;
-  font-size:18pt
-}
+  
+  #slider ul li {
+      position: relative;
+      height: 100vh;
+      float: left;
+  }
+  
+  #slider ul li img {
+      width: 100vw;
+      height: 100vh;
+      filter: saturate(0.5) brightness(30%);
+  }
+  
+  .next {
+      font-family: "Aldo";
+      color: white;
+      width: auto;
+      background-color: transparent;
+      border-radius: 5%;
+      color: white;
+      border-style: none;
+      padding: 5pt;
+      transition: 0.2s;
+      transform: translateZ(0);
+      margin-right: 2%;
+      font-size: 30pt;
+      height: 45pt;
+  }
+  
+  .next:hover {
+      border-image-slice: 100 0;
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+  }
+  
+  .login,
+  .register,
+  .logout {
+      font-family: "Aldo";
+      font-size: 15pt;
+      color: white;
+      width: auto;
+      height: 25pt;
+      background-color: transparent;
+      border-radius: 3px;
+      color: white;
+      border-style: none;
+      padding: 4pt;
+      transition: 0.2s;
+      transform: translateZ(0);
+      margin-right: 2%;
+      display: inline;
+  }
+  
+  .login:hover,
+  .register:hover,
+  .logout:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+  }
+  
+  .navUser {
+      color: white;
+      background-color: transparent;
+      width: 20%;
+      height: 25pt;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 2pt 0 2pt;
+      margin-right: 2%;
+      border-radius: 3px;
+      transition: 0.2s;
+      transform: translateZ(0);
+      cursor: pointer;
+      text-decoration: none;
+  }
+  
+  .navUser:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: scale(1.02);
+  }
+  
+  .navuserAvatar {
+      border: 2pt solid white;
+      box-sizing: border-box;
+      width: 20pt;
+      margin-right: 5%;
+      transition: 0.2s;
+      transform: translateZ(0);
+  }

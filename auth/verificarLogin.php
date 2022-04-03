@@ -1,3 +1,3 @@
 <?php
-if(isset($_SESSION["id"])==false) header("location:./");
+if(isset($_SESSION["id"])==false) header("location: ../homePage.php");
 ?>

@@ -9,5 +9,5 @@
     session_destroy();
 
     // redireciona para o index.php
-    header("Location: ../");
+    header("location: ../");
 ?>

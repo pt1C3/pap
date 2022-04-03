@@ -1,5 +1,5 @@
 <div class="nav-bar-container">
-        <a href="index.php"><button class="logobtn"></button></a>
+        <a href="homePage.php"><button class="logobtn"></button></a>
         <div class='right'>
             <?php
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
@@ -8,7 +8,7 @@
                 <input class="searchBTN" type="image" src="./images/lupa.png"/></form>
                 <a class="nav_User" href="userProfile.php">
                 <img class="nav_userAvatar" src="'. $_SESSION['userAvatar']. '"/>
-                <p style="margin-right:5pt;">'. $_SESSION['username']. '</p>
+                <p">'. $_SESSION['username']. '</p>
                 </a>
                 <a href="./auth/logout.php"><button class="logout-button">SIGN OUT</button></a>';
             } else {

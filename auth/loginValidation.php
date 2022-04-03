@@ -37,5 +37,5 @@
     else $_SESSION['name'] = "Gamer without name";
     
 
-    header("location:./?sessionid=". $_SESSION['id']);
+    header("location: ../homePage.php?sessionid=". $_SESSION['id']);
 ?>
