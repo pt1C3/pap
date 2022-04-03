@@ -3,6 +3,7 @@
 
     session_start();
     $dado = $pdo->query('SELECT *, ROUND(rating,1) as "rating" FROM user WHERE username ="' . $username . '"')->fetch();
+    $_SESSION['adm'] = $dado['isAdmin'];
     $_SESSION['loggedin'] = true;
     $_SESSION['id'] = $dado['userID'];
     $_SESSION['username'] = $dado['username'];
@@ -37,5 +38,5 @@
     else $_SESSION['name'] = "Gamer without name";
     
 
-    header("location: ../homePage.php?sessionid=". $_SESSION['id']);
+    header("location: ./homePage.php?id=". $_SESSION['id']);
 ?>
