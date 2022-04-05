@@ -5,8 +5,7 @@
   width: 80%;
   background-color: #181b3f;
   margin-left: 10%;
-  padding-bottom: 20vh;
-  height: 50vh;
+  height: calc(100vh - 120pt);
   flex-direction: column;
   justify-content: space-between;
   border-right: 2pt solid #1926da;

@@ -106,23 +106,14 @@ include 'auth/verificarLogin.php';
                         </a>
                         <p style="display:inline">'. substr($comment["shareDate"],0,-3).'</p>
                         </div>
-                        <p style="border:solid 2pt #1926da;border-top:transparent;border-right:transparent;white-space: pre;width:100%;box-sizing: border-box;height:auto;display:block">' . wordwrap($comment["commentText"], 115, "\n", true) . '</p>
+                        <p style="border:solid 2pt #1926da;border-top:transparent;border-right:transparent;white-space: pre;width:100%;box-sizing: border-box;height:auto;display:block">' . wordwrap($comment["commentText"], 100, "\n", true) . '</p>
                     </div>';
                 }
             }
-            ?>
-            <br>
-            <form method="post" action="./auth/comment.php">
-                <div style="margin-top:5vh;">
-                    <div style="height:50px;width:inherit;vertical-align: middle;"><img style="height:44px;border:solid 3pt black;border-image-source: linear-gradient(45deg,rgba(180, 0, 255, 1) 0%,rgba(0, 6, 255, 1) 50%,rgba(255, 0, 114, 1) 100%);border-image-slice: 100 0;border-image-slice: 1;" src="<?= $_SESSION["userAvatar"] ?>"><span style="margin-left:7pt;margin-bottom:7pt;"><?= $_SESSION["username"] ?></span></div><br>
-                    <input type="hidden" value="<?= $_SESSION["id"] ?>" name="authorID">
-                    <input type="hidden" value="<?= $_SESSION["id"] ?>" name="profileID">
+            include '/components/formComment.php?id=' . $_SESSION["id"];
 
-                    <label for="comment" style="width:100%">Comment:</label><br>
-                    <textarea name="comment" style="resize: none;width:100%;height:20vh;"></textarea><br>
-                    <input style="margin-left:90%;width:10%;" type="submit">
-                </div>
-            </form>
+            ?>
+        
         </div>
     </div>
     <script>

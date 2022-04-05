@@ -7,7 +7,7 @@ if ($_GET["id"] != $_SESSION["id"]) {
         $dadosLanguages = $pdo->query("SELECT userLanguage FROM languages where userID=" . $_GET["id"])->fetchall();
         $languages = array_column($dadosLanguages, 0);
         $followers = $pdo->query("SELECT Count(*) as 'number' FROM follows where followedID=" . $user["userID"])->fetch();
-        $comments = $pdo->query("SELECT *  FROM comment where profileID=" . $user["userID"])->fetchall();
+        $comments = $pdo->query("SELECT *  FROM comment where profileID=" . $_GET["id"])->fetchall();
     }
 } else header("location:./userProfile.php");
 ?>
@@ -102,7 +102,6 @@ if ($_GET["id"] != $_SESSION["id"]) {
         <div style="height:auto;width:90%;margin-left:5%;">
             <h1 style="width:inherit;margin-bottom:3vh">Comments</h1>
             <?php
-            $comments = $pdo->query("SELECT *  FROM comment where profileID=" . $_SESSION["id"])->fetchall();
 
             if (count($comments) > 0) {
                 foreach ($comments as $comment) {
@@ -116,23 +115,13 @@ if ($_GET["id"] != $_SESSION["id"]) {
                         </a>
                         <p style="display:inline">'. substr($comment["shareDate"],0,-3).'</p>
                         </div>
-                        <p style="border:solid 2pt #1926da;border-top:transparent;border-radius: 0 5px 0 0;border-right:transparent;white-space: pre;width:100%;box-sizing: border-box;height:auto;display:block">' . wordwrap($comment["commentText"], 115, "\n", true) . '</p>
+                        <p style="border:solid 2pt #1926da;border-top:transparent;border-radius: 0 5px 0 0;border-right:transparent;white-space: pre;width:100%;box-sizing: border-box;height:auto;display:block">' . wordwrap($comment["commentText"], 100, "\n", true) . '</p>
                     </div>';
                 }
             }
             ?>
-            <br>
-            <form method="post" action="./auth/comment.php">
-                <div style="margin-top:5vh;">
-                    <div style="height:50px;width:inherit;vertical-align: middle;"><img style="height:44px;border:solid 3pt black;border-image-source: linear-gradient(45deg,rgba(180, 0, 255, 1) 0%,rgba(0, 6, 255, 1) 50%,rgba(255, 0, 114, 1) 100%);border-image-slice: 100 0;border-image-slice: 1;" src="<?= $_SESSION["userAvatar"] ?>"><span style="margin-left:7pt;margin-bottom:7pt;"><?= $_SESSION["username"] ?></span></div><br>
-                    <input type="hidden" value="<?= $_SESSION["id"] ?>" name="authorID">
-                    <input type="hidden" value="<?= $_SESSION["id"] ?>" name="profileID">
-
-                    <label for="comment" style="width:100%">Comment:</label><br>
-                    <textarea name="comment" style="resize: none;width:100%;height:20vh;"></textarea><br>
-                    <input style="margin-left:90%;width:10%;" type="submit">
-                </div>
-            </form>
+            
+           <?php include './components/formComment.php?id=' . $_GET["id"];?>
         </div>
     </div>
 

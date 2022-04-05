@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="admHome.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./admHome.css">
+  <link rel="stylesheet" href="../styles.css">
   <title>LetsGame</title>
 </head>
 
@@ -14,8 +14,8 @@
   <?php
   session_set_cookie_params(0);
   session_start();
-  include './components/navbar.php';
-  include './auth/db.php';
+  include './navbar.php';
+  include '../auth/db.php';
   ?>
   <div class="data">
 
@@ -37,7 +37,6 @@
 
   </div>
 
-  <?php include './components/footer.php'; ?>
 </body>
 
 </html>

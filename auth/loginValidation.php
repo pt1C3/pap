@@ -37,6 +37,7 @@
     if(!is_null($dado['name'])) $_SESSION['name'] = $dado['name'];
     else $_SESSION['name'] = "Gamer without name";
     
+    if($_SESSION["adm"]==false) header("location: ./homePage.php?sessionid=". $_SESSION['id']);
+    else if($_SESSION["adm"]==true) header("location: ./admin/admHome.php");
 
-    header("location: ./homePage.php?sessionid=". $_SESSION['id']);
 ?>
