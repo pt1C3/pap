@@ -58,7 +58,7 @@
   .register,
   .logout {
       font-family: "Aldo";
-      font-size: 15pt;
+      font-size: 20pt;
       color: white;
       width: auto;
       height: 25pt;
@@ -84,7 +84,8 @@
       color: white;
       background-color: transparent;
       width: 20%;
-      height: 25pt;
+      height: 40pt;
+      font-size: 15pt;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -104,8 +105,9 @@
   
   .navuserAvatar {
       border: 2pt solid white;
+      border-radius: 3px;
       box-sizing: border-box;
-      width: 20pt;
+      width: 30pt;
       margin-right: 5%;
       transition: 0.2s;
       transform: translateZ(0);
