@@ -110,7 +110,7 @@ include 'auth/verificarLogin.php';
                     </div>';
                 }
             }
-            include '/components/formComment.php?id=' . $_SESSION["id"];
+            include './components/formComment.php';
 
             ?>
         

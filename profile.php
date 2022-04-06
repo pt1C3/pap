@@ -121,7 +121,7 @@ if ($_GET["id"] != $_SESSION["id"]) {
             }
             ?>
             
-           <?php include './components/formComment.php?id=' . $_GET["id"];?>
+           <?php include './components/formComment.php';?>
         </div>
     </div>
 
