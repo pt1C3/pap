@@ -67,7 +67,22 @@
     margin-top: 40%;
     height: 20%;
 }
-
+.report{
+font-family: "ReadexPro";
+font-size: 45pt;
+color: white;
+width: auto;
+line-height: 5pt;
+background-color: #2d34a1;
+border-radius: 3px;
+color: white;
+border-style: none;
+padding: 4pt;
+transition: 0.2s;
+transform: translateZ(0);
+margin-right: 2%;
+text-decoration: none;
+}
 .btnEdit:hover {
     background-color: #1926da;
     border-bottom: 5pt solid;

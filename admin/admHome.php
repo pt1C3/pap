@@ -14,6 +14,7 @@
   <?php
   session_set_cookie_params(0);
   session_start();
+  if(isset($_SESSION["adm"]) == false || $_SESSION["adm"] == false) header("location: ../index.php");
   include './navbar.php';
   include '../auth/db.php';
   ?>

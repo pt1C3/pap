@@ -29,7 +29,9 @@ if ($_GET["id"] != $_SESSION["id"]) {
         <div id="userInfo">
             <img style="border: 3pt solid #000a92" src="<?= $user["image"] ?>">
             <div class="userText">
-                <p class="userName"><?php echo $user["username"] ?></p>
+                <p class="userName"><?php echo $user["username"] ?>
+                <a href="" class="report">...</a>
+                </p>
                 <p> Languages:
                     <?php
                     $numItems = count($languages);
