@@ -11,7 +11,7 @@
     $_SESSION['rating'] = round($dado['rating'],1);
     $followers = $pdo->query("SELECT Count(*) as 'number' FROM follows where followedID=" . $dado['userID'])->fetch();
     $_SESSION['followers'] =$followers["number"];
-
+//rafita gamer
     switch ($dado['sex']) {
         case 'M':
             $_SESSION['sex'] = "Male";
