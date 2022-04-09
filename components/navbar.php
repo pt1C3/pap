@@ -18,7 +18,8 @@
                             <img src="images/bell.png">';
                             if($numNotf!= "0")echo'<p>'. $numNotf .' new notifications</p>'; 
                             else echo'<p>No new notifications</p>';
-                        echo '<img src="./images/arrow.png" style="height:4pt;display:inline;padding:5pt;margin-top:5pt;margin-left:5pt;"></button>
+                        echo '<img src="./images/arrow.png" style="height:4pt;display:inline;padding:5pt;margin-top:5pt;margin-left:5pt;">
+                        </button>
                 <div class="dropdown-content">';
                 foreach($notifications0 as $notification)//notificações novas
                 {
@@ -26,7 +27,7 @@
                 }
                 foreach($notifications1 as $notification)//notificações já vistas
                 {
-                    echo '<a style="background-color:rgba(0,0,0,0.3);" href="profile.php?id='. $notification["followerID"] .'"><p>'. $notification["username"]. ' started following you. ('. $notification["Date"] .' days ago)</p></a>';
+                    echo '<a class="notfViewed"  href="profile.php?id='. $notification["followerID"] .'"><p>'. $notification["username"]. ' started following you. ('. $notification["Date"] .' days ago)</p></a>';
                 }
                 echo'</div></div>
                 <a class="nav_User" href="userProfile.php">

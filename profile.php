@@ -27,10 +27,18 @@ if ($_GET["id"] != $_SESSION["id"]) {
     <?php include("./components/navbar.php"); ?>
     <div class='data'>
         <div id="userInfo">
-            <img style="border: 3pt solid #000a92" src="<?= $user["image"] ?>">
+            <img id="avatar" src="<?= $user["image"] ?>">
             <div class="userText">
                 <p class="userName"><?php echo $user["username"] ?>
-                <a href="" class="report">...</a>
+
+                <div class="menu">
+                    <button class="menuBtn">  <img src="./images/three dots.svg" class="pontos"></a></button>
+                    <div class="menuContent">
+                    <a href="#">Report</a>
+                    <a href="#">Rate</a>
+                    </div>
+                </div>
+
                 </p>
                 <p> Languages:
                     <?php

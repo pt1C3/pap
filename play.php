@@ -24,7 +24,7 @@
 
 
     <div style="text-align:center;height:25vh;">
-      <p style="font-size:30pt;align-self: center;padding-bottom:20px;">Choose your game</p>
+      <h1 style="font-size:30pt;align-self: center;padding-bottom:20px;">Choose your game</p>
       <div class='gameWrapper'>
       <div class='games'>
         <?php

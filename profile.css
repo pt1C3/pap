@@ -34,9 +34,10 @@
         /* initial ratio of 1:1*/
     }
     
-    #userInfo img {
+    #avatar {
         position: relative;
         height: 80%;
+        border: 3pt solid #000a92;
     }
     
     .userText {
@@ -68,21 +69,67 @@
         height: 20%;
     }
     
-    .report {
-        font-family: "ReadexPro";
-        font-size: 45pt;
-        color: white;
-        width: auto;
-        line-height: 5pt;
+    .pontos {
+        filter: invert(100%);
+        height: 20pt;
+    }
+    
+    .menu {
+        position: relative;
+        display: inline-block;
         background-color: #2d34a1;
-        border-radius: 3px;
+        top: 0;
+        border-radius: 5px;
+    }
+    
+    .menuContent {
+        display: none;
+        position: absolute;
+        left: 35pt;
+        top: 0;
+        border-radius: 5px;
+    }
+    
+    .menuContent a {
         color: white;
-        border-style: none;
-        padding: 4pt;
-        transition: 0.2s;
-        transform: translateZ(0);
-        margin-right: 2%;
+        font-size: 13pt;
         text-decoration: none;
+        display: block;
+        padding: 10pt;
+        border-bottom:2pt solid #000438;
+        background-color: #2d34a1;
+    }
+    .menuContent a:last-child{
+        border-bottom:none;
+    }
+    
+    .menuContent a:hover {
+        background-color: #1926da;
+    }
+    /* Show the dropdown menu on hover */
+    
+    .menu:hover .menuContent {
+        display: block;
+        box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.1);
+
+    }
+    
+    .menuBtn {
+        background-color: transparent;
+        display: block;
+        width: 35pt;
+        color: white;
+        border: none;
+        height: 25pt;
+        font-family: ReadexPro;
+        font-size: 13pt;
+        padding:5pt 0 5pt 0;
+        top: 0;
+        border-radius: 5px;
+    }
+
+    .menu:hover .menuBtn {
+        background-color: #1926da;
     }
     
     .btnEdit:hover {
