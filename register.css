@@ -63,10 +63,8 @@
 
 #Register-form .button {
     letter-spacing: 1pt;
-    font-family: "Aldo";
     font-size: 15pt;
     font-weight: bold;
-    text-transform: uppercase;
     outline: 0;
     background: #2d34a1;
     width: 60%;

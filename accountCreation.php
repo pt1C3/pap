@@ -247,7 +247,7 @@ if (isset($_SESSION["username"]) == false || isset($_SESSION["password"]) == fal
             <input  type="file" id="image" name="image" accept="image/png, image/jpeg" required><br>
             <input type="text" name="biography" placeholder="Biography" style="width:40%;text-align:left;">
             <br>
-            <input type="submit" class="button" value="CREATE ACCOUNT" >
+            <input type="submit" class="button" value="Let's Gam" >
 
 
         </form>

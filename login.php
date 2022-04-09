@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p style="color:red"><?php echo $passworderror ?></p>
             <input type="password" placeholder="Password" name="password" required /><br></br>
             <a href="#">Forgor the password 💀</a><br></br>
-            <input type="submit" class="button" value="Login">
+            <input type="submit" class="button" value="Submit">
 
         </form>
     </div>

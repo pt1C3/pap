@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input id="password" type="password" placeholder="Password" name="password" value="<?php echo $password ?>" />
             <input id="confirm" type="password" placeholder="Confirm Password" name="confirmpassword" value="<?php echo $confirmpassword ?>" />
 
-            <input type="submit" class="button" value="REGISTER">
+            <input type="submit" class="button" value="Submit">
 
 
         </form>
