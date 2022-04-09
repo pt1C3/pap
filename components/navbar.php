@@ -20,15 +20,13 @@
                             else echo'<p>No new notifications</p>';
                         echo '<img src="./images/arrow.png" style="height:4pt;display:inline;padding:5pt;margin-top:5pt;margin-left:5pt;"></button>
                 <div class="dropdown-content">';
-                foreach($notifications0 as $notification)
+                foreach($notifications0 as $notification)//notificações novas
                 {
-                    /*echo '<a href="./auth/notf.php?id='. $notification["id"] .'"><p>'. $notification["username"]. ' started following you. ('. $notification["Date"] .' days ago)</p></a>';*/
                     echo '<a href="./auth/notf.php?notfID='.$notification["id"] . '&profileID='.$notification["followerID"].'"><p>'. $notification["username"]. ' started following you. ('. $notification["Date"] .' days ago)</p></a>';
                 }
-                foreach($notifications1 as $notification)
+                foreach($notifications1 as $notification)//notificações já vistas
                 {
-                    /*echo '<a href="./auth/notf.php?id='. $notification["id"] .'"><p>'. $notification["username"]. ' started following you. ('. $notification["Date"] .' days ago)</p></a>';*/
-                    echo '<a style="background-color:#1b1f53;" href="profile.php?id='. $notification["followerID"] .'"><p>'. $notification["username"]. ' started following you. ('. $notification["Date"] .' days ago)</p></a>';
+                    echo '<a style="background-color:rgba(0,0,0,0.3);" href="profile.php?id='. $notification["followerID"] .'"><p>'. $notification["username"]. ' started following you. ('. $notification["Date"] .' days ago)</p></a>';
                 }
                 echo'</div></div>
                 <a class="nav_User" href="userProfile.php">

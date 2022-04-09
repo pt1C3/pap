@@ -188,10 +188,8 @@ body {
 }
 
 .nav_userAvatar {
-    border: 2pt solid #2d34a1;
-    border-radius: 5%;
     width: 30pt;
-    margin-right: 2%;
+    margin-right: 5%;
     transition: 0.2s;
     transform: translateZ(0);
 }
@@ -241,12 +239,12 @@ body {
     display: flex;
     font-family: ReadexPro;
     font-size: 13pt;
+    display: flex;
+    justify-content: space-between;
 }
 
 .dropTudo button p {
-    height: 20pt;
-    margin-top: 2pt;
-    margin-left: 3pt;
+    margin-top: 2.5%;
 }
 
 .dropTudo {
