@@ -112,3 +112,65 @@
   margin: auto;
   text-align: left;
 }
+.pontos {
+  filter: invert(100%);
+  height: 20pt;
+}
+
+.menu {
+  position: relative;
+  display: inline-block;
+  background-color: #2d34a1;
+  top: 0;
+  border-radius: 5px;
+}
+
+.menuContent {
+  display: none;
+  position: absolute;
+  left: 35pt;
+  top: 0;
+  border-radius: 5px;
+}
+
+.menuContent a {
+  color: white;
+  font-size: 13pt;
+  text-decoration: none;
+  display: block;
+  padding: 10pt;
+  border-bottom:2pt solid #000438;
+  background-color: #2d34a1;
+}
+.menuContent a:last-child{
+  border-bottom:none;
+}
+
+.menuContent a:hover {
+  background-color: #1926da;
+}
+/* Show the dropdown menu on hover */
+
+.menu:hover .menuContent {
+  display: block;
+  box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.menuBtn {
+  background-color: transparent;
+  display: block;
+  width: 35pt;
+  color: white;
+  border: none;
+  height: 25pt;
+  font-family: ReadexPro;
+  font-size: 13pt;
+  padding:5pt 0 5pt 0;
+  top: 0;
+  border-radius: 5px;
+}
+
+.menu:hover .menuBtn {
+  background-color: #1926da;
+}

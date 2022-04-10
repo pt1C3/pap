@@ -21,7 +21,7 @@ include 'auth/verificarLogin.php';
     <?php include("./components/navbar.php"); ?>
     <div class='data'>
         <div id="userInfo">
-            <img style="border: 3pt solid #000a92" src="<?php echo $_SESSION["userAvatar"] ?>">
+            <img id="avatar" src="<?php echo $_SESSION["userAvatar"] ?>">
             <div class="userText">
                 <p class="userName"><?php echo $_SESSION["username"] ?></p>
                 <p> Languages:

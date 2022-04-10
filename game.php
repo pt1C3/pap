@@ -27,7 +27,14 @@ $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameI
         <div id="gameInfo">
             <img style="border: 3pt solid #2d34a1" src="<?= $game["thumbnail"] ?>">
             <div class="userText">
-                <p class="userName"><?= $game["title"] ?></p>
+                <p class="userName"><?= $game["title"] ?>
+            
+                <div class="menu">
+                    <button class="menuBtn">  <img src="./images/three dots.svg" class="pontos"></a></button>
+                    <div class="menuContent">
+                    <a href="#">Rate</a>
+                    </div>
+                </div></p>
                 <p> <?= $game["genre"] ?></p>
                 <a style="margin-top:2%;" href="<?= $game["link"] ?>" target="_blank">Store</a>
             </div>

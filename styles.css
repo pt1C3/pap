@@ -306,6 +306,8 @@ body {
 
 .dropdown-content {
     border-radius: 0 0 5px 5px;
+    overflow-y: scroll;
+    max-height: 150pt;
 }
 
 .dropTudo:hover .dropdown-content {

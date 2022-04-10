@@ -13,8 +13,8 @@
         <a href="#">Link 2</a>
         <a href="#">Link 3</a>
       </div>
-    </div>
+      </div>
   </div>
-      
+      <a href="./email.php" >Enviar email</a>
    </body>
 </html>
