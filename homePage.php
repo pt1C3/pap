@@ -109,7 +109,7 @@
             </div>
         </div>
 
-            <h1 style="text-align: left;margin-left:4%;font-size:25pt;">Best Rated Games</h1>
+            <h1 style="text-align: left;width:100%;font-size:25pt;text-align:center;">Best Rated Games</h1>
             <div style="display: flex;gap:5%;width:90%;margin-left:5%;margin-bottom:5%">
 
                 <?php foreach ($BestRatedGames as $BestRatedGame) : ?>
