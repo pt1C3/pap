@@ -16,6 +16,16 @@
   font-family: ReadexPro;
   border-radius: 5px;
 }
+.biography{
+  resize: vertical;
+  width:80%;
+  text-align:left;
+  max-height: 20vh;
+  min-height: 10vh;
+  background-color: #ffffff;
+  font-size: 13pt;
+  font-family: ReadexPro;
+}
 .register-form select{
   outline: 0;
   background: transparent;
@@ -84,7 +94,7 @@
   width: 20px;
   margin-right: 100px;
 }
-#image{
+#avatar{
 z-index: -2;
 opacity: 0;
 pointer-events: none;
@@ -92,7 +102,7 @@ width: 0.1;
 height: 0.1;
 padding-top:20px;padding-bottom:35px;
 }
-#image hover{
+#avatar hover{
   border: 3px solid rgb(185, 185, 185);
   background-color: #131eb6;
 }

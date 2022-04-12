@@ -47,7 +47,7 @@ include 'auth/verificarLogin.php';
                     <p style="text-align:center; font-size: 15pt;"> Rating:</br><?= $_SESSION["rating"] ?></p>
                     <p style="text-align:center; font-size: 15pt;"> Followers:</br><?= $_SESSION["followers"] ?></p>
                 </div>
-                <a href="?edit" «><button class="btnEdit">Edit</button></a>
+                <a href="./editProfile.php"><button class="btnEdit">Edit</button></a>
             </div>
         </div>
         <div style="display:flex;height:60vh;margin-bottom:10vh">

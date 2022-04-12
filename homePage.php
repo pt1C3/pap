@@ -25,24 +25,8 @@
 
 
     <div class='data'>
-        <!--<div style="display:flex;">
-            <div class='border'></div>
-            <div class='games'>
-                <h1>Supported Games</h1>
-                <div class='supportedGames'>
-                    <?php
-                    foreach ($games as $game) {
-                        echo '<a href="game.php?id=' . $game['gameID'] . '"><img src="' . $game['thumbnail'] . '" class="gameThumb"/></a>';
-                    }
-                    ?>
-                </div>
-                <p style="margin-top: 5%">...and more!</p>
-            </div>
-        </div>-->
         <div>
-        
-        
-<h1 style="text-align: left;width:100%;font-size:25pt;text-align:center;">User Leaderboard</h1>
+            <h1 style="text-align: left;width:100%;font-size:25pt;text-align:center;">User Leaderboard</h1>
             <div class="containerTop" ><!--Container para o top 5 -->
             <div class="userTop Top4">
             <a href="profile.php?id=<?= $BestRatedUsers[3]['userID']?>">

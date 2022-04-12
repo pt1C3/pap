@@ -8,7 +8,11 @@
     $_SESSION['id'] = $dado['userID'];
     $_SESSION['username'] = $dado['username'];
     $_SESSION['userAvatar'] = $dado['image'];
+    $_SESSION['email'] = $dado['email'];
+    $_SESSION['birthDate'] = $dado['birthdate'];
+    $_SESSION['country'] = $dado['country'];
     $_SESSION['rating'] = round($dado['rating'],1);
+    $_SESSION['description'] = $dado["biography"];
     $followers = $pdo->query("SELECT Count(*) as 'number' FROM follows where followedID=" . $dado['userID'])->fetch();
     $_SESSION['followers'] =$followers["number"];
 
@@ -26,7 +30,12 @@
         default:$_SESSION['sex']="Not Given";
         break;
     }
-    $_SESSION['description'] = $dado['biography'];
+    if(isset($dado["steamprofile"])==false)    $_SESSION['steamProfile'] = "Not Provided";
+    else $_SESSION['steamProfile'] = $dado["steamprofile"];
+    if(isset($dado["epicprofile"])==false)    $_SESSION['epicProfile'] = "Not Provided";
+    else $_SESSION['epicProfile'] = $dado["epicprofile"];
+    if(isset($dado["uplayprofile"])==false)    $_SESSION['uplayProfile'] = "Not Provided";
+    else $_SESSION['uplayProfile'] = $dado["uplay"];
 
     $dadoLinguas = $pdo->query( 'SELECT userLanguage FROM languages WHERE userID = ' . $_SESSION['id'] )->fetchAll();
     $_SESSION['languages'] = $dadoLinguas;
