@@ -17,6 +17,7 @@ $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameI
     <link rel="icon" href="./images/iconfavicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="game.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <title><?= $game["title"] ?> - LetsGame</title>
 </head>

@@ -9,6 +9,8 @@ if (isset($_SESSION["username"]) == false || isset($_SESSION["password"]) == fal
     <link rel="stylesheet" href="register.css">
     <link rel="stylesheet" href="accountCreation.css">
     <link rel="icon" href="./images/iconfavicon.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>

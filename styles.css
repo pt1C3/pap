@@ -115,19 +115,19 @@ body {
     border-image-slice: 60 30;
 }
 
-.right {
+#right {
     display: flex;
     align-items: center;
     justify-content: right;
     width: 50%;
 }
 
-.right button {
+#right button {
     margin-right: 15pt;
     display: inline-block;
 }
 
-.right form {
+#right form {
     display: flex;
     justify-content: right;
     align-items: center;

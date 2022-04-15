@@ -1,0 +1,38 @@
+.data {
+    z-index: 0;
+    padding-top: 80pt;
+    width: 80%;
+    background-color: #181b3f;
+    margin-left: 10%;
+    padding-bottom: 25vh;
+    height: 61vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 2pt solid #1926da;
+    border-left: 2pt solid #1926da;
+    animation: fadeInAnimation ease 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#messageHistory {
+    height: 60vh;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.5);;
+    background-image: linear-gradient(90deg, #2d35a13f 0%, transparent 80%,#2d35a13f 100%);;
+    padding:0 15pt 0 15pt;
+}
+.messageList{
+    list-style: none;
+
+}
+.message{
+
+    border-top:2pt solid #1926da; 
+    border-image-source: linear-gradient(90deg, #1926dac0 0%, transparent 80%,#1926dac0 100%);
+    border-image-slice: 100 0;
+}
+.userMessage{
+    color:white;
+}

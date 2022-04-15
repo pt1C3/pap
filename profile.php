@@ -21,6 +21,8 @@ if ($_GET["id"] != $_SESSION["id"]) {
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="profile.css">
     <title><?= $user["username"]; ?> - LetsGame</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -36,6 +38,7 @@ if ($_GET["id"] != $_SESSION["id"]) {
                     <div class="menuContent">
                     <a href="#">Report</a>
                     <a href="#">Rate</a>
+                    <a href="./chat.php?id=<?= $_GET["id"]?>">Message</a>
                     </div>
                 </div>
 
