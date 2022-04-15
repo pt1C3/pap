@@ -235,15 +235,27 @@ body {
     border: none;
     width: 100%;
     height: 25pt;
-    display: flex;
     font-family: ReadexPro;
     font-size: 13pt;
     display: flex;
     justify-content: space-between;
 }
-
+.dropTudo button img {
+    height: 20pt;
+    padding-top: 2.5pt;
+    filter: invert(100%);
+    display: inline;
+}
 .dropTudo button p {
-    margin-top: 2.5%;
+    margin: 0 0 13pt 5pt ;
+    display: inline-block;
+    vertical-align: middle;
+}
+.dropTudo button .arrow {
+    height: 4pt;
+    display: inline;
+    margin-bottom:8pt;
+    margin-left: 5pt;
 }
 
 .dropTudo {
@@ -276,22 +288,18 @@ body {
     text-decoration: none;
     display: block;
     padding: 5% 2% 5% 2%;
-    border-bottom:2pt solid #000438;
+    border-bottom: 2pt solid #000438;
 }
-.dropdown-content a:last-child{
-    border-bottom:none;
-}
-.dropTudo img {
-    height: 20pt;
-    padding-top: 2.5pt;
-    filter: invert(100%);
-}
-.dropTudo .notfViewed{
-    background-color:rgba(0,0,0,0.4);
+
+.dropdown-content a:last-child {
+    border-bottom: none;
 }
 
 
-/* Change color of dropdown links on hover */
+
+.dropTudo .notfViewed {
+    background-color: rgba(0, 0, 0, 0.4);
+}
 
 .dropdown-content a:hover {
     background-color: #1926da;
@@ -313,12 +321,10 @@ body {
     display: block;
 }
 
-.dropTudo:hover button{
+.dropTudo:hover button {
     border-bottom: 2pt black solid;
     border-image: linear-gradient( 90deg, rgba(180, 0, 255, 1) 0%, rgba(0, 6, 255, 1) 33%, rgba(255, 0, 114, 1) 66%, rgba(255, 222, 0, 1) 100%);
     border-image-slice: 100 0;
     background-color: #1926da;
     border-radius: 5px;
-
-
 }

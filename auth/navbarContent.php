@@ -4,7 +4,7 @@
 
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             $numNotf = $pdo->query("SELECT COUNT(*) FROM notifications WHERE viewed = 0 AND userID = " . $_SESSION["id"])->fetch(PDO::FETCH_COLUMN);
-            $notification = $pdo->query('SELECT *, DATEDIFF( CURRENT_DATE(),time) as "Date" FROM notifications WHERE userID=' . $_SESSION["id"] . ' AND DATEDIFF( CURRENT_DATE(),time) <= 7 ORDER BY type ASC, viewed ASC')->fetchall();
+            $notification = $pdo->query('SELECT *, DATEDIFF( CURRENT_DATE(),time) as "Date" FROM notifications WHERE userID=' . $_SESSION["id"] . ' AND DATEDIFF( CURRENT_DATE(),time) <= 7 ORDER BY time desc, viewed ASC')->fetchall();
             echo '<form action="pesquisa.php"  method="post">
                 <input name="search" type="text" class="search" placeholder="Search Users..." required />
                 <input class="searchBTN" type="image" src="./images/lupa.png"/></form>
@@ -13,7 +13,7 @@
                             <img src="images/bell.png">';
             if ($numNotf != "0") echo '<p>' . $numNotf . ' new notifications</p>';
             else echo '<p>No new notifications</p>';
-            echo '<img src="./images/arrow.png" style="height:4pt;display:inline;padding:5pt;margin-top:5pt;margin-left:5pt;">
+            echo '<img src="./images/arrow.png" class="arrow" >
                         </button>
                 <div class="dropdown-content">';
             foreach ($notification as $row) {
