@@ -82,10 +82,9 @@ session_start();
                 }
                 ?>
             </select><br>
-            <label>Your profile image:</label><br>
-            <img style="height:300px;" src="<?= $_SESSION["userAvatar"] ?>"> <br> 
-            <label class="imgbutton" for="avatar" >Import Profile Image</label>
-            <input  type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"><br>
+            <span id="preview"></span><br>
+            <label class="imgbutton" for="avatar" >Import Profile Image</label><br>
+            <input type="file" id="image" name="image" accept="image/png, image/jpeg"><br>
             <textarea type="text" name="biography" placeholder="Biography" class="biography"><?= $_SESSION["description"]?>
             </textarea>
             <br>
@@ -96,7 +95,21 @@ session_start();
 
     </div>
     <!--Register Page-->
-    <?php include './components/footer.php'; ?>
+    <?php include './components/footer.php';     include './scripts/update_user_lastActivity.php'; ?>
+    <script>
+        $("#image").change(function() {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+
+                    $('#preview').html("<img style=\"height:100pt\" src=\"" + e.target.result + "\">");
+                }
+
+                reader.readAsDataURL(this.files[0]);
+            }
+        })
+    </script>
 </body>
 
 </html>

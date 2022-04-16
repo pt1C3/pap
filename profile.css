@@ -46,7 +46,7 @@
         height: 100%;
     }
     
-    .userName {
+    #userName {
         font-weight: bold;
         font-size: 30pt;
     }

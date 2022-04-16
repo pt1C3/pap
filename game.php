@@ -90,28 +90,12 @@ $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameI
             </div>
         </div>
     </div>
-    <script>
-        /*
-        var lastScrollTop = 0;
-        window.onscroll = function() {
-            var st = window.pageYOffset || document.documentElement.scrollTop;
-            if (st > lastScrollTop) {
-                document.getElementById('bottomElements').scrollIntoView({
-                    block: "end",
-                    inline: "nearest"
-                });
-            } else {
-                document.getElementById('userInfo').scrollIntoView({
-                    block: "end",
-                    inline: "nearest"
-                });
-            }
-            lastScrollTop = st <= 0 ? 0 : st;
-        };
-        */
-    </script>
 
-    <?php include './components/footer.php'; ?>
+    <?php 
+    include './components/footer.php'; 
+    include './scripts/update_user_lastActivity.php'; 
+    ?>
+    
 </body>
 
 </html>

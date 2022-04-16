@@ -20,7 +20,7 @@ $user =  $pdo->query('SELECT * FROM user WHERE userID=' . $_GET["id"])->fetch();
     <div class="data">
 
         <div class="chatContainer">
-            <h1 style="font-family:Aldo"><?= $user["username"] ?></h1>
+            <h1 style="font-family:Aldo"><?= $user["username"] ?> - <span id="status"></span></h1>
             <div id="messageHistory">
                 <!--Aqui vao as messages-->
             </div>
@@ -43,21 +43,47 @@ $user =  $pdo->query('SELECT * FROM user WHERE userID=' . $_GET["id"])->fetch();
             var to_user_id = $('#send_chat').attr('name');
             var messageHistory = $('messageHistory');
             setInterval(function() {
-                $.ajax({
+                $.ajax({ //Atualizar o chat de 5 em 5 segundos
                     url: "./auth/updateChatBox.php",
                     method: "POST",
                     data: {
-                    to_userID: to_user_id
-                },
+                        to_userID: to_user_id
+                    },
                     success: function(data) {
                         $('#messageHistory').html(data);
                         scrolldiv();
                     }
                 })
-                
-            }, 3000);
 
-            $.ajax({
+                $.ajax({ //Atualizar a ultima atividade
+                    url: "./auth/update_user_lastActivity.php",
+                    success: function() {}
+                })
+
+                $.ajax({ //Verifica e escreve se o user ta online ou offline
+                    url: "./auth/fetch_userStatus.php",
+                    method: "POST",
+                    data:{
+                        userID : to_user_id
+                    },
+                    success: function(data) {
+                        $('#status').html(data);
+                    }
+                })
+
+            }, 5000);
+        //final do setInterval, a partir daqui tudo irá acontecer quando e apenas quando a pagina carregar
+        $.ajax({ //Verifica e escreve se o user ta online ou offline
+                    url: "./auth/fetch_userStatus.php",
+                    method: "POST",
+                    data:{
+                        userID : to_user_id
+                    },
+                    success: function(data) {
+                        $('#status').html(data);
+                    }
+                });
+            $.ajax({ //Atualizar o chat ao entrar
                 url: "./auth/updateChatBox.php",
                 method: "POST",
                 data: {
@@ -67,7 +93,8 @@ $user =  $pdo->query('SELECT * FROM user WHERE userID=' . $_GET["id"])->fetch();
                     $('#messageHistory').html(data); //receber os dados e escrever no historico
                     scrolldiv(); //ir para baixo na div
                 }
-            })
+            });
+            
         });
 
 

@@ -32,10 +32,10 @@
                 <img class="navuserAvatar" src="'. $_SESSION['userAvatar']. '"/>
                 <p>'. $_SESSION['username']. '</p>
                 </a>
-                <a href="./auth/logout.php"><button class="logout">SIGN OUT</button></a>';
+                <a href="./auth/logout.php" style="display:inline;"><button class="logout">SIGN OUT</button></a>';
             } else {
-                echo '<a href="register.php"><button class="register">REGISTER</button></a>
-                <a href="login.php"><button class="login">LOGIN</button></a>';
+                echo '<a href="register.php" style="display:inline;"><button class="register">REGISTER</button></a>
+                <a href="login.php" style="display:inline;"><button class="login">LOGIN</button></a>';
             } ?>
             </div>
     <!--<div class="right" style="top:0;right:0; position:absolute;z-index:5;margin-top:3%;margin-right:5%">
@@ -57,7 +57,7 @@
     </a>
 
     <br>
-
+<?php     include './scripts/update_user_lastActivity.php'; ?>
     <script>
         var responsiveSlider = function() {
 

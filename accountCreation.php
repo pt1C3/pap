@@ -55,16 +55,17 @@ if (isset($_SESSION["username"]) == false || isset($_SESSION["password"]) == fal
             <input type="text" placeholder="Uplay ID" name="uplay" /><br>
             <select name="country">
                 <?php include './countries.php';
-                foreach($countries as $country){
-                    echo'<option value="'. $country .'">'. $country .'</option>';
+                foreach ($countries as $country) {
+                    echo '<option value="' . $country . '">' . $country . '</option>';
                 }
                 ?>
             </select><br>
-            <label class="imgbutton" for="image" >Import Profile Image</label>    
-            <input  type="file" id="image" name="image" accept="image/png, image/jpeg" required><br>
+            <span id="preview"></span><br>
+            <label class="imgbutton" for="image">Import Profile Image</label><br>
+            <input type="file" id="image" name="image" accept="image/png, image/jpeg" required><br>
             <textarea type="text" name="biography" placeholder="Biography" class="biography"></textarea>
             <br>
-            <input type="submit" class="button" value="Let's Gam" >
+            <input type="submit" class="button" value="Let's Game">
 
 
         </form>
@@ -72,6 +73,20 @@ if (isset($_SESSION["username"]) == false || isset($_SESSION["password"]) == fal
     </div>
     <!--Register Page-->
     <?php include './components/footer.php'; ?>
+    <script>
+        $("#image").change(function() {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+
+                    $('#preview').html("<img style=\"height:100pt\" src=\"" + e.target.result + "\">");
+                }
+
+                reader.readAsDataURL(this.files[0]);
+            }
+        })
+    </script>
 </body>
 
 </html>

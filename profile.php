@@ -31,8 +31,8 @@ if ($_GET["id"] != $_SESSION["id"]) {
         <div id="userInfo">
             <img id="avatar" src="<?= $user["image"] ?>">
             <div class="userText">
-                <p class="userName"><?php echo $user["username"] ?>
-
+                <p id="userName" name="<?= $user["userID"] ?>"><?= $user["username"] ?>
+                <span id="status" style="font-size:13pt;"></span>
                 <div class="menu">
                     <button class="menuBtn">  <img src="./images/three dots.svg" class="pontos"></a></button>
                     <div class="menuContent">
@@ -120,7 +120,38 @@ if ($_GET["id"] != $_SESSION["id"]) {
         </div>
     </div>
 
-    <?php include './components/footer.php'; ?>
+    <?php include './components/footer.php';    ?>
+    <script>
+        $(document).ready(function() {
+            to_user_id = $('#userName').attr('name');
+            setInterval(function() {
+                $.ajax({ //Atualizar a ultima atividade
+                      url: "./auth/update_user_lastActivity.php",
+                      success: function() {}
+                });
+                $.ajax({ //Verifica e escreve se o user ta online ou offline
+                    url: "./auth/fetch_userStatus.php",
+                    method: "POST",
+                    data:{
+                        userID : to_user_id
+                    },
+                    success: function(data) {
+                        $('#status').html(data);
+                    }
+                });
+            }, 5000);
+            $.ajax({ //Verifica e escreve se o user ta online ou offline
+                    url: "./auth/fetch_userStatus.php",
+                    method: "POST",
+                    data:{
+                        userID : to_user_id
+                    },
+                    success: function(data) {
+                        $('#status').html(data);
+                    }
+                });
+        });
+     </script>
 </body>
 
 </html>

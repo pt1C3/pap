@@ -24,7 +24,7 @@ include 'auth/verificarLogin.php';
         <div id="userInfo">
             <img id="avatar" src="<?php echo $_SESSION["userAvatar"] ?>">
             <div class="userText">
-                <p class="userName"><?php echo $_SESSION["username"] ?></p>
+                <p id="userName"><?php echo $_SESSION["username"] ?></p>
                 <p> Languages:
                     <?php
                     $numItems = count($_SESSION['languages']);
@@ -96,30 +96,10 @@ include 'auth/verificarLogin.php';
            ?>
         </div>
     </div>
-    <script>
-        /*
-        var lastScrollTop = 0;
-        window.onscroll = function() {
-            var st = window.pageYOffset || document.documentElement.scrollTop;
-            if (st > lastScrollTop) {
-                document.getElementById('bottomElements').scrollIntoView({
-                    block: "end",
-                    inline: "nearest"
-                });
-            } else {
-                document.getElementById('userInfo').scrollIntoView({
-                    block: "end",
-                    inline: "nearest"
-                });
-            }
-            lastScrollTop = st <= 0 ? 0 : st;
-        };
-        */
-    </script>
 
 
-
-    <?php include './components/footer.php'; ?>
+    <?php include './components/footer.php'; 
+        include './scripts/update_user_lastActivity.php'; ?>
 </body>
 
 </html>

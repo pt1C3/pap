@@ -42,7 +42,7 @@
     $dadoLikes = $pdo->query( 'SELECT gameID FROM likedgames WHERE userID = ' . $_SESSION['id'] )->fetchAll(PDO::FETCH_COLUMN);
     $_SESSION['likes'] = $dadoLikes;
 
-    $pdo->query('UPDATE user SET lastLogin = current_timestamp() WHERE userID ="' . $_SESSION['id'] . '"');
+    $pdo->query('UPDATE user SET lastActivity = current_timestamp() WHERE userID ="' . $_SESSION['id'] . '"');
 
     if(!is_null($dado['name'])) $_SESSION['name'] = $dado['name'];
     else $_SESSION['name'] = "Gamer without name";

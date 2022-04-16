@@ -31,5 +31,5 @@
         </div>
     </div>
 
-    <?php include './components/footer.php'; ?>
+    <?php include './components/footer.php';     include './scripts/update_user_lastActivity.php'; ?>
 </body>
