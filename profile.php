@@ -8,6 +8,23 @@ if ($_GET["id"] != $_SESSION["id"]) {
         $languages = array_column($dadosLanguages, 0);
         $followers = $pdo->query("SELECT Count(*) as 'number' FROM follows where followedID=" . $user["userID"])->fetch();
         $comments = $pdo->query("SELECT *  FROM comment where profileID=" . $_GET["id"])->fetchall();
+        $age  = date_diff(date_create($user["birthdate"]), date_create('now'))->y;
+        $queryFollow = $pdo->query('SELECT Count(*) as "segue" FROM follows WHERE followedID=' . $user["userID"] . ' and followerID =' . $_SESSION["id"])->fetch()['segue'];
+        switch ($user['sex']) {
+            case 'M':
+                $sex = "Male";
+                break;
+            case 'F':
+                $sex = "Female";
+                break;
+            case 'O':
+                $sex = "Other";
+                break;
+            
+            default:$sex="Not Given";
+            break;
+        }
+        
     }
 } else header("location:./userProfile.php");
 ?>
@@ -29,56 +46,69 @@ if ($_GET["id"] != $_SESSION["id"]) {
     <?php include("./components/navbar.php"); ?>
     <div class='data'>
         <div id="userInfo">
-            <img id="avatar" src="<?= $user["image"] ?>">
-            <div class="userText">
-                <p id="userName" name="<?= $user["userID"] ?>"><?= $user["username"] ?>
-                <span id="status" style="font-size:13pt;"></span>
+            <span>
+                <img id="avatar" src="<?= $user["image"] ?>">
                 <div class="menu">
-                    <button class="menuBtn">  <img src="./images/three dots.svg" class="pontos"></a></button>
+                    <button class="menuBtn"> <img src="./images/three dots.svg" class="pontos"></a></button>
                     <div class="menuContent">
-                    <a href="#">Report</a>
-                    <a href="#">Rate</a>
-                    <a href="./chat.php?id=<?= $_GET["id"]?>">Message</a>
+                        <a href="#">Report</a>
+                        <a href="#">Rate</a>
+                        <a >More info</a>
                     </div>
                 </div>
+            </span>
 
-                </p>
-                <p> Languages:
-                    <?php
-                    $numItems = count($languages);
-                    $i = 0;
+            <div class="userText">
+                <p id="userName" name="<?= $user["userID"] ?>"><?= $user["username"] ?>
+                <p><?= $user["name"] ?> - <?= $user["country"] ?></p>
+                <span id="status" style="font-size:13pt;"></span>
+                <p><?= $age ?> years old.</p>
 
-                    foreach ($languages as $language) {
-                        if (++$i === $numItems) echo $language;
-                        else echo $language . ', ';
-                    }
-
-
-
-                    ?></p>
-                <p>
-                    Sex: <?= $user["sex"] ?>
                 </p>
                 <p style="margin-top:2%;width:100%;"> <?= $user["biography"] ?></p>
             </div>
-            <div class="rightItems" style="max-height:80%;text-align:center;margin-right:2%;width:30%;">
+            <div class="rightItems" style="max-height:80%;text-align:center;margin-right:2%;width:40%;">
                 <div style="display:flex;justify-content:space-between;">
                     <p style="text-align:center; font-size: 15pt;"> Rating:</br><?= round($user["rating"], 1) ?></p>
                     <p style="text-align:center; font-size: 15pt;"> Followers:</br><?= $followers["number"] ?></p>
                 </div>
-                <?php
-                $queryFollow = $pdo->query('SELECT Count(*) as "segue" FROM follows WHERE followedID=' . $user["userID"] . ' and followerID =' . $_SESSION["id"])->fetch()['segue'];
-                if ($queryFollow != 0) {
-                    $followAge = $pdo->query('SELECT DISTINCT DATE(followDate) as "followDate" FROM follows WHERE followedID=' . $user["userID"] . ' and followerID =' . $_SESSION["id"])->fetch();
-                    echo '<a href="./auth/unfollow.php?id=' . $user['userID'] . '"> <button class="btnEdit">Unfollow</button></a>
-                    <p style="margin-top:3pt;"> You follow: <b>' . $user['username'] . '</b> <br/> since <b>' . $followAge["followDate"] . '</b></p>';
-                } else echo '<a href="./auth/follow.php?id=' . $user['userID'] . '"><button class="btnEdit">Follow</button></a>';
-                ?>
+                <div class="follow" style="width:100%;">
+                    <?php
+                    if ($queryFollow != 0) {
+                        $followAge = $pdo->query('SELECT DISTINCT DATE(followDate) as "followDate" FROM follows WHERE followedID=' . $user["userID"] . ' and followerID =' . $_SESSION["id"])->fetch();
+                        echo '<a href="./auth/unfollow.php?id=' . $user['userID'] . '"> <button class="btnEdit">Unfollow</button></a>
+                    <a href="./chat.php?id=' . $_GET["id"] . '"> <button class="btnEdit">Message</button></a>  ';
+                    } else echo '<a href="./auth/follow.php?id=' . $user['userID'] . '"><button class="btnEdit">Follow</button></a>';
+                    ?>
+                </div>
             </div>
+
         </div>
-        <div style="display:flex;height:60vh;margin-bottom:10vh">
+        <div class="userMoreInfo" style="width:100%;height:30vh;background:darkgreen;display:flex;">
+            <div style="width:50%;height:100%;background-color:red;">
+            <span style="display:flex;flex-direction: column;justify-content: space-between;top:50%;background:blue;">
+            <p> Languages:
+                    <?php
+                    $numItems = count($languages);
+                    $i = 0;
+                    foreach ($languages as $language) { if (++$i === $numItems) echo $language; else echo $language . ', ';}?>
+            </p>
+                <p>
+                    Sex: <?= $sex ?>
+                </p>
+                </span>
+        </div>
+            <div style="width:50%;height:100%;background-color:blue;">
+            <p>Games Played: <b>0</b></p>
+            <p>Last Activity: <b><?= $user["lastActivity"]?></b></p>
+            <?php if ($queryFollow != 0):?>
+            <p>You follow: <b><?=$user['username']?></b> since <b><?=$followAge["followDate"]?>.</b></p>
+            <?php endif; ?>
+        </div>
+        </div>
+        <div style="display:flex;height:60vh;margin-bottom:10vh;margin-top: 10vh">
             <div class="listasPerfil">
-                <h1 style="margin-left:10%"><?= $user["username"]?> likes</h1>
+                <h1 style="margin-left:10%"><?= $user["username"] ?> likes</h1>
 
                 <div class="lista">
                     <?php
@@ -96,7 +126,7 @@ if ($_GET["id"] != $_SESSION["id"]) {
             </div>
             <div class='border'></div>
             <div class="listasPerfil">
-                <h1 style="margin-left:10%"><?= $user["username"]?> follows</h1>
+                <h1 style="margin-left:10%"><?= $user["username"] ?> follows</h1>
                 <div class="lista">
                     <?php
                     /*                                                           |               |-> buscar o ID dos que são seguidos; |                             |-> por este utilizador*/
@@ -113,11 +143,11 @@ if ($_GET["id"] != $_SESSION["id"]) {
             </div>
             <!-- Comments -->
         </div>
-           <?php
-           include './components/comments.php';
-           include './components/formComment.php';
-           ?>
-        </div>
+        <?php
+        include './components/comments.php';
+        include './components/formComment.php';
+        ?>
+    </div>
     </div>
 
     <?php include './components/footer.php';    ?>
@@ -126,14 +156,14 @@ if ($_GET["id"] != $_SESSION["id"]) {
             to_user_id = $('#userName').attr('name');
             setInterval(function() {
                 $.ajax({ //Atualizar a ultima atividade
-                      url: "./auth/update_user_lastActivity.php",
-                      success: function() {}
+                    url: "./auth/update_user_lastActivity.php",
+                    success: function() {}
                 });
                 $.ajax({ //Verifica e escreve se o user ta online ou offline
                     url: "./auth/fetch_userStatus.php",
                     method: "POST",
-                    data:{
-                        userID : to_user_id
+                    data: {
+                        userID: to_user_id
                     },
                     success: function(data) {
                         $('#status').html(data);
@@ -141,17 +171,17 @@ if ($_GET["id"] != $_SESSION["id"]) {
                 });
             }, 5000);
             $.ajax({ //Verifica e escreve se o user ta online ou offline
-                    url: "./auth/fetch_userStatus.php",
-                    method: "POST",
-                    data:{
-                        userID : to_user_id
-                    },
-                    success: function(data) {
-                        $('#status').html(data);
-                    }
-                });
+                url: "./auth/fetch_userStatus.php",
+                method: "POST",
+                data: {
+                    userID: to_user_id
+                },
+                success: function(data) {
+                    $('#status').html(data);
+                }
+            });
         });
-     </script>
+    </script>
 </body>
 
 </html>
