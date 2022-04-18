@@ -27,7 +27,7 @@
 
     <div style="display: flex;gap:10vh;margin-left:20%;padding-bottom:5vh">
       <a class="play" href="play.php">Warn an User</a>
-      <a class="play" href="play.php">Report List</a>
+      <a class="play" href="./reportList.php">Report List</a>
     </div>
 
     <div style="display: flex;gap:10vh;margin-left:20%;padding-bottom:5vh">
