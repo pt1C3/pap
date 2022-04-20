@@ -10,7 +10,7 @@ $timeminus10 = $time->format("Y-m-d H:i:s");
 
 $lastActivity = $pdo->query('SELECT lastActivity FROM user WHERE userID=' . $id)->fetch(PDO::FETCH_COLUMN);
 if($lastActivity > $timeminus10)
-{ echo "<p style=\"color:green;\">Online</p>";}
+{ echo "<span style=\"color:green;\">Online</span>";}
 else
-{ echo "<p style=\"color:red;\">Offline</p>";}
+{ echo "<span style=\"color:red;\">Offline</span>";}
 ?>

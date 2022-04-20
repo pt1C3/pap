@@ -24,7 +24,7 @@ $user =  $pdo->query('SELECT * FROM user WHERE userID=' . $_GET["id"])->fetch();
             <div id="messageHistory">
                 <!--Aqui vao as messages-->
             </div>
-            <div class="messageArea" style="height:10vh;">
+            <div class="messageArea" style="height:10vh;width:100%">
                 <textarea class="form-control" id="chat_message" placeholder="Write your message here."></textarea>
                 <!--Isto é para escrever-->
                 <button type="button" id="send_chat" name="<?= $user["userID"] ?>">Send</button>
