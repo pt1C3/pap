@@ -43,7 +43,7 @@ $user =  $pdo->query('SELECT * FROM user WHERE userID=' . $_GET["id"])->fetch();
             var to_user_id = $('#send_chat').attr('name');
             var messageHistory = $('messageHistory');
             setInterval(function() {
-                $.ajax({ //Atualizar o chat de 5 em 5 segundos
+                $.ajax({ //Atualizar o chat de 5 .em 5 segundos
                     url: "./auth/updateChatBox.php",
                     method: "POST",
                     data: {
