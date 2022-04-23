@@ -20,10 +20,10 @@
 
 .biography {
     resize: vertical;
-    max-height: 20vh;
-    min-height: 10vh;
     width: 80%;
     text-align: left;
+    max-height: 20vh;
+    min-height: 10vh;
     background-color: #ffffff;
     font-size: 13pt;
     font-family: ReadexPro;

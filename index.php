@@ -38,15 +38,6 @@
                 <a href="login.php" style="display:inline;"><button class="login">LOGIN</button></a>';
             } ?>
             </div>
-    <!--<div class="right" style="top:0;right:0; position:absolute;z-index:5;margin-top:3%;margin-right:5%">
-        <a href="register.php">
-            <button class="register">REGISTER</button>
-        </a>
-
-        <a href="login.php">
-            <button class="login">LOGIN</button>
-        </a>
-    </div>-->
     <div style="bottom:0;left:0; position:absolute;z-index:5;margin-bottom:10%;margin-left:5%">
     <img src="./images/logo.png">
     <p>The place where you can find the perfect partners for your favorite games.<br> This is the perfect place for you to find people to play with.</p>

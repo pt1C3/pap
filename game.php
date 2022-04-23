@@ -59,6 +59,10 @@ $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameI
                 <!--<button class="btnEdit" href="auth/like.php">Like</button>-->
             </div>
         </div>
+        <span>
+            <h1 style="width:20%;margin-left:40%;margin-bottom:2%;">Game Trailer</h1>
+            <?= $game["trailer"]?>
+<span>
         <div id="bottomElements">
             <div style="display:flex;height:100%;">
                 <div class="listasPerfil">

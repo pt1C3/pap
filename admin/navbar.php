@@ -4,8 +4,11 @@
         .logoAdm{
             color:white; text-decoration:none;font-family:Aldo;font-size:20pt;
             transition: 0.2s;
-    transform: translateZ(0);
-    
+            transform: translateZ(0);
+        }
+        .logoAdm:hover .logobtn{
+            background-image: url("../images/logo hover.png");
+            filter: brightness(110%) saturate(100%);
         }
         .logoAdm:hover{
             color:red;

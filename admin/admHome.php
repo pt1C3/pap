@@ -12,30 +12,18 @@
 
 <body>
   <?php
-  session_set_cookie_params(0);
   session_start();
   if(isset($_SESSION["adm"]) == false || $_SESSION["adm"] == false) header("location: ../index.php");
   include './navbar.php';
   include '../auth/db.php';
   ?>
   <div class="data">
-
-    <div style="display: flex;gap:10vh;margin-left:20%;padding-bottom:5vh">
-      <a class="play" href="play.php">Edit User Profile</a>
-      <a class="play" href="play.php">Remove User Profile</a>
+    <div style="width:30%;background-color:red;height:100%;display:inline">
+      <!--jogos-->
     </div>
-
-    <div style="display: flex;gap:10vh;margin-left:20%;padding-bottom:5vh">
-      <a class="play" href="play.php">Warn an User</a>
-      <a class="play" href="./reportList.php">Report List</a>
+    <div style="width:70%;background-color:cyan;height:100%;display:inline">
+      <!--utilizadores-->
     </div>
-
-    <div style="display: flex;gap:10vh;margin-left:20%;padding-bottom:5vh">
-      <a class="play" href="play.php">Users Banned List</a>
-      <a class="play" href="play.php">Users Warned List</a>
-    </div>
-
-
   </div>
 
 </body>

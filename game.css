@@ -5,7 +5,7 @@
   width: 80%;
   background-color: #181b3f;
   margin-left: 10%;
-  height: 140vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -91,6 +91,7 @@
   border-radius: 7px;
   width: 80%;
   height: 80%;
+  max-height: 80%;
   margin: 2% 10%;
   overflow-y: scroll;
   background-color: rgba(0, 0, 0, 0.5);
@@ -173,4 +174,16 @@
 
 .menu:hover .menuBtn {
   background-color: #1926da;
+}
+
+#trailer{
+  aspect-ratio: 16 / 9;
+  width: 60%;
+  margin-left:20%;
+  margin-bottom: 5%;
+}
+@supports not (aspect-ratio: 16/9) {
+   #trailer{
+     display:none;
+   }
 }
