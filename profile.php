@@ -53,7 +53,7 @@ if ($_GET["id"] != $_SESSION["id"]) {
                     <div class="menuContent">
                         <a href="#">Report</a>
                         <a href="#">Rate</a>
-                        <a >More info</a>
+                        <a id="moreinfo">More info</a>
                     </div>
                 </div>
             </span>
@@ -84,23 +84,24 @@ if ($_GET["id"] != $_SESSION["id"]) {
             </div>
 
         </div>
-        <div class="userMoreInfo" style="width:100%;height:30vh;background:darkgreen;display:flex;">
-            <div style="width:50%;height:100%;background-color:red;">
-            <span style="display:flex;flex-direction: column;justify-content: space-between;top:50%;background:blue;">
+        <div id="userMoreInfo" style="width:80%;height:15vh;display:none;background:#2d34a1;margin-left:10%">
+            <div style="width:50%;height:100%;">
+            <span style="display:flex;flex-direction: column;justify-content: space-between;top:50%;">
             <p> Languages:
                     <?php
                     $numItems = count($languages);
                     $i = 0;
                     foreach ($languages as $language) { if (++$i === $numItems) echo $language; else echo $language . ', ';}?>
-            </p>
+            </p><br>
                 <p>
                     Sex: <?= $sex ?>
                 </p>
                 </span>
         </div>
-            <div style="width:50%;height:100%;background-color:blue;">
-            <p>Games Played: <b>0</b></p>
-            <p>Last Activity: <b><?= $user["lastActivity"]?></b></p>
+            <div style="width:50%;height:100%;position: relative;">
+            <button id="moreinfoClose" style="position:absolute;top:0px;left:95%;width:5%;background:transparent;border-style:none;color:white;border:white solid 2pt;border-radius:10%;">X</button>
+            <p>Games Played: <b>0</b></p><br>
+            <p>Last Activity: <b><?= $user["lastActivity"]?></b></p><br>
             <?php if ($queryFollow != 0):?>
             <p>You follow: <b><?=$user['username']?></b> since <b><?=$followAge["followDate"]?>.</b></p>
             <?php endif; ?>
@@ -181,6 +182,13 @@ if ($_GET["id"] != $_SESSION["id"]) {
                 }
             });
         });
+        $(document).on('click', '#moreinfo', function() {
+            $("#userMoreInfo").css("display", "flex")
+        });
+        $(document).on('click', '#moreinfoClose', function() {
+            $("#userMoreInfo").css("display", "none")
+        });
+
     </script>
 </body>
 

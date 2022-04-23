@@ -51,7 +51,6 @@ $user =  $pdo->query('SELECT * FROM user WHERE userID=' . $_GET["id"])->fetch();
                     },
                     success: function(data) {
                         $('#messageHistory').html(data);
-                        scrolldiv();
                     }
                 })
 
