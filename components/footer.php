@@ -42,7 +42,7 @@
         <h1>Developers:</h1>
         <div class="devs">
             <a href="https://www.github.com/pt1C3" target="_blank">Rafael (1C3)</a><br>
-            <a href="https://wwww.github.com/NunoxCosta" target="_blank">Nunito</a>
+            <a href="https://www.github.com/NunoxCosta" target="_blank">Nunito</a>
 
         </div>
     </div>

@@ -45,17 +45,20 @@
       <div class="searchTools" style="width:80%;margin-left:10%;background:red;height:5vh;display:flex;justify-content:space-between;margin-bottom:10pt;">
         <div style="width:30%;display:flex;" id="usernameSearch" >
           <input id="txtUsername" type="text" class="pesquisa" style="width:90%;" placeholder="Search Users..." required />
-          <input id="search" class="searchBTN" type="image" style="height:80%;" src="./images/lupa.png" />
+          <button id="search" style="height:80%;" >Search</button>
         </div>
         <div style="width:30%;display:none;" id="ageSearch">
           <input type="number" id="txtMinAge" placeholder="Min Age">
           <input type="number" id="txtMaxAge" placeholder="Max Age">
+          <input id="search" class="searchBTN" type="image" style="height:80%;" src="./images/lupa.png" />
         </div>
         <div style="width:30%;display:none;" id="countrySearch">
           <input type="txtCountry" placeholder="Country">
+          <input id="search" class="searchBTN" type="image" style="height:80%;" src="./images/lupa.png" />
         </div>
         <div style="width:30%;display:none;" id="languageSearch">
           <input type="text" placeholder="Language">
+          <input id="search" class="searchBTN" type="image" style="height:80%;" src="./images/lupa.png" />
         </div>
         <span>
           <label>Search by:</label>
@@ -124,9 +127,10 @@
   <?php include './components/footer.php';
   include './scripts/update_user_lastActivity.php'; ?>
   <script>
+        let to_user_id = $("#getID").attr("name");
+    let gameID2 = $("#getgameID").attr("name");
   $(document).ready(function() {
-    let to_user_id = $("#getID").attr("name");
-    let gameID = $("#getgameID").attr("name");
+
     $.ajax({ //Verifica e escreve se o user ta online ou offline
                 url: "./auth/fetch_userStatus.php",
                 method: "POST",
@@ -139,6 +143,20 @@
             });
   });
   
+            $(document).on('click', '#search', function(){
+            $.ajax({ 
+                    url: "./auth/play/usernameSearch.php",
+                    method: "POST",
+                    data: {
+                        username: $("#txtUsername").val(),
+                        gameID: gameID2
+                    },
+                    success: function(data) {
+                      alert(data);
+                          $('#tabela').html(data);  
+                    }
+                })
+          })
   //dropdownlist com o tipo de pesquisa
     $('#mySelect').change(function() {
       let to_user_id = $("#getID").attr("name")
@@ -151,7 +169,6 @@
           $('#countrySearch').css('display', 'none');
           $('#languageSearch').css('display', 'none');
           $(document).on('click', '#search', function(){
-            alert('username');  
             $.ajax({ 
                     url: "./auth/play/usernameSearch.php",
                     method: "POST",
@@ -160,7 +177,7 @@
                         gameID: gameID
                     },
                     success: function(data) {
-                        alert($("#txtUsername").val())
+                          alert('username');  
                     }
                 })
           })
