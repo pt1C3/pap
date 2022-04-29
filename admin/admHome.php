@@ -10,19 +10,29 @@
   <title>LetsGame</title>
 </head>
 
-<body>
+<body style="padding-top: 5%;">
   <?php
   session_start();
-  if(isset($_SESSION["adm"]) == false || $_SESSION["adm"] == false) header("location: ../index.php");
+  if (isset($_SESSION["adm"]) == false || $_SESSION["adm"] == false) header("location: ../index.php");
   include './navbar.php';
   include '../auth/db.php';
   ?>
-  <div class="data">
-    <div style="width:30%;background-color:red;height:100%;display:inline">
+  <div class="data" style="gap: 20px;border:3px solid blue">
+    <div style="width:30%;background-color:red;height:100%;display:inline;">
       <!--jogos-->
+      <h1 style="margin: 20px;text-align:center">JOGOS</h1>
+
+      <a href="">ADD</a>
+
+      <a href="">REMOVE</a>
+
+      <a href="">EDIT</a>
+
     </div>
-    <div style="width:70%;background-color:cyan;height:100%;display:inline">
+
+    <div style="width:70%;background-color:cyan;height:100%;display:inline;">
       <!--utilizadores-->
+      <h1 style="margin: 20px;text-align:center">UTILIZADORES</h1>
     </div>
   </div>
 

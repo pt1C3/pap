@@ -159,17 +159,17 @@
           $('#ageSearch').css('display', 'flex');
           $('#countrySearch').css('display', 'none');
           $('#languageSearch').css('display', 'none');
-          $("#ageSearch").on("submit", function(){
+          $(document).on('click', '#searchAge', function(){
           $.ajax({ 
                     url: "./auth/play/ageSearch.php",
                     method: "POST",
                     data: {
                         minAge: $("#txtMinAge").val(),
                         maxAge: $("#txtMaxAge").val(),
-                        gameID: gameID
+                        gameID: gameID2
                     },
                     success: function(data) {
-                        //receber os dados
+                      $('#tabela').html(data);
                     }
                 })
               })

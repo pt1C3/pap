@@ -1,7 +1,6 @@
 .data {
   display: flex;
   z-index: 0;
-  padding-top: 40pt;
   width: 80%;
   background-color: #181b3f;
   margin-left: 10%;
