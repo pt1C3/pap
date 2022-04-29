@@ -24,11 +24,13 @@
 
       <div style="display: grid;margin-left:10%;text-align:center;gap:20px;">
 
-      <a class="buttones" href="">ADD GAMES</a>
+        <a class="buttones" href="">ADD GAMES</a>
 
-      <a class="buttones" href="">REMOVE GAMES</a>
+        <a class="buttones" href="">REMOVE GAMES</a>
 
-      <a class="buttones" href="">EDIT GAMES</a>
+        <a class="buttones" href="">EDIT GAMES</a>
+
+        <a class="buttones" href="">OTHERS . . .</a>
 
       </div>
 
@@ -36,8 +38,45 @@
     </div>
 
     <div style="width:70%;height:100%;display:inline;background-color: #181b3f;border:3px solid blue;">
+
       <!--utilizadores-->
-      <p style="margin: 20px;text-align:center;font-family:Aldo;letter-spacing: 1pt;font-size:30pt">UTILIZADORES</p>
+
+      <p style="margin: 20px;text-align:center;font-family:Aldo;letter-spacing: 1pt;font-size:30pt">USERS</p>
+
+      <div id="items" style="display: flex;gap:25%;text-align:center;margin-left:5%">
+
+        <div id="statistics" style="margin:5%;">
+
+          <p style="font-size:30pt;font-family:Aldo;padding-bottom:40px">STATISTICS</p>
+
+          <p>People online right now: 69</p>
+        </div>
+
+        <div id="actions" style="margin:5%;">
+
+          <p style="font-size:30pt;font-family:Aldo;padding-bottom:40px">ACTIONS</p>
+
+          <div style="display:grid;gap:20px;">
+
+          <a class="buttones" href="" style="width: 250px;">BAN USER</a>
+
+          <a class="buttones" href="" style="width: 250px;">UNBAN USER</a>
+
+          <a class="buttones" href="" style="width: 250px;">EDIT PROFILE</a>
+
+          <a class="buttones" href="" style="width: 250px;">EDIT PROFILE</a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+
+
     </div>
   </div>
 
