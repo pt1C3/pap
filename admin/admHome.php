@@ -17,22 +17,27 @@
   include './navbar.php';
   include '../auth/db.php';
   ?>
-  <div class="data" style="gap: 20px;border:3px solid blue">
-    <div style="width:30%;background-color:red;height:100%;display:inline;">
+  <div class="data" style="gap: 20px;">
+    <div style="width:30%;height:100%;display:inline;background-color: #181b3f;border:3px solid blue;">
       <!--jogos-->
-      <h1 style="margin: 20px;text-align:center">JOGOS</h1>
+      <p style="margin: 20px;text-align:center;font-family:Aldo;letter-spacing: 1pt;font-size:30pt">JOGOS</p>
 
-      <a href="">ADD</a>
+      <div style="display: grid;margin-left:10%;text-align:center;gap:20px;">
 
-      <a href="">REMOVE</a>
+      <a class="buttones" href="">ADD GAMES</a>
 
-      <a href="">EDIT</a>
+      <a class="buttones" href="">REMOVE GAMES</a>
+
+      <a class="buttones" href="">EDIT GAMES</a>
+
+      </div>
+
 
     </div>
 
-    <div style="width:70%;background-color:cyan;height:100%;display:inline;">
+    <div style="width:70%;height:100%;display:inline;background-color: #181b3f;border:3px solid blue;">
       <!--utilizadores-->
-      <h1 style="margin: 20px;text-align:center">UTILIZADORES</h1>
+      <p style="margin: 20px;text-align:center;font-family:Aldo;letter-spacing: 1pt;font-size:30pt">UTILIZADORES</p>
     </div>
   </div>
 
