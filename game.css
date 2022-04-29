@@ -182,8 +182,6 @@
   width: 60%;
   margin-left:20%;
   margin-bottom: 5%;
-  border:3px solid #1926da;
-  border-radius: 5px;
 }
 @supports not (aspect-ratio: 16/9) {
    #trailer{

@@ -22,7 +22,7 @@
 #messageHistory {
     height: 50vh;
     overflow-y: scroll;
-    background-color: rgba(0, 0, 0, 0.5);;
+    background-color: rgba(0, 0, 0, 0.5);
     background-image: linear-gradient(90deg, #2d35a13f 0%, transparent 80%,#2d35a13f 100%);;
     padding:0 15pt 0 15pt;
     margin-bottom: 5vh;
@@ -47,7 +47,43 @@
     width:inherit;
     font-family: ReadexPro;
 }
-#send_chat{
-    background-color: red;
-    border-style:none;
+
+.messageArea{
+    background-color: #2d35a13f;
+    box-sizing: border-box;
+    border-bottom: 2pt solid black;
+    border-image: linear-gradient( 90deg, rgba(180, 0, 255, 1) 0%, rgba(0, 6, 255, 1) 50%, rgba(255, 0, 114, 1) 100%, rgba(255, 222, 0, 1) 100%);
+    border-image-slice: 1 1;
+    border-radius:5px;
+    padding:1vh 0.5vw 1vh 0.5vw;
+    height:20vh;width:100%;
+}
+#send_chat {
+    letter-spacing: 1pt;
+    font-family: "Aldo";
+    text-align: center;
+    text-decoration: none;
+    font-size: 15pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    outline: 0;
+    background: #2d34a1;
+    height:7vh;
+    border: 0;
+    padding: 0 15px 0 15px;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.1s;
+    transform: translateZ(0);
+    margin-bottom: 10%;
+}
+
+#send_chat:hover {
+    background-color: #1926da;
+    border-bottom: 3pt solid;
+    border-image: linear-gradient( 90deg, rgba(180, 0, 255, 1) 0%, rgba(0, 6, 255, 1) 33%, rgba(255, 0, 114, 1) 66%, rgba(255, 222, 0, 1) 100%);
+    border-image-slice: 100 0;
+    transform: scale(1.02);
+    box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
 }

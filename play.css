@@ -146,4 +146,14 @@ margin:0;
   margin-left: 10%;
   background-color: rgba(0, 0, 0, 0.5);
 }
-
+.searchTools input{
+  font-family: "ReadexPro";
+  font-size: 15pt;
+}
+.searchButton{
+background: #2d34a1;
+border-style: none;
+height: 5vh;
+width: 5vh;
+border-radius:5px;
+}

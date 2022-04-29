@@ -13,7 +13,7 @@ if ($gameID != '0') {
     else Table($users, $pdo);
 }
 else {
-    $users = $pdo->query("SELECT * FROM user WHERE userID != ". $_SESSION["id"]." and username like'%". $country ."%'")->fetchAll();
+    $users = $pdo->query("SELECT * FROM user WHERE userID != ". $_SESSION["id"]." and country like'%". $country ."%'")->fetchAll();
     if(count($users) == 0) echo "<tr><td colspan=\"7\">No users found.</td></tr>";
     else Table($users, $pdo);
 }
