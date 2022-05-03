@@ -1,22 +1,24 @@
 .data {
-  display: flex;
   z-index: 0;
+  padding-top: 80pt;
+  padding-bottom: 5%;
   width: 80%;
-  background-color: transparent;
+  background-color: #181b3f;
   margin-left: 10%;
-  height: calc(100vh - 120pt);
+  height: auto;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   animation: fadeInAnimation ease 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  align-items: center;
 }
-@keyframes fadeInAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.formadd input{
+border-radius: 5px;
+height: auto;
+font-size: 20pt;
+width: 100%;
 }
 .play {
   letter-spacing: 1pt;
@@ -52,30 +54,4 @@
   );
   border-image-slice: 100 0;
   box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
-}
-.buttones{
-  letter-spacing: 1pt;
-  font-family: "Aldo";
-  align-self: center;
-  text-align: center;
-  text-decoration: none;
-  font-size: 23pt;
-  font-weight: bold;
-  text-transform: uppercase;
-  outline: 0;
-  background: #2d34a1;
-  width: 80%;
-  border: 0;
-  padding: 15px;
-  color: #ffffff;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: 0.1s;
-  transform: translateZ(0);
-  margin-bottom: 2%;
-}
-.buttones:hover {
-  background-color: #1926da;
-  border-bottom: 2pt solid red;
-  border-top: 2pt solid red;
 }

@@ -5,6 +5,7 @@ session_start();
 
 <head>
     <title>Edit Profile - LetsGame</title>
+    <link rel="icon" href="./images/iconfavicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="register.css">
     <link rel="stylesheet" href="accountCreation.css">

@@ -5,6 +5,7 @@ if (isset($_SESSION["username"]) == false || isset($_SESSION["password"]) == fal
 
 <head>
     <title>Account Creation - LetsGame</title>
+    <link rel="icon" href="./images/iconfavicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="register.css">
     <link rel="stylesheet" href="accountCreation.css">
