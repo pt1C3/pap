@@ -1,159 +1,207 @@
 .games {
-  width: 97%;
-  padding: 2%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2%;
-  align-self: center;
-  margin-bottom: 100px;
+    width: 97%;
+    padding: 2%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2%;
+    align-self: center;
+    margin-bottom: 100px;
+}
 
+.gameWrapper {
+    margin-left: 10%;
+    width: 80%;
+    height: 90%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.5);
 }
-.gameWrapper{
-  margin-left: 10%;
-  width: 80%;
-  height: 90%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  background-color: rgba(0, 0, 0, 0.5);
-}
+
 .gameThumb {
-padding: 0;
-  width: 90%;
-  margin-right: 5%;
-  border: outset 2pt;
-  border-image-source: linear-gradient(
-    45deg,
-    rgba(180, 0, 255, 1) 0%,
-    rgba(0, 6, 255, 1) 50%,
-    rgba(255, 0, 114, 1) 100%
-  );
-  border-image-slice: 100 0;
-  border-image-slice: 1;
-  transition-duration: 0.1s;
-  transform: translateZ(0);
-}
-.gameThumb img{
-  margin:3%;
+    padding: 0;
+    width: 90%;
+    margin-right: 5%;
+    border: outset 2pt;
+    border-image-source: linear-gradient( 45deg, rgba(180, 0, 255, 1) 0%, rgba(0, 6, 255, 1) 50%, rgba(255, 0, 114, 1) 100%);
+    border-image-slice: 100 0;
+    border-image-slice: 1;
+    transition-duration: 0.1s;
+    transform: translateZ(0);
 }
 
-.gameThumb:hover img{
-margin:0; 
-
-
+.gameThumb img {
+    margin: 3%;
 }
+
+.gameThumb:hover img {
+    margin: 0;
+}
+
 .data {
-  z-index: 0;
-  padding-top: 60pt;
-  width: 80%;
-  background-color: #181b3f;
-  margin-left: 10%;
-  height: calc(100vh - 60pt);
-  display: grid;
-  flex-direction: column;
-  justify-content: space-between;
-  border-right: 2pt solid #1926da;
-  border-left: 2pt solid #1926da;
-  animation: fadeInAnimation ease 0.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+    z-index: 0;
+    padding-top: 60pt;
+    width: 80%;
+    background-color: #181b3f;
+    margin-left: 10%;
+    height: calc(100vh - 60pt);
+    display: grid;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 2pt solid #1926da;
+    border-left: 2pt solid #1926da;
+    animation: fadeInAnimation ease 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 @keyframes fadeInAnimation {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .border {
-  width: 5pt;
-  margin: 5% 0;
-  background-image: url("./images/gradient.png");
-  background-size: cover;
+    width: 5pt;
+    margin: 5% 0;
+    background-image: url("./images/gradient.png");
+    background-size: cover;
 }
 
 .data h1 {
-  text-align: center;
-  font-family: "Aldo";
-  font-size: 30pt;
-  letter-spacing: 1pt;
-  margin-bottom: 2%;
+    text-align: center;
+    font-family: "Aldo";
+    font-size: 30pt;
+    letter-spacing: 1pt;
+    margin-bottom: 2%;
 }
 
 #nextbutton {
-  font-family: "Aldo";
-  color: #ffffff;
-  cursor: pointer;
-  margin-left: 37%;
-  width: 20%;
-  font-size: 25pt;
-  padding: 5pt;
-  text-decoration: none;
-  border-radius: 2px;
-  background-color: #2d34a1;
-  width: fit-content;
-  transition-duration: 0.1s;
-  transform: translateZ(0);
-  bottom: 5%;
-  position: absolute;
+    font-family: "Aldo";
+    color: #ffffff;
+    cursor: pointer;
+    margin-left: 37%;
+    width: 20%;
+    font-size: 25pt;
+    padding: 5pt;
+    text-decoration: none;
+    border-radius: 2px;
+    background-color: #2d34a1;
+    width: fit-content;
+    transition-duration: 0.1s;
+    transform: translateZ(0);
+    bottom: 5%;
+    position: absolute;
 }
 
 #nextbutton:hover {
-  background-color: #1926da;
-  border-bottom: 3pt solid;
-  border-image: linear-gradient(
-    90deg,
-    rgba(180, 0, 255, 1) 0%,
-    rgba(0, 6, 255, 1) 33%,
-    rgba(255, 0, 114, 1) 66%,
-    rgba(255, 222, 0, 1) 100%
-  );
-  border-image-slice: 100 0;
-  box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
+    background-color: #1926da;
+    border-bottom: 3pt solid;
+    border-image: linear-gradient( 90deg, rgba(180, 0, 255, 1) 0%, rgba(0, 6, 255, 1) 33%, rgba(255, 0, 114, 1) 66%, rgba(255, 222, 0, 1) 100%);
+    border-image-slice: 100 0;
+    box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
 }
 
 #usersList {
-  border-collapse: separate;
-  width: 100%;
-  border-spacing: 0;
+    border-collapse: separate;
+    width: 100%;
+    border-spacing: 0;
 }
+
 #usersList thead th {
-  position: sticky;
-  top: 0;
-  gap: 4px;
-  font-size: 14pt;
-  border: 2px solid #2d34a1;
-  background-color: #2d34a1;
-  text-decoration: none;
+    position: sticky;
+    top: 0;
+    gap: 4px;
+    font-size: 14pt;
+    border: 2px solid #2d34a1;
+    background-color: #2d34a1;
+    text-decoration: none;
 }
 
 #usersList td {
-  font-size: 12pt;
-  margin-bottom: 5px;
-  border-bottom: 2px solid #2d34a1;
-  text-align: center;
-  text-decoration: none;
+    font-size: 12pt;
+    margin-bottom: 5px;
+    border-bottom: 2px solid #2d34a1;
+    text-align: center;
+    text-decoration: none;
 }
 
 #table-wrapper {
-  overflow: hidden;
-  overflow-y: scroll;
-  height: 30vh;
-  width: 80%;
-  margin-left: 10%;
-  background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 30vh;
+    width: 80%;
+    margin-left: 10%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
-.searchTools input{
-  font-family: "ReadexPro";
-  font-size: 15pt;
+
+.searchTools {
+    position: relative;
+    width: 78.5%;
+    margin-left: 10%;
+    padding: 5PX 10px 5PX 10px;
+    border-radius: 5px;
+    background-color: #2d35a13f;
+    height: 30pt;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10pt;
+    border-bottom: 2pt solid black;
+    border-image: linear-gradient( 90deg, rgba(180, 0, 255, 1) 0%, rgba(0, 6, 255, 1) 33%, rgba(255, 0, 114, 1) 66%, rgba(255, 222, 0, 1) 100%);
+    border-image-slice: 1 1;
 }
-.searchButton{
-background: #2d34a1;
-border-style: none;
-height: 5vh;
-width: 5vh;
-border-radius:5px;
+
+.searchTools input {
+    font-family: "ReadexPro";
+    font-size: 12pt;
+}
+
+.searchButton {
+    background: #2d34a1;
+    border-style: none;
+    height: 25pt;
+    width: 25pt;
+    border-radius: 5px;
+    margin: auto;
+    margin-left: 10px;
+}
+
+.searchSearch {
+    width: 30%;
+}
+
+.searchSelect {
+    text-align: center;
+    margin: auto;
+    width: 20%;
+    margin-right: 0;
+    font-size: 13pt;
+}
+
+.searchSelect select {
+    font-family: ReadexPro;
+    font-size: 12pt;
+    outline: 0;
+    background: transparent;
+    color: white;
+    border: 0;
+    border: 3px solid white;
+    box-sizing: border-box;
+    font-family: ReadexPro;
+    border-radius: 5px;
+}
+
+.searchSelect select option {
+    outline: 0;
+    background: #2d34a1;
+    color: white;
+    border: 0;
+    margin-bottom: 1%;
+    padding: 15px;
+    border: 3px solid white;
+    box-sizing: border-box;
+    font-family: ReadexPro;
+    border-radius: 5px;
 }

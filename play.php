@@ -48,25 +48,25 @@
     </div>
 
     <div>
-      <div class="searchTools" style="width:80%;margin-left:10%;background:red;height:5vh;display:flex;justify-content:space-between;margin-bottom:10pt;">
-        <div style="width:30%;display:flex;" id="usernameSearch" >
-          <input id="txtUsername" type="text" class="pesquisa" style="width:90%;" placeholder="Search Users..." required />
-          <button class="searchButton" id="searchUsername"  ><img src="./images/lupa.png" style="height:80%;"></button>
+      <div class="searchTools" >
+        <div class="searchSearch" style="display:flex;" id="usernameSearch" >
+          <input id="txtUsername" type="text" class="pesquisa" style="width:90%;border-radius:5px;" placeholder="Search Users..." required />
+          <button class="searchButton" id="searchUsername"  ><img src="./images/lupa.png" style="height:70%;"></button>
         </div>
-        <div style="width:30%;display:none;" id="ageSearch">
+        <div class="searchSearch" style="display:none;" id="ageSearch">
           <input type="number" id="txtMinAge" placeholder="Min Age">
           <input type="number" id="txtMaxAge" placeholder="Max Age">
           <button class="searchButton" id="searchAge"  ><img src="./images/lupa.png" style="height:80%;"></button>        
           </div>
-        <div style="width:30%;display:none;" id="countrySearch">
+        <div class="searchSearch" style="display:none;" id="countrySearch">
           <input id="txtCountry" type="text" class="pesquisa" style="width:90%;" placeholder="Search Country..." required />
           <button class="searchButton" id="searchCountry"  ><img src="./images/lupa.png" style="height:80%;"></button>        
           </div>
-        <div style="width:30%;display:none;" id="languageSearch">
+        <div class="searchSearch" style="display:none;" id="languageSearch">
         <input id="txtLanguage" type="text" class="pesquisa" style="width:90%;" placeholder="Search Language..." required />
           <button class="searchButton" id="searchLanguage" ><img src="./images/lupa.png" style="height:80%;"></button>        
           </div>
-        <span>
+        <span class="searchSelect">
           <label>Search by:</label>
           <select id="mySelect">
             <option name="username">Username</option>
