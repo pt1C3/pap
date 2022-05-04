@@ -72,7 +72,7 @@ $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameI
 
                     <div class="lista">
                         <?php
-                        $games = ($pdo->query('SELECT * FROM games WHERE genre="' . $game["genre"] . '"'))->fetchAll();
+                        $games = $pdo->query('SELECT * FROM games WHERE gameID != '. $_GET["id"] .' AND genre="' . $game["genre"] . '"')->fetchAll();
 
 
                         foreach ($games as $game2) {
@@ -88,9 +88,8 @@ $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameI
                             <p>Likes: <br/>' . $likes['likes'] . '</p>
                             </a>';
                         }
-
-
                         ?>
+                        <p style="height: 100px;text-align:center">No games like this found.</p>
                     </div>
                 </div>
             </div>

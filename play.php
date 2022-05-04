@@ -22,7 +22,8 @@
 
   <!--Home Page before Login-->
 
-  <div class='data' id="getgameID" name="<?php if (isset($_GET["gameID"]) == true) echo $_GET["gameID"]; else echo '0';?>">
+  <div class='data' id="getgameID" name="<?php if (isset($_GET["gameID"]) == true) echo $_GET["gameID"];
+                                          else echo '0'; ?>">
 
 
     <div style="text-align:center;height:25vh;">
@@ -32,13 +33,10 @@
 
             <?php
             foreach ($games as $game) {
-              if(isset($_GET["gameID"])) 
-              {
-                if($game["gameID"]==$_GET["gameID"]) echo '<a href="play.php?gameID=' . $game["gameID"] . '"><img src="' . $game['thumbnail'] . '" class="gameThumb" style="border:dashed 3pt gold;   transform: scale(1.1);"/></a>';
-              else  echo '<a href="play.php?gameID=' . $game["gameID"] . '"><img src="' . $game['thumbnail'] . '" class="gameThumb"/></a>';
-              }
-              else  echo '<a href="play.php?gameID=' . $game["gameID"] . '"><img src="' . $game['thumbnail'] . '" class="gameThumb"/></a>';
-
+              if (isset($_GET["gameID"])) {
+                if ($game["gameID"] == $_GET["gameID"]) echo '<a href="play.php"><img src="' . $game['thumbnail'] . '" class="gameThumb" style="border:dashed 3pt gold;   transform: scale(1.1);"/></a>';
+                else  echo '<a href="play.php?gameID=' . $game["gameID"] . '"><img src="' . $game['thumbnail'] . '" class="gameThumb"/></a>';
+              } else  echo '<a href="play.php?gameID=' . $game["gameID"] . '"><img src="' . $game['thumbnail'] . '" class="gameThumb"/></a>';
             }
 
             ?>
@@ -48,24 +46,24 @@
     </div>
 
     <div>
-      <div class="searchTools" >
-        <div class="searchSearch" style="display:flex;" id="usernameSearch" >
+      <div class="searchTools">
+        <div class="searchSearch" style="display:flex;" id="usernameSearch">
           <input id="txtUsername" type="text" class="pesquisa" style="width:90%;border-radius:5px;" placeholder="Search Users..." required />
-          <button class="searchButton" id="searchUsername"  ><img src="./images/lupa.png" style="height:70%;"></button>
+          <button class="searchButton" id="searchUsername"><img src="./images/lupa.png" style="height:70%;"></button>
         </div>
         <div class="searchSearch" style="display:none;" id="ageSearch">
           <input type="number" id="txtMinAge" placeholder="Min Age">
           <input type="number" id="txtMaxAge" placeholder="Max Age">
-          <button class="searchButton" id="searchAge"  ><img src="./images/lupa.png" style="height:80%;"></button>        
-          </div>
+          <button class="searchButton" id="searchAge"><img src="./images/lupa.png" style="height:80%;"></button>
+        </div>
         <div class="searchSearch" style="display:none;" id="countrySearch">
           <input id="txtCountry" type="text" class="pesquisa" style="width:90%;" placeholder="Search Country..." required />
-          <button class="searchButton" id="searchCountry"  ><img src="./images/lupa.png" style="height:80%;"></button>        
-          </div>
+          <button class="searchButton" id="searchCountry"><img src="./images/lupa.png" style="height:80%;"></button>
+        </div>
         <div class="searchSearch" style="display:none;" id="languageSearch">
-        <input id="txtLanguage" type="text" class="pesquisa" style="width:90%;" placeholder="Search Language..." required />
-          <button class="searchButton" id="searchLanguage" ><img src="./images/lupa.png" style="height:80%;"></button>        
-          </div>
+          <input id="txtLanguage" type="text" class="pesquisa" style="width:90%;" placeholder="Search Language..." required />
+          <button class="searchButton" id="searchLanguage"><img src="./images/lupa.png" style="height:80%;"></button>
+        </div>
         <span class="searchSelect">
           <label>Search by:</label>
           <select id="mySelect">
@@ -92,12 +90,12 @@
           </thead>
           <tbody id="tabela">
 
-           
+
           </tbody>
         </table>
       </div>
 
-      <a id="nextbutton" href="#">Next</a>
+      <a id="nextbutton" href="#passei">Next</a>
     </div>
 
 
@@ -112,36 +110,43 @@
   <?php include './components/footer.php';
   include './scripts/update_user_lastActivity.php'; ?>
   <script>
-        let to_user_id = $("#getID").attr("name");
+    let to_user_id = $("#getID").attr("name");
     let gameID2 = $("#getgameID").attr("name");
-  $(document).ready(function() {
+    $(document).ready(function() {
 
-    $.ajax({ //Verifica e escreve se o user ta online ou offline
-                url: "./auth/fetch_userStatus.php",
-                method: "POST",
-                data: {
-                    userID: to_user_id
-                },
-                success: function(data) {
-                    $('#status').html(data);
-                }
-            });
-            $.ajax({ 
-                    url: "./auth/play/usernameSearch.php",
-                    method: "POST",
-                    data: {
-                        username: $("#txtUsername").val(),
-                        gameID: gameID2
-                    },
-                    success: function(data) {
-                          $('#tabela').html(data);  
-                    }
-                })
-    usernameSearch();
-  });
-  
+      function DisableNextButton() {
+        $("#nextbutton").css("background-color", "red");
+        $("#nextbutton").css("pointer-events", "none");
 
-  //dropdownlist com o tipo de pesquisa
+      }
+
+      $.ajax({ //Verifica e escreve se o user ta online ou offline
+        url: "./auth/fetch_userStatus.php",
+        method: "POST",
+        data: {
+          userID: to_user_id
+        },
+        success: function(data) {
+          $('#status').html(data);
+        }
+      });
+      $.ajax({
+        url: "./auth/play/usernameSearch.php",
+        method: "POST",
+        data: {
+          username: $("#txtUsername").val(),
+          gameID: gameID2
+        },
+        success: function(data) {
+          $('#tabela').html(data);
+        }
+      })
+      usernameSearch();
+      DisableNextButton();
+    });
+
+
+    //dropdownlist com o tipo de pesquisa
     $('#mySelect').change(function() {
       let to_user_id = $("#getID").attr("name")
       var value = $("#mySelect").find(':selected').attr("name");
@@ -159,99 +164,99 @@
           $('#ageSearch').css('display', 'flex');
           $('#countrySearch').css('display', 'none');
           $('#languageSearch').css('display', 'none');
-          $(document).on('click', '#searchAge', function(){
-          $.ajax({ 
-                    url: "./auth/play/ageSearch.php",
-                    method: "POST",
-                    data: {
-                        minAge: $("#txtMinAge").val(),
-                        maxAge: $("#txtMaxAge").val(),
-                        gameID: gameID2
-                    },
-                    success: function(data) {
-                      $('#tabela').html(data);
-                    }
-                })
-              })
+          $(document).on('click', '#searchAge', function() {
+            $.ajax({
+              url: "./auth/play/ageSearch.php",
+              method: "POST",
+              data: {
+                minAge: $("#txtMinAge").val(),
+                maxAge: $("#txtMaxAge").val(),
+                gameID: gameID2
+              },
+              success: function(data) {
+                $('#tabela').html(data);
+              }
+            })
+          })
           break;
         case 'country':
           $('#usernameSearch').css('display', 'none');
           $('#ageSearch').css('display', 'none');
           $('#countrySearch').css('display', 'flex');
           $('#languageSearch').css('display', 'none');
-          $(document).on('click', '#searchCountry', function(){
-          $.ajax({ 
-                    url: "./auth/play/countrySearch.php",
-                    method: "POST",
-                    data: {
-                        country: $("#txtCountry").val(),
-                        gameID: gameID2
-                    },
-                    success: function(data) {
-                      $('#tabela').html(data);                      
-                    }
-                })
-              })
+          $(document).on('click', '#searchCountry', function() {
+            $.ajax({
+              url: "./auth/play/countrySearch.php",
+              method: "POST",
+              data: {
+                country: $("#txtCountry").val(),
+                gameID: gameID2
+              },
+              success: function(data) {
+                $('#tabela').html(data);
+              }
+            })
+          })
           break;
         case 'language':
           $('#usernameSearch').css('display', 'none');
           $('#ageSearch').css('display', 'none');
           $('#countrySearch').css('display', 'none');
           $('#languageSearch').css('display', 'flex');
-          $(document).on('click', '#searchLanguage', function(){
-          $.ajax({ 
-                    url: "./auth/play/languageSearch.php",
-                    method: "POST",
-                    data: {
-                        language: $("#txtLanguage").val(),
-                        gameID: gameID2
-                    },
-                    success: function(data) {
-                      $('#tabela').html(data);  
-                    }
-                })
-              })
+          $(document).on('click', '#searchLanguage', function() {
+            $.ajax({
+              url: "./auth/play/languageSearch.php",
+              method: "POST",
+              data: {
+                language: $("#txtLanguage").val(),
+                gameID: gameID2
+              },
+              success: function(data) {
+                $('#tabela').html(data);
+              }
+            })
+          })
           break;
         default: //se for default faz a pesquisa por username
           $('#usernameSearch').css('display', 'flex');
           $('#ageSearch').css('display', 'none');
           $('#countrySearch').css('display', 'none');
           $('#languageSearch').css('display', 'none');
-          $("#usernameSearch").on("submit", function(){
-            $.ajax({ 
-                    url: "./auth/play/usernameSearch.php",
-                    method: "POST",
-                    data: {
-                        username: $("#txtUsername").val(),
-                        gameID: <?php if (isset($_GET["gameID"]) == true) echo $_GET["gameID"]; else echo '0';?>
-                    },
-                    success: function(data) {
-                        //receber os dados
-                    }
-                })
+          $("#usernameSearch").on("submit", function() {
+            $.ajax({
+              url: "./auth/play/usernameSearch.php",
+              method: "POST",
+              data: {
+                username: $("#txtUsername").val(),
+                gameID: <?php if (isset($_GET["gameID"]) == true) echo $_GET["gameID"];
+                        else echo '0'; ?>
+              },
+              success: function(data) {
+                //receber os dados
+              }
+            })
           })
           break;
       }
 
     });
-    
 
-    function usernameSearch(){
-      $(document).on('click', '#searchUsername', function(){
-            $.ajax({ 
-                    url: "./auth/play/usernameSearch.php",
-                    method: "POST",
-                    data: {
-                        username: $("#txtUsername").val(),
-                        gameID: gameID2
-                    },
-                    success: function(data) {
-                          $('#tabela').html(data);  
-                    }
-                })
-          })
+
+    function usernameSearch() {
+      $(document).on('click', '#searchUsername', function() {
+        $.ajax({
+          url: "./auth/play/usernameSearch.php",
+          method: "POST",
+          data: {
+            username: $("#txtUsername").val(),
+            gameID: gameID2
+          },
+          success: function(data) {
+            $('#tabela').html(data);
+          }
+        })
+      })
     }
-
   </script>
 </body>
 <script>

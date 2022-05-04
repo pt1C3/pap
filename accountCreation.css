@@ -37,7 +37,7 @@
     border: 0;
     margin-bottom: 1%;
     padding: 15px;
-    border: 3px solid white;
+    border: 2pt solid white;
     box-sizing: border-box;
     font-size: 13pt;
     font-family: ReadexPro;
@@ -51,7 +51,7 @@
     border: 0;
     margin-bottom: 1%;
     padding: 15px;
-    border: 3px solid white;
+    border: 2pt solid white;
     box-sizing: border-box;
     font-size: 12pt;
     font-family: ReadexPro;
@@ -69,6 +69,7 @@
     background: #2d34a1;
     width: 40%;
     border: 0;
+    margin-top:10pt;
     padding: 15px;
     color: #ffffff;
     cursor: pointer;
@@ -89,12 +90,11 @@
 
 .sex {
     font-size: 10pt;
+    width:40%;
+    margin-left:30%;
+
 }
 
-.sex input {
-    width: 20px;
-    margin-right: 100px;
-}
 
 #image {
     z-index: -1;
@@ -113,4 +113,10 @@
     font-family: ReadexPro;
     border-radius: 5px;
     width: 40%;
+}
+
+#preview img{
+    margin-top: 5pt;
+    margin-bottom: 30pt;
+    height:100pt;
 }

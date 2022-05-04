@@ -22,7 +22,7 @@ function fetch_user_chat($to_userID, $pdo)
             $user_name = '<a href="./profile.php?id='.$user["userID"] .'" class="userMessage"><img src="'. $user["image"] .'" style="height:30pt;margin-right:5pt;"><b>' . $user["username"] . '</b></a><br>';
         }
         $output .= '
-                    <li class="message" style="background-color:cyan;">
+                    <li class="message">
                     <p style="max-width:100%;">' . $user_name . ' - ' . wordwrap($row["message"], 100, "\n", true) . '
                         <div style="text-align:right;">
                         - <small><em>' . $row['time'] . '</em></small>
