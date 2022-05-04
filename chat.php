@@ -22,7 +22,7 @@ $user =  $pdo->query('SELECT * FROM user WHERE userID=' . $_GET["id"])->fetch();
         <div class="chatContainer">
             <h1 style="font-family:Aldo"><?= $user["username"] ?> - <span id="status"></span></h1>
             <div id="messageHistory">
-                <!--Aqui vao as messages-->
+
             </div>
             <div class="messageArea">
                 <textarea class="form-control" id="chat_message" placeholder="Write your message here."></textarea>
@@ -30,10 +30,7 @@ $user =  $pdo->query('SELECT * FROM user WHERE userID=' . $_GET["id"])->fetch();
                 <button type="button" id="send_chat" name="<?= $user["userID"] ?>">Send</button>
                 <!--Isto é para enviar-->
             </div>
-
-
-
-        </div>
+         </div>
     </div>
     <?php include './components/footer.php' ?>
 

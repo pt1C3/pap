@@ -48,7 +48,7 @@
     <div>
       <div class="searchTools">
         <div class="searchSearch" style="display:flex;" id="usernameSearch">
-          <input id="txtUsername" type="text" class="pesquisa" style="width:90%;border-radius:5px;" placeholder="Search Users..." required />
+          <input id="txtUsername" type="text" class="pesquisa" style="width:90%;border-radius:5px;" placeholder="Search Users..." >
           <button class="searchButton" id="searchUsername"><img src="./images/lupa.png" style="height:70%;"></button>
         </div>
         <div class="searchSearch" style="display:none;" id="ageSearch">
@@ -57,11 +57,11 @@
           <button class="searchButton" id="searchAge"><img src="./images/lupa.png" style="height:80%;"></button>
         </div>
         <div class="searchSearch" style="display:none;" id="countrySearch">
-          <input id="txtCountry" type="text" class="pesquisa" style="width:90%;" placeholder="Search Country..." required />
+          <input id="txtCountry" type="text" class="pesquisa" style="width:90%;" placeholder="Search Country..." />
           <button class="searchButton" id="searchCountry"><img src="./images/lupa.png" style="height:80%;"></button>
         </div>
         <div class="searchSearch" style="display:none;" id="languageSearch">
-          <input id="txtLanguage" type="text" class="pesquisa" style="width:90%;" placeholder="Search Language..." required />
+          <input id="txtLanguage" type="text" class="pesquisa" style="width:90%;" placeholder="Search Language..." />
           <button class="searchButton" id="searchLanguage"><img src="./images/lupa.png" style="height:80%;"></button>
         </div>
         <span class="searchSelect">
@@ -115,7 +115,7 @@
     $(document).ready(function() {
 
       function DisableNextButton() {
-        $("#nextbutton").css("background-color", "red");
+        $("#nextbutton").css("background-color", "#3d3e63");
         $("#nextbutton").css("pointer-events", "none");
 
       }
