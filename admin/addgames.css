@@ -1,11 +1,11 @@
 .data {
   z-index: 0;
-  padding-top: 80pt;
-  padding-bottom: 5%;
-  width: 80%;
+  padding-top: 40pt;
+  padding-bottom: 40pt;
+  width: 30%;
   background-color: #181b3f;
-  margin-left: 10%;
-  height: auto;
+  margin-left: 35%;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -13,12 +13,17 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   align-items: center;
+  border:3px solid blue;
 }
 .formadd input{
 border-radius: 5px;
 height: auto;
 font-size: 20pt;
-width: 100%;
+width: 70%;
+margin-left: 12%;
+font-family: ReadexPro;
+font-size:15pt;
+padding:10px;
 }
 .play {
   letter-spacing: 1pt;
@@ -26,14 +31,13 @@ width: 100%;
   align-self: center;
   text-align: center;
   text-decoration: none;
-  font-size: 23pt;
+  font-size: 15pt;
   font-weight: bold;
-  text-transform: uppercase;
   outline: 0;
   background: #2d34a1;
-  width: 30%;
+  width: 20%;
   border: 0;
-  padding: 15px;
+  padding: 10px;
   color: #ffffff;
   cursor: pointer;
   border-radius: 5px;
