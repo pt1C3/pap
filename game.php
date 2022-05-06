@@ -88,8 +88,10 @@ $gameLikes = $pdo->query('SELECT Count(*) as "likes" FROM likedgames WHERE gameI
                             <p>Likes: <br/>' . $likes['likes'] . '</p>
                             </a>';
                         }
+                        if(count($games)<=0) echo '<p style="height: 100px;text-align:center">No games like this found.</p>';
+
                         ?>
-                        <p style="height: 100px;text-align:center">No games like this found.</p>
+
                     </div>
                 </div>
             </div>

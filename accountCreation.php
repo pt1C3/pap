@@ -38,15 +38,24 @@ if (isset($_SESSION["username"]) == false || isset($_SESSION["password"]) == fal
             <input type="text" placeholder="Name" name="name" required /><br>
             <input type="date" name="birthdate" required />
 
-            <div class="sex">
-                <p style="padding-right:36%;font-size:13pt;padding-bottom:20px;">I am:</p>
+
+            <div style="font-size:13pt;width:100%;text-align:center;padding-bottom:5pt;">
+            <p>I am:</p>
+</div>
+
+            <div class="sex" >
+                <span >
                 <label for="male">Male</label>
                 <input type="radio" name="sex" value="M" required />
+                </span>
+                <span>
                 <label for="female">Female</label>
                 <input type="radio" name="sex" value="F" required />
+                </span>
+                <span>
                 <label for="other">Other</label>
                 <input type="radio" name="sex" value="O" required />
-                <br>
+                </span>
             </div>
             <br>
 
@@ -58,6 +67,13 @@ if (isset($_SESSION["username"]) == false || isset($_SESSION["password"]) == fal
                 <?php include './countries.php';
                 foreach ($countries as $country) {
                     echo '<option value="' . $country . '">' . $country . '</option>';
+                }
+                ?>
+            </select><br>
+            <select name="language">
+                <?php include './languages.php';
+                foreach ($languages_list as $language) {
+                    echo '<option value="' . $language . '">' . $language . '</option>';
                 }
                 ?>
             </select><br>

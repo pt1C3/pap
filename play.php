@@ -34,7 +34,7 @@
             <?php
             foreach ($games as $game) {
               if (isset($_GET["gameID"])) {
-                if ($game["gameID"] == $_GET["gameID"]) echo '<a href="play.php"><img src="' . $game['thumbnail'] . '" class="gameThumb" style="border:dashed 3pt gold;   transform: scale(1.1);"/></a>';
+                if ($game["gameID"] == $_GET["gameID"]) echo '<a href="play.php"><img src="' . $game['thumbnail'] . '" class="gameThumb" style="border:solid 2pt white;border-radius:5px;  transform: scale(1.1);"/></a>';
                 else  echo '<a href="play.php?gameID=' . $game["gameID"] . '"><img src="' . $game['thumbnail'] . '" class="gameThumb"/></a>';
               } else  echo '<a href="play.php?gameID=' . $game["gameID"] . '"><img src="' . $game['thumbnail'] . '" class="gameThumb"/></a>';
             }
@@ -79,7 +79,7 @@
         <table id="usersList">
           <thead>
             <tr>
-              <th style="border-top-left-radius: 8px;"><span class="text">Username</span></th>
+              <th><span class="text">Username</span></th>
               <th><span class="text">Languages</span></th>
               <th><span class="text">Rating</span></th>
               <th><span class="text">Country</span></th>
