@@ -70,7 +70,7 @@
 
         <a class="buttones" href="addgames.php">ADD GAMES</a>
 
-        <a class="buttones" href="">REMOVE GAMES</a>
+        <a class="buttones" href="removegames.php">REMOVE GAMES</a>
 
         <a class="buttones" href="">EDIT GAMES</a>
 
@@ -107,7 +107,7 @@
 
           <div style="display:grid;gap:20px;">
 
-          <a class="buttones" href="" style="width: 250px;">BAN USER</a>
+          <a class="buttones" href="reportList.php" style="width: 250px;">REPORTS</a>
 
           <a class="buttones" href="" style="width: 250px;">UNBAN USER</a>
 

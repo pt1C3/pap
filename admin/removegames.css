@@ -1,0 +1,61 @@
+.data {
+  z-index: 0;
+  padding-top: 40pt;
+  padding-bottom: 40pt;
+  width: 30%;
+  background-color: #181b3f;
+  margin-left: 35%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: fadeInAnimation ease 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  align-items: center;
+  border:3px solid blue;
+}
+.formadd input{
+border-radius: 5px;
+height: auto;
+font-size: 20pt;
+width: 70%;
+margin-left: 12%;
+font-family: ReadexPro;
+font-size:15pt;
+padding:10px;
+}
+.play {
+  letter-spacing: 1pt;
+  font-family: "Aldo";
+  align-self: center;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15pt;
+  font-weight: bold;
+  outline: 0;
+  background: #2d34a1;
+  width: 20%;
+  border: 0;
+  padding: 10px;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.1s;
+  transform: translateZ(0);
+  margin-bottom: 2%;
+}
+
+.play:hover {
+  background-color: #1926da;
+  border-bottom: 2pt solid;
+  border-image: linear-gradient(
+    90deg,
+    rgba(180, 0, 255, 1) 0%,
+    rgba(0, 6, 255, 1) 33%,
+    rgba(255, 0, 114, 1) 66%,
+    rgba(255, 222, 0, 1) 100%
+  );
+  border-image-slice: 100 0;
+  box-shadow: 0px 9px 21px 8px rgba(0, 0, 0, 0.438);
+}

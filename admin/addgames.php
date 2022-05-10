@@ -25,7 +25,7 @@
 
 
 
-    <form class="formadd" action="auth/" method="post" style="gap: 20px;display:grid">
+    <form class="formadd" action="../auth/addgame.php" method="post" style="gap: 20px;display:grid">
       <p style="font-size:35pt;font-family:Aldo;text-align:center;">Add Game:</p>
       <input type="text" name="title" placeholder="Title">
       <input type="text" name="rating" placeholder="Rating">

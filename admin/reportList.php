@@ -25,28 +25,24 @@
     $reports = $pdo->query('SELECT * FROM report order by tempo desc')->fetchAll();
     foreach ($reports as $report) {
       echo '
-      <div style="border:solid 4px blue;border-radius:5px;width:500px;margin-left:10%;margin-bottom:10px;">
+      <div style="border:solid 4px blue;border-radius:5px;width:500px;margin-left:10%;margin-bottom:10px;background-color:#2d35a13f;">
 
         <div style="padding:10px;">
 
-          <p>Fixe 
-          <a href="../profile.php?id=' . $report["senderID"] . '" class="itemLista">' . $report['senderID'] . '</a>
+          <p>Reporter:
+          <a style="padding-right:20px" href="../profile.php?id=' . $report["senderID"] . '" class="itemLista">' . $report['senderID'] . '</a>
+
+          Reported:
+          <a href="../profile.php?id=' . $report["receiverID"] . '" class="itemLista">' . $report['receiverID'] . '</a>
           </p>
-          
-              <p>Mongo 
-              <a href="../profile.php?id=' . $report["receiverID"] . '" class="itemLista">' . $report['receiverID'] . '</a>
-              </p>
-          
 
-          <p></br>What he do:</br></br>' . $report['type'] . '</p>
+          <p ></br>Report:</br><p style="margin-left:30px;padding-bottom:20px">' . $report['type'] . '</p></p>
 
+          <a href="" class="buttones">BAN USER:' . $report["receiverID"] . '</a>
+          <a href="" class="buttones">WARN USER:' . $report["receiverID"] . '</a>
         </div>
              
       </div>';
-                                  
-      
-      
-
     }
 
     ?>
