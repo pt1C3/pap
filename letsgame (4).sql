@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Abr-2022 às 16:55
+-- Tempo de geração: 08-Maio-2022 às 19:14
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.2
 
@@ -114,7 +114,8 @@ INSERT INTO `chatmessage` (`id`, `to_userID`, `from_userID`, `message`, `time`) 
 (84, 4, 5, '', '2022-04-15 23:04:48'),
 (85, 4, 5, '123', '2022-04-15 23:05:34'),
 (86, 4, 5, '123', '2022-04-15 23:05:35'),
-(87, 4, 5, 'alou', '2022-04-15 23:07:19');
+(87, 4, 5, 'alou', '2022-04-15 23:07:19'),
+(88, 5, 4, 'qaaaaaaaaaaaaaaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaaaaaqaaaaaaaaaaa', '2022-05-04 17:46:23');
 
 -- --------------------------------------------------------
 
@@ -170,7 +171,7 @@ INSERT INTO `follows` (`ID`, `followedID`, `followerID`, `followDate`) VALUES
 (31, 4, 26, '2022-04-09 14:10:48'),
 (43, 26, 4, '2022-04-15 22:04:41'),
 (44, 26, 5, '2022-04-15 22:14:07'),
-(47, 4, 5, '2022-04-15 23:08:35');
+(48, 4, 5, '2022-04-18 09:19:18');
 
 -- --------------------------------------------------------
 
@@ -184,6 +185,7 @@ CREATE TABLE `games` (
   `rating` decimal(4,2) DEFAULT 0.00,
   `link` varchar(100) DEFAULT NULL,
   `thumbnail` varchar(300) DEFAULT 'https://www.pcspecialist.pt/images/landing/pcs/gaming-pc/bundle.jpg',
+  `trailer` varchar(1000) NOT NULL,
   `genre` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -191,11 +193,11 @@ CREATE TABLE `games` (
 -- Extraindo dados da tabela `games`
 --
 
-INSERT INTO `games` (`gameID`, `title`, `rating`, `link`, `thumbnail`, `genre`) VALUES
-(1, 'Apex Legends', '7.80', 'https://store.steampowered.com/app/1172470/Apex_Legends', './images/GameHeader/1200x630/1.jpg', 'Shooter'),
-(2, 'Counter-Strike: Global Offensive', '8.20', 'https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/', './images/GameHeader/1200x630/2.jpg', 'Shooter'),
-(3, 'League of Legends', '7.70', 'https://www.leagueoflegends.com', './images/GameHeader/1200x630/3.jpg', 'MOBA'),
-(4, 'Minecraft', '8.40', 'https://www.minecraft.net/', './images/GameHeader/1200x630/4.jpg', 'Adventure');
+INSERT INTO `games` (`gameID`, `title`, `rating`, `link`, `thumbnail`, `trailer`, `genre`) VALUES
+(1, 'Apex Legends', '7.80', 'https://store.steampowered.com/app/1172470/Apex_Legends', './images/GameHeader/1200x630/1.jpg', '<iframe id=\"trailer\" src=\"https://www.youtube.com/embed/innmNewjkuk\" allowfullscreen></iframe>', 'Shooter'),
+(2, 'Counter-Strike: Global Offensive', '8.20', 'https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/', './images/GameHeader/1200x630/2.jpg', '<iframe id=\"trailer\" src=\"https://www.youtube.com/embed/edYCtaNueQY\" allowfullscreen></iframe>', 'Shooter'),
+(3, 'League of Legends', '7.70', 'https://www.leagueoflegends.com', './images/GameHeader/1200x630/3.jpg', '<iframe id=\"trailer\" src=\"https://www.youtube.com/embed/mDYqT0_9VR4 allowfullscreen></iframe>', 'MOBA'),
+(4, 'Minecraft', '8.40', 'https://www.minecraft.net/', './images/GameHeader/1200x630/4.jpg', '<iframe id=\"trailer\" src=\"https://www.youtube.com/embed/vdrn4ouZRvQ\" allowfullscreen></iframe>', 'Adventure');
 
 -- --------------------------------------------------------
 
@@ -278,7 +280,8 @@ INSERT INTO `notifications` (`id`, `userID`, `otherUserID`, `type`, `viewed`, `t
 (17, 4, 5, 'chat', 1, '2022-04-15 23:05:34'),
 (18, 4, 5, 'chat', 1, '2022-04-15 23:05:35'),
 (21, 4, 5, 'chat', 1, '2022-04-15 23:07:19'),
-(22, 4, 5, 'follow', 1, '2022-04-15 23:08:35');
+(23, 4, 5, 'follow', 1, '2022-04-18 09:19:18'),
+(24, 5, 4, 'chat', 0, '2022-05-04 17:46:23');
 
 -- --------------------------------------------------------
 
@@ -303,8 +306,17 @@ CREATE TABLE `report` (
   `reportID` int(11) NOT NULL,
   `senderID` int(11) NOT NULL,
   `receiverID` int(11) NOT NULL,
-  `type` varchar(80) DEFAULT NULL
+  `type` varchar(80) DEFAULT NULL,
+  `tempo` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `report`
+--
+
+INSERT INTO `report` (`reportID`, `senderID`, `receiverID`, `type`, `tempo`) VALUES
+(1, 5, 4, 'Foi mau para mim :(', '2022-04-18 09:28:07'),
+(2, 26, 4, 'Ninguém gosta de ti wi', '2022-04-18 09:39:59');
 
 -- --------------------------------------------------------
 
@@ -337,9 +349,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userID`, `username`, `password`, `isAdmin`, `lastActivity`, `email`, `name`, `birthdate`, `sex`, `steamprofile`, `epicprofile`, `uplay`, `country`, `image`, `biography`, `active`, `rating`) VALUES
-(3, 'admin', 'admin', 1, '2022-04-05 12:47:45', '', NULL, NULL, NULL, 'Not Provided', 'Not Provided', 'Not Provided', NULL, 'https://digimedia.web.ua.pt/wp-content/uploads/2017/05/default-user-image.png', NULL, 1, '0.00'),
-(4, 'rafael123', '123', 0, '2022-04-17 15:55:26', 'rafaelsilva1c3@gmail.com', 'Rafael', '2004-07-15', 'O', NULL, NULL, 'Not Provided', 'Portugal', '../../pap/images/utilizadores/4.png', 'biografia do rafinha v.4            ', 1, '0.00'),
-(5, 'nuno321', '321', 0, '2022-04-16 22:45:55', 'costanuno219@gmail.com', 'Nuno Rei Delas', '2004-04-27', 'M', 'Not Provided', 'Not Provided', 'Not Provided', 'Portugal', '../../pap/images/utilizadores/5.jpg', 'Eu sou o nuno :)', 1, '0.00'),
+(3, 'admin', 'admin', 1, '2022-04-19 09:09:30', '', NULL, NULL, NULL, 'Not Provided', 'Not Provided', 'Not Provided', NULL, 'https://digimedia.web.ua.pt/wp-content/uploads/2017/05/default-user-image.png', NULL, 1, '0.00'),
+(4, 'rafael123', '123', 0, '2022-05-04 18:12:54', 'rafaelsilva1c3@gmail.com', 'Rafael', '2004-07-15', 'O', NULL, NULL, 'Not Provided', 'Portugal', '../../pap/images/utilizadores/4.png', 'biografia do rafinha v.4            ', 1, '0.00'),
+(5, 'nuno321', '321', 0, '2022-04-18 09:19:12', 'costanuno219@gmail.com', 'Nuno Rei Delas', '2004-04-27', 'M', 'Not Provided', 'Not Provided', 'Not Provided', 'Portugal', '../../pap/images/utilizadores/5.jpg', 'Eu sou o nuno :)', 1, '0.00'),
 (9, 'prodeleague', '123', 0, '2022-04-09 14:08:31', 'email@gmail.com', 'António', '2000-03-02', 'F', 'Not Provided', 'Not Provided', 'Not Provided', NULL, '../../pap/images/utilizadores/9.png', 'Im very good in League of Legends', 1, '0.00'),
 (26, 'userimg', '123', 0, '2022-04-16 13:07:59', '123123214123r@gmail.com', '123', '2022-03-02', 'F', 'Not Provided', 'Not Provided', 'Not Provided', 'Azerbaijan', '../../pap/images/utilizadores/26.jpg', NULL, 1, '0.00'),
 (28, 'uti2', '123', 0, '2022-04-08 10:50:53', 'uti2@hotmail.pegalaessa', 'Utilizante Very Bom', '2022-03-01', 'O', 'Not Provided', 'Not Provided', 'Not Provided', 'Afghanistan', '../../pap/images/utilizadores/28.png', 'Sou fixe', 1, '0.00');
@@ -433,7 +445,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de tabela `chatmessage`
 --
 ALTER TABLE `chatmessage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT de tabela `comment`
@@ -445,7 +457,7 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT de tabela `follows`
 --
 ALTER TABLE `follows`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de tabela `games`
@@ -469,7 +481,7 @@ ALTER TABLE `likedgames`
 -- AUTO_INCREMENT de tabela `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `rating`
@@ -481,7 +493,7 @@ ALTER TABLE `rating`
 -- AUTO_INCREMENT de tabela `report`
 --
 ALTER TABLE `report`
-  MODIFY `reportID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `reportID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `user`

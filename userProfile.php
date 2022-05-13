@@ -22,7 +22,32 @@ include 'auth/verificarLogin.php';
     <?php include("./components/navbar.php"); ?>
     <div class='data'>
         <div id="userInfo">
-            <img id="avatar" src="<?php echo $_SESSION["userAvatar"] ?>">
+            <span>
+                <img id="avatar" src="<?php echo $_SESSION["userAvatar"] ?>"">
+            </span>
+
+            <div class="userText">
+                <p id="userName"><?php echo $_SESSION["username"] ?></p>
+                <p><?= $_SESSION["name"] ?> - <?= $_SESSION["country"] ?></p>
+                <span id="status" style="font-size:13pt;"> <p style="color:green">Online</p></span>
+                <?php
+                $age  = date_diff(date_create($_SESSION["birthDate"]), date_create('now'))->y; ?>
+                <p><?= $age ?> years old.</p>
+
+                </p>
+                <p style="margin-top:2%;width:100%;"> <?= $_SESSION["description"] ?></p>
+            </div>
+            <div class="rightItems" style="max-height:80%;text-align:center;margin-right:2%;width:40%;">
+                <div style="display:flex;justify-content:space-between;">
+                    <p style="text-align:center; font-size: 15pt;"> Rating:</br><?= round($_SESSION["rating"], 1) ?></p>
+                    <p style="text-align:center; font-size: 15pt;"> Followers:</br><?= $_SESSION["followers"] ?></p>
+                </div>
+                <div class="follow" style="width:100%;">
+                <a href="./editProfile.php"><button class="btnEdit">Edit</button></a>
+                </div>
+            </div>
+
+            <!--<img id="avatar" src="<?php echo $_SESSION["userAvatar"] ?>">
             <div class="userText">
                 <p id="userName"><?php echo $_SESSION["username"] ?></p>
                 <p> Languages:
@@ -51,7 +76,7 @@ include 'auth/verificarLogin.php';
                 <div class="follow" style="width:100%;">
                 <a href="./editProfile.php"><button class="btnEdit">Edit</button></a>
                 </div>
-            </div>
+            </div>-->
         </div>
         <div style="display:flex;height:60vh;margin-bottom:10vh">
             <div class="listasPerfil">
