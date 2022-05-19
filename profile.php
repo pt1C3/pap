@@ -24,6 +24,7 @@ if ($_GET["id"] != $_SESSION["id"]) {
             default:$sex="Not Given";
             break;
         }
+        $contagem = $pdo->query("SELECT COUNT(*) FROM played WHERE (user1 = " . $_SESSION["id"] . " OR user2 = ". $_SESSION["id"] .") AND (user1 = " . $_GET["id"] . " OR user2 = ". $_GET["id"].")")->fetch(PDO::FETCH_COLUMN);
         
     }
 } else header("location:./userProfile.php");
@@ -52,7 +53,7 @@ if ($_GET["id"] != $_SESSION["id"]) {
                     <button class="menuBtn"> <img src="./images/three dots.svg" class="pontos"></a></button>
                     <div class="menuContent">
                         <a href="#">Report</a>
-                        <a href="#">Rate</a>
+                        <a href="#" id="rate">Rate</a>
                         <a id="moreinfo">More info</a>
                     </div>
                 </div>
@@ -132,10 +133,10 @@ if ($_GET["id"] != $_SESSION["id"]) {
                     <?php
                     /*                                                           |               |-> buscar o ID dos que são seguidos; |                             |-> por este utilizador*/
                     $users = $pdo->query('SELECT * FROM user INNER JOIN follows on user.userID=follows.followedID where isAdmin = 0 and followerID=' . $user["userID"])->fetchAll();
-                    foreach ($users as $user) {
-                        echo '<a href="profile.php?id=' . $user['userID'] . '" class="itemLista">
-                            <img src="' . $user['image'] . '" style="height:100px;"/>
-                            <p>' . $user['username'] . '</p>
+                    foreach ($users as $user2) {
+                        echo '<a href="profile.php?id=' . $user2['userID'] . '" class="itemLista">
+                            <img src="' . $user2['image'] . '" style="height:100px;"/>
+                            <p>' . $user2['username'] . '</p>
                             </a>';
                     }
 
@@ -187,6 +188,15 @@ if ($_GET["id"] != $_SESSION["id"]) {
         });
         $(document).on('click', '#moreinfoClose', function() {
             $("#userMoreInfo").css("display", "none")
+        });
+        $(document).on('click', '#rate', function() {
+            <?php 
+            if($contagem == "0") echo 'alert("You need to play with ' . $user["username"] . ' before rating")';
+            elseif($contagem != "-1")
+            {
+                echo '//aparecer modal';
+            }
+            ?>
         });
 
     </script>

@@ -21,7 +21,7 @@
     $games = $pdo->query('SELECT * FROM games ORDER BY rating DESC LIMIT 4;')->fetchAll();
 
     $BestRatedGames = $pdo->query('SELECT * FROM games ORDER BY rating DESC LIMIT 4;')->fetchAll();
-    $BestRatedUsers = $pdo->query('SELECT * FROM user WHERE isAdmin = 0 ORDER BY rating DESC LIMIT 5 ')->fetchAll();
+    $BestRatedUsers = $pdo->query('SELECT * FROM user WHERE active=1 AND isAdmin=0 ORDER BY rating DESC LIMIT 5 ')->fetchAll();
     ?>
 
 

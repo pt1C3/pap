@@ -30,12 +30,9 @@
         default:$_SESSION['sex']="Not Given";
         break;
     }
-    if(isset($dado["steamprofile"])==false)    $_SESSION['steamProfile'] = "Not Provided";
-    else $_SESSION['steamProfile'] = $dado["steamprofile"];
-    if(isset($dado["epicprofile"])==false)    $_SESSION['epicProfile'] = "Not Provided";
-    else $_SESSION['epicProfile'] = $dado["epicprofile"];
-    if(isset($dado["uplayprofile"])==false)    $_SESSION['uplayProfile'] = "Not Provided";
-    else $_SESSION['uplayProfile'] = $dado["uplay"];
+    $_SESSION['steamProfile'] = $dado["steamprofile"];
+    $_SESSION['epicProfile'] = $dado["epicprofile"];
+    $_SESSION['uplayProfile'] = $dado["uplay"];
 
     $dadoLinguas = $pdo->query( 'SELECT userLanguage FROM languages WHERE userID = ' . $_SESSION['id'] )->fetchAll();
     $_SESSION['languages'] = $dadoLinguas;

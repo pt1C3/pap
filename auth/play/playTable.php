@@ -33,7 +33,7 @@ function Table($users, $pdo)
               $(document).on(\'click\', \'#btn'. $i.'\', function() {
                 $(\'tr\').css("background-color","transparent");
                   $(\'#row'.$i.'\').css("background-color", "#2d34a1");
-                  $("#nextbutton").attr("href", "#linkdapaginaseguinte");
+                  $("#nextbutton").attr("href", "auth/play/playChat.php?id='.$user["userID"].'");
                   $("#nextbutton").css("background-color","#2d34a1");
                   $("#nextbutton").css("pointer-events","auto");
                   $("#nextbutton").addClass("btnHover");

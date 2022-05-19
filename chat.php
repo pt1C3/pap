@@ -29,6 +29,11 @@ $user =  $pdo->query('SELECT * FROM user WHERE userID=' . $_GET["id"])->fetch();
                 <!--Isto é para escrever-->
                 <button type="button" id="send_chat" name="<?= $user["userID"] ?>">Send</button>
                 <!--Isto é para enviar-->
+                <span>
+                <button class="send_link" type="button" id="steam"><img src="./images/steam.png" style="height:inherit"></button>
+                <button class="send_link" type="button" id="epic"><img src="./images/epic.png" style="height:inherit"></button>
+                <button class="send_link" type="button" id="uplay"><img src="./images/uplay.png" style="height:inherit"></button>
+                <span> 
             </div>
          </div>
     </div>
@@ -69,6 +74,7 @@ $user =  $pdo->query('SELECT * FROM user WHERE userID=' . $_GET["id"])->fetch();
 
             }, 5000);
         //final do setInterval, a partir daqui tudo irá acontecer quando e apenas quando a pagina carregar
+
         $.ajax({ //Verifica e escreve se o user ta online ou offline
                     url: "./auth/fetch_userStatus.php",
                     method: "POST",
@@ -110,12 +116,25 @@ $user =  $pdo->query('SELECT * FROM user WHERE userID=' . $_GET["id"])->fetch();
                     scrolldiv(); //ir para baixo na div
                 }
             })
+        
         });
+
+
 
         function scrolldiv() { //ir para baixo na div
             var objDiv = document.getElementById("messageHistory");
             objDiv.scrollTop = objDiv.scrollHeight;
         }
+
+        $(document).on('click', '#steam', function() {
+            $('#chat_message').val('My Steam is: <?= $_SESSION["steamProfile"] ?>');
+        });
+        $(document).on('click', '#epic', function() {
+            $('#chat_message').val('My Epic Games is: <?= $_SESSION["epicProfile"] ?>');
+        });
+        $(document).on('click', '#uplay', function() {
+            $('#chat_message').val('My Uplay is: <?= $_SESSION["uplayProfile"] ?>');
+        });
     </script>
 </body>
 
