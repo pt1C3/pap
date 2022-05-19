@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include './auth/db.php';
 session_start(); 
 session_destroy(); //se ja tiver sessao iniciada ou registo inacabado reseta a sessao
