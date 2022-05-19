@@ -1,4 +1,4 @@
-    .data {
+    #data {
         z-index: 0;
         padding-top: 80pt;
         padding-bottom: 5%;
@@ -8,7 +8,6 @@
         height: auto;
         display: flex;
         flex-wrap: wrap;
-        gap: -1;
         flex-direction: column;
         justify-content: space-between;
         border-right: 2pt solid #1926da;
@@ -16,8 +15,15 @@
         animation: fadeInAnimation ease 0.5s;
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
-    }
     
+    }
+  #modal{
+    padding:20px;
+    border-bottom: 5pt solid;
+    font-size: 17pt;
+    border-image: linear-gradient( 90deg, rgba(180, 0, 255, 1) 0%, rgba(0, 6, 255, 1) 33%, rgba(255, 0, 114, 1) 66%, rgba(255, 222, 0, 1) 100%);
+    border-image-slice: 100 0;
+  }
     #userInfo {
         padding: 2% 0 0 2%;
         float: right;
